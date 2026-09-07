@@ -246,9 +246,11 @@ visual, read the computed style before reading the source; the collision is usua
 **1. Established what actually serves the live site.** `fusionconnectgroup.com` is **not** built from this
 repo. Verified by byte-hashing every live page against every local candidate.
 
-- Live host: nginx at `43.135.32.47` (Tencent Cloud range). **Not Vercel**, despite `.vercel/project.json`
-  (`prj_bIBO2PVjRM052GwQXYZN0ZxoPCWB`, work team `team_SyKixqrcZUCIGFNYQC13rwVl`) sitting in this repo.
-- Live source of truth: `~/Library/CloudStorage/OneDrive-SharedLibraries-FusionConnectGroup/FCG Marketing - Documents/07 Website/`.
+- Live host: nginx on a Tencent Cloud address. **Not Vercel**, despite a `.vercel/project.json`
+  sitting in the marketing repo. *(Host address and Vercel project/team IDs redacted — this repo is
+  public. The unredacted note is in the private `fcg-website` working copy.)*
+- Live source of truth: a OneDrive shared-library folder for FCG Marketing, not a repository.
+  *(Exact path redacted.)*
   Every live page matches a file there byte-for-byte, except that the deployer stripped the space out of
   the `* _crystal-denzel-edit.html` filenames and rewrote the `%20` hrefs. Uploaded 20 July 2026.
 - Only `components.html` in this repo matches live. Everything else is a stale May-2026 "Full Website V8"

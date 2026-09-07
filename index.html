@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FCG Open Website — developer portal redesign</title>
+<meta name="description" content="Preview index for the FCG developer portal redesign: twelve pages in English, Simplified Chinese and Traditional Chinese.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* the portal's own tokens, so this index reads as part of the same system */
+:root{
+  --ink:#0F1114;--muted:#6B7280;--card:#F3F4F6;--line:#D1D5DB;
+  --hair:rgba(15,17,20,.08);--shell:rgba(15,17,20,.04);--accent:#F97316;
+  --accent-ink:#F97316;--footer:#f7f8fa;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,monospace;
+  --ease-out:cubic-bezier(.23,1,.32,1);--hover:160ms;--press:160ms;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-weight:500}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+::selection{background:var(--accent);color:var(--ink)}
+.wrap{width:100%;max-width:1000px;margin:0 auto;padding:0 32px}
+.band{position:relative;padding:72px 0 48px;border-bottom:1px solid var(--hair);overflow:hidden}
+.grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(15,17,20,.05) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(15,17,20,.05) 1px,transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 92%);
+  mask-image:linear-gradient(to bottom,#000 0%,transparent 92%)}
+.band-in{position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:13px;margin-bottom:34px}
+.brand svg{height:26px;width:auto;color:var(--ink);display:block}
+.brand span.div{width:1px;height:20px;background:var(--line)}
+.brand span.sub{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent-ink);
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.eyebrow::before{content:"";width:12px;height:1.5px;background:var(--accent);border-radius:2px;flex:none}
+h1{font-size:clamp(34px,4.6vw,58px);line-height:1.02;letter-spacing:-.032em;margin-top:20px;max-width:22ch}
+h1 em{display:block;font-style:normal;color:var(--accent)}
+.lede{color:var(--muted);font-size:16.5px;line-height:27px;max-width:58ch;margin-top:22px}
+.sec{padding:64px 0}
+.sec + .sec{border-top:1px solid var(--hair)}
+h2{font-size:22px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:14.5px;line-height:23px;margin-top:10px;max-width:60ch}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
+.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;
+  background:#fff;padding:24px 24px 22px;
+  transition:border-color var(--hover) ease,background var(--hover) ease,transform var(--press) var(--ease-out)}
+.card:active{transform:scale(.99)}
+@media (hover:hover) and (pointer:fine){.card:hover{border-color:var(--ink);background:var(--card)}}
+.card .k{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+.dot{width:6px;height:6px;border-radius:999px;background:var(--accent);flex:none}
+.card h3{font-size:19px;letter-spacing:-.01em;margin-top:14px}
+.card p{color:var(--muted);font-size:14px;line-height:23px;margin-top:10px}
+.card .go{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:13.5px;font-weight:500}
+.card .go i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border-radius:999px;background:var(--accent);color:#fff;font-style:normal;font-size:13px;
+  transition:transform var(--hover) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.card:hover .go i{transform:translateX(3px)}}
+.pages{display:flex;flex-wrap:wrap;gap:7px;margin-top:26px}
+.chip{display:inline-flex;align-items:center;height:30px;padding:0 13px;border-radius:999px;
+  background:var(--card);border:1px solid var(--hair);font-size:12.5px;color:var(--ink);
+  transition:background var(--hover) ease,border-color var(--hover) ease}
+@media (hover:hover) and (pointer:fine){.chip:hover{background:#fff;border-color:var(--ink)}}
+.note{display:flex;gap:12px;align-items:flex-start;margin-top:30px;padding:18px 22px;
+  border:1px solid var(--line);border-radius:16px;background:var(--card);
+  font-size:14px;line-height:23px;color:var(--muted)}
+.note strong{color:var(--ink);font-weight:500}
+.ftr{background:var(--footer);border-top:1px solid rgba(15,17,20,.1);padding:34px 0;
+  color:var(--muted);font-size:12.5px}
+@media (max-width:860px){.cards{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.wrap{padding:0 20px}.band{padding:52px 0 40px}.sec{padding:48px 0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
+
+<section class="band">
+  <div class="grid" aria-hidden="true"></div>
+  <div class="wrap band-in">
+    <div class="brand">
+      <svg viewBox="0 0 88 24" role="img" aria-label="FCG"><use href="#fcg-logo"></use></svg>
+      <span class="div" aria-hidden="true"></span>
+      <span class="sub">Open Website</span>
+    </div>
+    <p class="eyebrow">Preview build · not deployed</p>
+    <h1>Developer portal redesign, <em>three languages.</em></h1>
+    <p class="lede">Twelve pages realigning <code>open.fusionconnectgroup.com</code> to the FCG marketing
+      brand. Pick a language to open the portal home.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Open the build</h2>
+    <p class="sub">Each edition is the same twelve pages with the same markup and CSS — only the copy
+      differs. The language switcher in the portal nav moves between them.</p>
+    <div class="cards">
+      <a class="card" href="open-portal-redesign/variant-b-impeccable/index.html">
+        <p class="k"><span class="dot" aria-hidden="true"></span>English</p>
+        <h3>English</h3>
+        <p>British English, the authored source for the other two editions.</p>
+        <span class="go">Open <i aria-hidden="true">→</i></span>
+      </a>
+      <a class="card" href="open-portal-redesign/variant-b-impeccable/zh-CN/index.html">
+        <p class="k"><span class="dot" aria-hidden="true"></span>简体中文</p>
+        <h3>Simplified</h3>
+        <p>Mainland vocabulary: 接口、数据、服务器、缓存、回调。</p>
+        <span class="go">开始 <i aria-hidden="true">→</i></span>
+      </a>
+      <a class="card" href="open-portal-redesign/variant-b-impeccable/zh-TW/index.html">
+        <p class="k"><span class="dot" aria-hidden="true"></span>繁體中文</p>
+        <h3>Traditional</h3>
+        <p>Taiwan/Hong Kong vocabulary: 介面、資料、伺服器、快取、回呼。</p>
+        <span class="go">開始 <i aria-hidden="true">→</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Every page, English edition</h2>
+    <p class="sub">The Simplified and Traditional editions carry the same twelve filenames under
+      <code>zh-CN/</code> and <code>zh-TW/</code>.</p>
+    <div class="pages">
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/index.html">Home</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/app-management.html">App Management</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/api-docs-hotel.html">G-Link Hotel API</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/api-docs-hotel-process.html">G-Link Integration Flow</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/api-docs-hotel-apis.html">G-Link API Reference</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/api-docs-flink.html">F-Link Flight API</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/api-docs-errors.html">Error Code Reference</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/sdk.html">SDK Integration Centre</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/skills.html">Skills Installation Centre</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/ai-assistant.html">AI Assistant</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/login.html">Sign in</a>
+      <a class="chip" href="open-portal-redesign/variant-b-impeccable/register.html">Register</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Reference</h2>
+    <div class="pages">
+      <a class="chip" href="open-portal-redesign/DESIGN-SYSTEM.md">Design system</a>
+      <a class="chip" href="open-portal-redesign/BRIEF.md">Original brief</a>
+      <a class="chip" href="open-portal-redesign/choose.html">Direction A vs B chooser</a>
+      <a class="chip" href="STATE-LOG.md">Project log</a>
+    </div>
+    <div class="note">
+      <span><strong>This is a preview, not a live service.</strong> Forms do not submit, the AI assistant
+      panel is a static mock-up, and no endpoint here is called. The real developer portal is
+      <code>open.fusionconnectgroup.com</code>.</span>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="wrap">© 2026 Fusion Connect Group Holdings Ltd (BVI). Internal preview.</div>
+</footer>
+
+</body>
+</html>
