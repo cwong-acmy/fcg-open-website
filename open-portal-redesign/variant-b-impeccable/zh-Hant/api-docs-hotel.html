@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>G-Link 對接流程 — FCG 開放平台</title>
-<meta name="description" content="G-Link 飯店介面建議的八步對接流程，從查詢到取消訂單。">
+<title>G-Link 飯店介面 — FCG 開放平台</title>
+<meta name="description" content="G-Link 飯店介面的必接介面、靜態資料處理與流量限制規則。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -892,9 +892,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
     <div class="nav-right">
       <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-hotel-process.html">ENG</a>
-        <a href="../zh-CN/api-docs-hotel-process.html">简体</a>
-        <a href="api-docs-hotel-process.html" aria-current="page">繁體</a>
+        <a href="../api-docs-hotel.html">ENG</a>
+        <a href="../zh-Hans/api-docs-hotel.html">简体</a>
+        <a href="api-docs-hotel.html" aria-current="page">繁體</a>
       </div>
       <a class="login" href="login.html">登入</a>
       <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
@@ -917,9 +917,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <div class="m-cta">
         <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
         <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-hotel-process.html">ENG</a>
-        <a href="../zh-CN/api-docs-hotel-process.html">简体</a>
-        <a href="api-docs-hotel-process.html" aria-current="page">繁體</a>
+        <a href="../api-docs-hotel.html">ENG</a>
+        <a href="../zh-Hans/api-docs-hotel.html">简体</a>
+        <a href="api-docs-hotel.html" aria-current="page">繁體</a>
       </div>
       </div>
     </div>
@@ -930,14 +930,14 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
-      <p class="crumb"><a href="api-docs-hotel.html">文件中心</a> <i>/</i> <a href="api-docs-hotel.html">G-Link Hotel API</a> <i>/</i> <span>對接流程</span></p>
+      <p class="crumb"><a href="api-docs-hotel.html">文件中心</a> <i>/</i> <span>G-Link Hotel API</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">建議對接流程</p>
+        <p class="eyebrow micro">同時支援 SDK 與 API 對接</p>
         
       </div>
-      <h1>G-Link 對接流程</h1>
-      <p class="lede"><b>G-Link 飯店介面的對接順序。</b> 八個步驟，從查詢到取消訂單，每一步對應一個介面。</p>
-      <div class="band-foot"><nav class="rail" aria-label="章節"><a href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a class="on" href="api-docs-hotel-process.html">對接流程</a><a href="api-docs-hotel-apis.html">介面參考</a><a href="api-docs-errors.html">錯誤碼</a></nav></div>
+      <h1>G-Link Hotel API</h1>
+      <p class="lede"><b>全球主要飯店庫存</b> ，透過一套標準化介面提供。完整流程涵蓋即時查詢、試單、預訂、付款與取消。</p>
+      <div class="band-foot"><nav class="rail" aria-label="章節"><a class="on" href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">對接流程</a><a href="api-docs-hotel-apis.html">介面參考</a><a href="api-docs-errors.html">錯誤碼</a></nav><a class="btn btn--sm" href="sdk.html">下載 SDK <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a></div>
   </div>
 </section>
 
@@ -945,77 +945,64 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <div class="docs">
   <aside class="docs-side">
     <div class="docs-side-in">
-      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">產品文件</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">錯誤碼說明</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章節</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a class="on" href="api-docs-hotel-process.html">對接流程</a></li><li><a href="api-docs-hotel-apis.html">介面參考</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">產品文件</p><nav aria-labelledby="nav-product-docs"><ul><li><a class="on" href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">錯誤碼說明</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章節</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">對接流程</a></li><li><a href="api-docs-hotel-apis.html">介面參考</a></li></ul></nav></div>
       <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">開發者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下載</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助理</a></li></ul></nav></div>
     </div>
   </aside>
   <div class="docs-main">
-    <h2>標準介面對接， <em>依序進行。</em></h2>
-    <p>請依順序對接。第一、二步用於建立本機基礎資料，以排程執行；第三步起為即時呼叫，每筆預訂觸發一次。</p>
+    <h2>八個介面即可完成一筆飯店預訂。</h2>
+    <p>以下為必接介面。介面參考中的其餘部分，都是圍繞這些介面的靜態資料、增量更新與回呼處理。</p>
 
-    <div class="steps">
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 01</p>
-    <h3>查詢所有可販售飯店 ID</h3>
-    <code>/search/hotelIdList</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 02</p>
-    <h3>依飯店 ID 查詢靜態資訊</h3>
-    <code>/hotel/detail</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 03</p>
-    <h3>即時查詢販售資訊與最低價</h3>
-    <code>/booking/productDetails</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 04</p>
-    <h3>檢查價格方案可訂性並回傳最新價格</h3>
-    <code>/booking/availabilityCheck</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 05</p>
-    <h3>試單成功後建立訂單</h3>
-    <code>/booking/createOrder</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 06</p>
-    <h3>訂單建立後完成付款</h3>
-    <code>/booking/payOrder</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 07</p>
-    <h3>查詢訂單明細</h3>
-    <code>/order/orderDetail</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步驟 08</p>
-    <h3>視需要取消訂單</h3>
-    <code>/order/cancelOrder</code>
-  </div>
-    </div>
+    <div class="tblwrap"><div class="tblscroll">
+  <table class="tbl" style="min-width:700px">
+    <thead><tr><th>編號</th><th>介面</th><th>方法</th><th>路徑</th></tr></thead>
+    <tbody>
+      <tr><td class="t-num">1</td><td>可販售飯店 ID 清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/search/hotelIdList</td></tr>
+      <tr><td class="t-num">2</td><td>查詢飯店基本資訊</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/detail</td></tr>
+      <tr><td class="t-num">3</td><td>飯店即時商品查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/productDetails</td></tr>
+      <tr><td class="t-num">4</td><td>試單（可訂性檢查）</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/availabilityCheck</td></tr>
+      <tr><td class="t-num">5</td><td>建立訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/createOrder</td></tr>
+      <tr><td class="t-num">6</td><td>訂單付款</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/payOrder</td></tr>
+      <tr><td class="t-num">7</td><td>取消訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/cancelOrder</td></tr>
+      <tr><td class="t-num">8</td><td>訂單明細查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/orderDetail</td></tr>
+    </tbody>
+  </table>
+</div></div>
 
-    <h3>哪些以排程執行，哪些即時呼叫</h3>
+    <h3>必接介面及其呼叫時機</h3>
     <ul class="bul">
-      <li><iconify-icon icon="solar:calendar-linear"></iconify-icon><span><strong>排程執行。</strong>
-        飯店 ID 清單、飯店與房型靜態資訊、國家與城市基礎資料，以及
-        <code class="inl">/hotel/increment</code> 變更訂閱。以上全部請在本機快取。</span></li>
-      <li><iconify-icon icon="solar:bolt-linear"></iconify-icon><span><strong>即時呼叫。</strong>
-        商品明細、試單、建立訂單、付款、取消與訂單明細。這些介面隨旅客操作觸發，並計入流量限制額度。</span></li>
-      <li><iconify-icon icon="solar:shield-check-linear"></iconify-icon><span><strong>冪等處理。</strong>
-        訂單狀態推送 <code class="inl">notify/orderStatus</code>可能被送達多次。請做好去重，避免產生重複狀態。</span></li>
+      <li><iconify-icon icon="solar:magnifer-linear"></iconify-icon><span><strong>飯店每日最低價</strong> —
+        <code class="inl">hotel/lowestPrice</code>。查詢已對應飯店的最低價，作為該飯店是否顯示在本機飯店清單中的依據。</span></li>
+      <li><iconify-icon icon="solar:bed-linear"></iconify-icon><span><strong>飯店即時商品查詢</strong> —
+        <code class="inl">booking/productDetails</code>。客人進入飯店明細頁或預訂流程時即時呼叫。</span></li>
+      <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span><strong>試單</strong> —
+        <code class="inl">booking/availabilityCheck</code>。檢查可販售商品是否真的可訂，需傳入實際預訂間數。</span></li>
+      <li><iconify-icon icon="solar:document-add-linear"></iconify-icon><span><strong>建立訂單</strong> —
+        <code class="inl">booking/createOrder</code>。試單通過且本機訂單建立成功後呼叫。呼叫前請再執行一次試單檢查。</span></li>
+      <li><iconify-icon icon="solar:card-linear"></iconify-icon><span><strong>訂單付款</strong> —
+        <code class="inl">booking/payOrder</code>。本機客人付款成功後，或訂單需要確認時呼叫，用於通知服務團隊處理該訂單。</span></li>
+      <li><iconify-icon icon="solar:close-circle-linear"></iconify-icon><span><strong>取消訂單</strong> —
+        <code class="inl">order/cancelOrder</code>。訂單超過 30 分鐘未付款，或客人主動取消時呼叫。回傳成功即應停止輪詢。</span></li>
+      <li><iconify-icon icon="solar:bell-linear"></iconify-icon><span><strong>訂單狀態推送</strong> —
+        <code class="inl">notify/orderStatus</code>。收到付款通知後，服務團隊處理訂單並推送狀態。此介面必須實作冪等。</span></li>
+      <li><iconify-icon icon="solar:refresh-linear"></iconify-icon><span><strong>訂單明細查詢</strong> —
+        <code class="inl">order/orderDetail</code>。僅作為補償機制，用於付款後未收到確認結果的情況。不需頻繁輪詢；訂單確認或取消後即應停止。</span></li>
     </ul>
 
+    <h3>靜態資料與增量更新</h3>
+    <p>透過 <code class="inl">search/hotelIdList</code>取得可販售飯店清單，再透過 <code class="inl">/hotel/detail</code>. <code class="inl">region/countries</code> 與
+       <code class="inl">region/cities</code> 提供國家與城市基礎資料，通常用於建立基礎資料並與 FCG 飯店系統進行對應。</p>
+    <p>請定期呼叫 <code class="inl">/hotel/increment</code> ，取得靜態資訊有變動的飯店 ID 清單——包含新增、修改與刪除——然後只同步受影響的紀錄，不需全量重新拉取。</p>
+
     <div class="note">
-      <iconify-icon icon="solar:danger-triangle-linear"></iconify-icon>
-      <span><strong>試單執行兩次。</strong> 請在呼叫 <code class="inl">booking/availabilityCheck</code> 之前，立即再執行一次 <code class="inl">booking/createOrder</code>。從客人決定下單到實際呼叫下單介面之間，庫存與價格都可能變動。</span>
+      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
+      <span><strong>流量限制說明。</strong> 生產環境預設每個應用程式每分鐘 100 次。請在本機快取靜態資料，把即時呼叫留給查詢、試單與訂單操作。</span>
     </div>
 
     <div class="band-foot">
-      <a class="btn" href="api-docs-hotel-apis.html">開啟介面參考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink tlink--o" href="skills.html">安裝 G-Link Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="btn" href="api-docs-hotel-process.html">查看對接流程 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink tlink--o" href="api-docs-hotel-apis.html">完整介面參考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
 </div>

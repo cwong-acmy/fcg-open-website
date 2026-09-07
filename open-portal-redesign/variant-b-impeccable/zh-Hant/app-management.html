@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="zh-Hans" id="top">
+<html lang="zh-Hant" id="top">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Skills 安装中心 — FCG 开放平台</title>
-<meta name="description" content="面向 AI 编程助手的官方对接技能包，每个 FCG 旅游接口一个。">
+<title>應用程式管理 — FCG 開放平台</title>
+<meta name="description" content="管理 FCG 介面對接所使用的應用程式。每個產品都有獨立的憑證。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -868,37 +868,37 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 </style>
 </head>
 <body>
-<a class="skip" href="#main">跳转到正文</a>
+<a class="skip" href="#main">跳至主要內容</a>
 
 <!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
 
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="index.html" aria-label="FCG 开放平台 — 首页">
+    <a class="brand" href="index.html" aria-label="FCG 開放平台 — 首頁">
       <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 28px; width: auto;"><use href="#fcg-logo"></use></svg>
       <span class="brand-div" aria-hidden="true"></span>
-      <span class="brand-sub">开放平台</span>
+      <span class="brand-sub">開放平台</span>
     </a>
 
-    <nav class="shell" aria-label="主导航">
-      <a href="index.html">首页</a>
-      <a href="app-management.html">应用管理</a>
-      <a href="api-docs-hotel.html">接口文档</a>
+    <nav class="shell" aria-label="主導覽">
+      <a href="index.html">首頁</a>
+      <a class="on" href="app-management.html">應用程式管理</a>
+      <a href="api-docs-hotel.html">介面文件</a>
       <a href="sdk.html">SDK</a>
-      <a class="on" href="skills.html">Skills 技能包</a>
-      <a href="ai-assistant.html">AI 助手</a>
+      <a href="skills.html">Skills 技能包</a>
+      <a href="ai-assistant.html">AI 助理</a>
     </nav>
 
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="语言">
-        <a href="../skills.html">ENG</a>
-        <a href="skills.html" aria-current="page">简体</a>
-        <a href="../zh-TW/skills.html">繁體</a>
+      <div class="lang" role="group" aria-label="語言">
+        <a href="../app-management.html">ENG</a>
+        <a href="../zh-Hans/app-management.html">简体</a>
+        <a href="app-management.html" aria-current="page">繁體</a>
       </div>
-      <a class="login" href="login.html">登录</a>
-      <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="打开菜单">
+      <a class="login" href="login.html">登入</a>
+      <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="開啟選單">
         <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
       </button>
     </div>
@@ -907,19 +907,19 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   <div class="mnav" id="mnav">
     <div class="wrap">
       <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="app-management.html">应用管理</a></li>
-        <li><a href="api-docs-hotel.html">接口文档</a></li>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="app-management.html">應用程式管理</a></li>
+        <li><a href="api-docs-hotel.html">介面文件</a></li>
         <li><a href="sdk.html">SDK</a></li>
         <li><a href="skills.html">Skills 技能包</a></li>
-        <li><a href="ai-assistant.html">AI 助手</a></li>
+        <li><a href="ai-assistant.html">AI 助理</a></li>
       </ul>
       <div class="m-cta">
-        <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <div class="lang" role="group" aria-label="语言">
-        <a href="../skills.html">ENG</a>
-        <a href="skills.html" aria-current="page">简体</a>
-        <a href="../zh-TW/skills.html">繁體</a>
+        <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <div class="lang" role="group" aria-label="語言">
+        <a href="../app-management.html">ENG</a>
+        <a href="../zh-Hans/app-management.html">简体</a>
+        <a href="app-management.html" aria-current="page">繁體</a>
       </div>
       </div>
     </div>
@@ -931,101 +931,72 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
       <div class="band-top">
-        <p class="eyebrow micro">每个接口一个官方技能包</p>
-        <span class="chip chip--live"><span class="dot" aria-hidden="true"></span>新</span>
+        <p class="eyebrow micro">每個產品獨立憑證</p>
+        
       </div>
-      <h1>Skills 安装中心</h1>
-      <p class="lede"><b>面向 AI 编程助手的对接技能包。</b> 导入 Claude、Codex、Cursor、Kiro 或 Gemini CLI 后，助手即可基于真实接口编写更准确的认证代码、调试接口调用并诊断故障。</p>
-      <div class="band-foot"><a class="btn" href="#packages">浏览技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="tlink tlink--o" href="sdk.html">SDK 下载 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>應用程式管理</h1>
+      <p class="lede"><b>管理介面對接所使用的應用程式。</b> 每個產品都有獨立的憑證，因此飯店金鑰無法呼叫機票介面，沙箱金鑰也不會觸及生產環境。</p>
+      <div class="band-foot"><a class="btn" href="register.html">建立應用程式 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="btn btn--ghost" href="login.html">登入主控台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
   </div>
 </section>
 
 <section class="blk blk--top">
   <div class="wrap">
-    <div class="mini rv">
-      <div><p class="n">3</p><p class="c">官方技能包</p></div>
-      <div><p class="n">100<u>%</u></p><p class="c">核心对接覆盖率</p></div>
-      <div><p class="n">5</p><p class="c">支持的 AI 助手类别</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="blk" style="padding-top:24px" id="packages">
-  <div class="wrap">
     <div class="blk-head">
-      <p class="eyebrow micro">技能包</p>
-      <h2 class="h3">命令安装， <em>或下载文件。</em></h2>
-      <p class="lede">每个技能包都可通过一条命令远程安装，也可下载为单个
-         <code class="inl">SKILL.md</code> 文件自行放入助手。两种方式内容完全一致。</p>
+      <p class="eyebrow micro">應用程式</p>
+      <h2 class="h3">三個應用程式， <em>三套獨立憑證。</em></h2>
+      <p class="lede">登入後可在主控台查看憑證。本頁不會顯示任何真實金鑰。</p>
     </div>
-    <div class="cards cards--tall">
+    <div class="cards">
   <article class="card rv">
     <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>G-Link</p>
-      <h3>G-Link 酒店接口技能包</h3>
-      <p>完整酒店对接流程：认证、查询、预订、支付、订单管理、Webhook 与故障排查。</p>
-      <div class="chips" style="margin-top:18px"><span class="chip chip--live"><span class="dot" aria-hidden="true"></span>沙箱可用</span><span class="chip chip--live"><span class="dot" aria-hidden="true"></span>生产可用</span><span class="chip chip--plain">Codex</span><span class="chip chip--plain">Cursor</span><span class="chip chip--plain">Claude Code</span><span class="chip chip--plain">Kiro</span><span class="chip chip--plain">Gemini CLI</span></div>
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>G-Link Hotel</p>
+      <h3>G-Link Hotel API</h3>
+      <p>飯店查詢、預訂、付款與取消流程。</p>
     </div>
     <div class="card-meta">
-      <div><span class="k">版本</span><span class="v">v2.0.0</span></div>
-      <div><span class="k">更新时间</span><span class="v">2026 年 4 月 5 日</span></div>
-    </div>
-    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
-      <h4>远程安装</h4>
-      <div class="cmd" style="margin-top:12px">
-        <code>npx @mongoui/skills install glink-hotel-api --tool codex</code>
-        <button type="button">复制</button>
-      </div>
+      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
+      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
+      <div><span class="k">建立時間</span><span class="v">2026 年 4 月 28 日</span></div>
+      <div><span class="k">環境</span><span class="v">沙箱</span></div>
     </div>
     <div class="card-f">
-      <a class="btn btn--sm" href="api-docs-hotel.html">查看详情 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="login.html">下载 SKILL.md <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="btn btn--sm" href="login.html">查看憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="api-docs-hotel.html">產品文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </article>
   <article class="card rv">
     <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>F-Link</p>
-      <h3>F-Link 机票接口技能包</h3>
-      <p>完整机票对接流程：认证、查询、预订、出票、退改、Webhook 与故障排查。</p>
-      <div class="chips" style="margin-top:18px"><span class="chip chip--live"><span class="dot" aria-hidden="true"></span>沙箱可用</span><span class="chip chip--live"><span class="dot" aria-hidden="true"></span>生产可用</span><span class="chip chip--plain">Codex</span><span class="chip chip--plain">Cursor</span><span class="chip chip--plain">Claude Code</span><span class="chip chip--plain">Kiro</span><span class="chip chip--plain">Gemini CLI</span></div>
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>F-Link Flight</p>
+      <h3>F-Link Flight API</h3>
+      <p>航班查詢、開票、退票與改期。</p>
     </div>
     <div class="card-meta">
-      <div><span class="k">版本</span><span class="v">v2.0.0</span></div>
-      <div><span class="k">更新时间</span><span class="v">2026 年 4 月 5 日</span></div>
-    </div>
-    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
-      <h4>远程安装</h4>
-      <div class="cmd" style="margin-top:12px">
-        <code>npx @mongoui/skills install flink-flight-api --tool codex</code>
-        <button type="button">复制</button>
-      </div>
+      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
+      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
+      <div><span class="k">建立時間</span><span class="v">2026 年 4 月 28 日</span></div>
+      <div><span class="k">環境</span><span class="v">沙箱</span></div>
     </div>
     <div class="card-f">
-      <a class="btn btn--sm" href="api-docs-hotel.html">查看详情 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="login.html">下载 SKILL.md <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="btn btn--sm" href="login.html">查看憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="api-docs-hotel.html">產品文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </article>
   <article class="card rv">
     <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC</p>
-      <h3>TMC API Skills</h3>
-      <p>完整 TMC 对接流程：认证、机票与酒店预订、审批、政策标准、组织架构、Webhook 与故障排查。</p>
-      <div class="chips" style="margin-top:18px"><span class="chip chip--live"><span class="dot" aria-hidden="true"></span>沙箱可用</span><span class="chip chip--live"><span class="dot" aria-hidden="true"></span>生产可用</span><span class="chip chip--plain">Codex</span><span class="chip chip--plain">Cursor</span><span class="chip chip--plain">Claude Code</span><span class="chip chip--plain">Kiro</span><span class="chip chip--plain">Gemini CLI</span></div>
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC API</p>
+      <h3>TMC API</h3>
+      <p>快速建置企業商旅平台。</p>
     </div>
     <div class="card-meta">
-      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
-      <div><span class="k">更新时间</span><span class="v">2026 年 7 月 30 日</span></div>
+      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
+      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
+      <div><span class="k">建立時間</span><span class="v">2026 年 4 月 28 日</span></div>
+      <div><span class="k">環境</span><span class="v">沙箱</span></div>
     </div>
-    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
-      <h4>远程安装</h4>
-      <div class="cmd" style="margin-top:12px">
-        <code>npx @mongoui/skills install tmc-api --tool codex</code>
-        <button type="button">复制</button>
-      </div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="api-docs-hotel.html">查看详情 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="login.html">下载 SKILL.md <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+      <div class="note" style="margin:0 24px 20px"><iconify-icon icon="solar:info-circle-linear"></iconify-icon><span>TMC 介面沙箱僅支援美元結算。</span></div>    <div class="card-f">
+      <a class="btn btn--sm" href="login.html">查看憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="api-docs-hotel.html">產品文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </article>
     </div>
@@ -1036,42 +1007,38 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
 <section class="blk">
   <div class="wrap">
-    <div class="skills">
-      <div>
-        <p class="eyebrow micro">如何安装</p>
-        <h2 class="h3" style="margin-top:22px">两条路径， <em>同一结果。</em></h2>
-        <p class="lede" style="margin-top:22px">远程安装更快，且始终保持最新。下载文件更适合没有网络访问权限的助手，或需要在仓库内自带一份副本的场景。</p>
-        <ul class="tick">
-          <li><iconify-icon icon="solar:command-linear"></iconify-icon>
-            <span>执行安装命令，并将 <code class="inl">--tool</code> 设为你所使用的助手。</span></li>
-          <li><iconify-icon icon="solar:file-download-linear"></iconify-icon>
-            <span>或下载 <code class="inl">SKILL.md</code> ，放到助手读取技能包的目录中。</span></li>
-          <li><iconify-icon icon="solar:refresh-linear"></iconify-icon>
-            <span>技能包持续更新——重新安装即可获取接口变更。</span></li>
-          <li><iconify-icon icon="solar:key-minimalistic-linear"></iconify-icon>
-            <span>已内置提示词模板。凭证不包含在内，需自行配置。</span></li>
-        </ul>
-      </div>
-      <div class="tree">
-        <div class="tree-h">
-          <span class="dot" aria-hidden="true"></span>
-          <span>SKILL.md structure</span>
+    <div class="cards cards--2">
+      <article class="card rv">
+        <div class="card-h">
+          <p class="card-k"><span class="dot" aria-hidden="true"></span>應用範例</p>
+          <h3>面向旅客的前台首頁。</h3>
+          <p>一個已接上 G-Link 飯店與 F-Link 機票即時庫存的完整前台範例。開啟、閱讀，然後取走原始碼開始開發。</p>
         </div>
-        <pre>glink-hotel-api/
-├── SKILL.md          <span class="d"># entry point</span>
-├── auth/
-│   ├── signature.md  <span class="d"># signing algorithm</span>
-│   └── keys.md       <span class="d"># AppKey / AppSecret</span>
-├── flows/
-│   ├── search.md
-│   ├── booking.md
-│   ├── payment.md
-│   └── orders.md
-├── webhooks/
-│   └── orderStatus.md
-└── troubleshooting/
-    └── error-codes.md</pre>
-      </div>
+        <div class="card-meta" style="padding-bottom:4px">
+          <div><span class="k">庫存</span><span class="v">G-Link &amp; F-Link 即時</span></div>
+          <div><span class="k">原始碼</span><span class="v">可申請取得</span></div>
+          <div><span class="k">環境</span><span class="v">沙箱</span></div>
+        </div>
+        <div class="card-f card-f--plain">
+          <a class="btn btn--sm" href="api-docs-hotel.html">開啟完整範例 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+          <a class="tlink" href="sdk.html">下載原始碼 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </article>
+      <article class="card rv">
+        <div class="card-h">
+          <p class="card-k"><span class="dot" aria-hidden="true"></span>環境</p>
+          <h3>先用沙箱，生產按量計費。</h3>
+          <p>在沙箱中免費測試全部介面，無前期費用。對接測試通過後即可取得生產金鑰，按呼叫量計費，無最低消費。</p>
+        </div>
+        <div class="card-meta" style="padding-bottom:4px">
+          <div><span class="k">沙箱</span><span class="v">註冊即開通</span></div>
+          <div><span class="k">生產環境流量限制</span><span class="v">100 req / min</span></div>
+          <div><span class="k">計費方式</span><span class="v">按量計費</span></div>
+        </div>
+        <div class="card-f card-f--plain">
+          <a class="btn btn--sm" href="register.html">免費註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1082,27 +1049,27 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
     <div class="ftr-top">
       <div class="ftr-brand">
         <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 26px; width: auto;"><use href="#fcg-logo"></use></svg>
-        <p>FCG 开放平台：面向酒店、机票与差旅管理资源的标准化接口与灵活 SDK。</p>
+        <p>FCG 開放平台：針對飯店、機票與商旅管理資源的標準化介面與彈性 SDK。</p>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-products">产品</p>
+        <p class="ftr-h" id="ftr-products">產品</p>
         <nav aria-labelledby="ftr-products">
         <ul>
           <li><a href="api-docs-hotel.html">G-Link Hotel API</a></li>
           <li><a href="api-docs-flink.html">F-Link Flight API</a></li>
           <li><a href="index.html#products">TMC API</a></li>
-          <li><a href="index.html#use-cases">产品应用场景</a></li>
+          <li><a href="index.html#use-cases">產品應用情境</a></li>
         </ul>
         </nav>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-developers">开发者</p>
+        <p class="ftr-h" id="ftr-developers">開發者</p>
         <nav aria-labelledby="ftr-developers">
         <ul>
-          <li><a href="api-docs-hotel.html">接口文档</a></li>
+          <li><a href="api-docs-hotel.html">介面文件</a></li>
           <li><a href="sdk.html">SDK</a></li>
           <li><a href="skills.html">Skills 技能包</a></li>
-          <li><a href="api-docs-errors.html">错误码说明</a></li>
+          <li><a href="api-docs-errors.html">錯誤碼說明</a></li>
         </ul>
         </nav>
       </div>
@@ -1110,16 +1077,16 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
         <p class="ftr-h" id="ftr-platform">平台</p>
         <nav aria-labelledby="ftr-platform">
         <ul>
-          <li><a href="index.html">首页</a></li>
-          <li><a href="app-management.html">应用管理</a></li>
-          <li><a href="ai-assistant.html">AI 助手</a></li>
-          <li><a href="register.html">注册</a></li>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="app-management.html">應用程式管理</a></li>
+          <li><a href="ai-assistant.html">AI 助理</a></li>
+          <li><a href="register.html">註冊</a></li>
         </ul>
         </nav>
       </div>
     </div>
     <div class="ftr-bot">
-      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留所有权利。</span>
+      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留一切權利。</span>
       <span class="mono">ENG · 简体 · 繁體</span>
     </div>
   </div>
@@ -1183,23 +1150,6 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   Array.prototype.forEach.call(items, function(el, i){
     el.style.transitionDelay = (Math.min(i, 3) * 60) + 'ms';
     io.observe(el);
-  });
-})();
-</script>
-<script>
-(function(){
-  "use strict";
-  document.addEventListener('click', function(e){
-    var b = e.target.closest('.cmd button');
-    if (!b) return;
-    var code = b.parentNode.querySelector('code');
-    if (!code || !navigator.clipboard) return;
-    navigator.clipboard.writeText(code.textContent.trim()).then(function(){
-      var was = b.textContent;
-      b.textContent = 'Copied';
-      b.classList.add('done');
-      setTimeout(function(){ b.textContent = was; b.classList.remove('done'); }, 1600);
-    });
   });
 })();
 </script>

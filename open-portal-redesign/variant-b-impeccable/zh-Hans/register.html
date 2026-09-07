@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="zh-Hant" id="top">
+<html lang="zh-Hans" id="top">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 助理 — FCG 開放平台</title>
-<meta name="description" content="關於介面對接、簽章驗證與訂單流程，可直接詢問 FCG 開放平台 AI 助理。">
+<title>注册 — FCG 开放平台</title>
+<meta name="description" content="注册企业账号，免费获取 FCG 开放平台沙箱环境。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -868,156 +868,99 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 </style>
 </head>
 <body>
-<a class="skip" href="#main">跳至主要內容</a>
+<a class="skip" href="#main">跳转到正文</a>
 
 <!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
 
-<header class="hdr" id="hdr">
+<header class="hdr hdr--min" id="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="index.html" aria-label="FCG 開放平台 — 首頁">
+    <a class="brand" href="index.html" aria-label="FCG 开放平台 — 首页">
       <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 28px; width: auto;"><use href="#fcg-logo"></use></svg>
       <span class="brand-div" aria-hidden="true"></span>
-      <span class="brand-sub">開放平台</span>
+      <span class="brand-sub">开放平台</span>
     </a>
-
-    <nav class="shell" aria-label="主導覽">
-      <a href="index.html">首頁</a>
-      <a href="app-management.html">應用程式管理</a>
-      <a href="api-docs-hotel.html">介面文件</a>
-      <a href="sdk.html">SDK</a>
-      <a href="skills.html">Skills 技能包</a>
-      <a class="on" href="ai-assistant.html">AI 助理</a>
-    </nav>
-
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="語言">
-        <a href="../ai-assistant.html">ENG</a>
-        <a href="../zh-CN/ai-assistant.html">简体</a>
-        <a href="ai-assistant.html" aria-current="page">繁體</a>
+      <div class="lang" role="group" aria-label="语言">
+        <a href="../register.html">ENG</a>
+        <a href="register.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/register.html">繁體</a>
       </div>
-      <a class="login" href="login.html">登入</a>
-      <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="開啟選單">
-        <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
-      </button>
-    </div>
-  </div>
-
-  <div class="mnav" id="mnav">
-    <div class="wrap">
-      <ul>
-        <li><a href="index.html">首頁</a></li>
-        <li><a href="app-management.html">應用程式管理</a></li>
-        <li><a href="api-docs-hotel.html">介面文件</a></li>
-        <li><a href="sdk.html">SDK</a></li>
-        <li><a href="skills.html">Skills 技能包</a></li>
-        <li><a href="ai-assistant.html">AI 助理</a></li>
-      </ul>
-      <div class="m-cta">
-        <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <div class="lang" role="group" aria-label="語言">
-        <a href="../ai-assistant.html">ENG</a>
-        <a href="../zh-CN/ai-assistant.html">简体</a>
-        <a href="ai-assistant.html" aria-current="page">繁體</a>
-      </div>
-      </div>
+      <a class="tlink" href="index.html">返回平台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
 </header>
 
 <main id="main">
-<section class="band">
-  <div class="band-grid" aria-hidden="true"></div>
-  <div class="wrap band-in">
-      <div class="band-top">
-        <p class="eyebrow micro">技術支援 · 對接諮詢</p>
-        <span class="chip chip--live"><span class="dot" aria-hidden="true"></span>線上</span>
-      </div>
-      <h1>AI 助理</h1>
-      <p class="lede"><b>對接過程中遇到問題？</b> 直接提問，數秒內取得以平台介面文件為依據的回答與程式範例。</p>
-      <div class="band-foot"><a class="btn" href="#ask">開始對話 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="tlink tlink--o" href="api-docs-errors.html">錯誤碼說明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
-  </div>
-</section>
-
-<section class="blk blk--top" id="ask">
-  <div class="wrap">
-    <div class="chat">
-      <div class="chatbox rv">
-        <div class="chat-h">
-          <span class="av"><iconify-icon icon="solar:chat-square-code-linear"></iconify-icon></span>
-          <span>
-            <strong>FCG 開放平台 AI 助理</strong>
-            <span>技術支援 · 對接諮詢</span>
-          </span>
-          <span class="dot" aria-hidden="true" title="線上"></span>
-        </div>
-        <div class="chat-b">
-          <div class="msg msg--ai">
-            <p>您好，我是 FCG 開放平台 AI 助理。我可以協助處理介面對接、簽章驗證、訂單流程等問題。</p>
-            <p>直接輸入問題，或從常見問題中挑一個開始。</p>
-          </div>
-          <div class="msg msg--me">
-            <p>如何產生請求簽章？</p>
-          </div>
-          <div class="msg msg--ai">
-            <p>請依簽章指南中的演算法，使用 AppSecret 產生簽章，並隨請求一併送出。若驗證失敗，將回傳
-               <code class="inl">10001 Signature verification failed</code> ——常見原因是 AppSecret 有誤或簽章演算法不一致。</p>
-            <p>AppSecret 必須保存在伺服器端，切勿下發到用戶端。</p>
-          </div>
-        </div>
-        <div class="chat-in">
-          <label for="ask-in" class="micro" style="position:absolute;left:-9999px">您的問題</label>
-          <input id="ask-in" type="text" placeholder="可詢問簽章驗證、下單流程、錯誤碼……">
-          <button class="btn btn--sm" type="button">送出 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></button>
-        </div>
-        <p class="chat-f">AI 回答僅供參考。如需專業支援，請
-          <a href="index.html#start-integration">提交工單</a> 並聯繫技術團隊。</p>
-      </div>
-
-      <div class="asks rv" role="group" aria-labelledby="asks-h">
-        <p class="asks-h" id="asks-h">常見問題</p>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>如何產生請求簽章？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>availabilityCheck 為什麼回傳無法預訂？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>生產環境的流量限制是多少？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>orderStatus 重複推送該如何處理？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>哪一個 SDK 支援 TMC 介面？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>SUPPLIER_BIZ_ERROR 代表什麼？</span></button>
-      </div>
+<section class="auth">
+  <div class="auth-aside">
+    <div class="band-grid" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative;z-index:1">
+      <p class="eyebrow micro">免费接入</p>
+      <p class="ahead">注册一次， <em>测试全部接口。</em></p>
+      <p class="lede">创建企业账号并完善入驻信息，即可进入平台控制台。沙箱环境即时开通，无前期费用。</p>
+      <ul class="tick" style="margin-top:38px;max-width:40ch">
+        <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span>即时开通沙箱</span></li>
+        <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span>完整接口文档权限</span></li>
+        <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span>技术工单支持</span></li>
+        <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span>TMC 接口申请资格</span></li>
+      </ul>
     </div>
   </div>
-</section>
 
-<hr class="rule">
+  <div class="auth-main">
+    <div class="auth-card rv">
+      <h1>创建账号</h1>
+      <p>创建企业账号并完善入驻信息，即可访问平台控制台。</p>
 
-<section class="blk">
-  <div class="wrap">
-    <div class="blk-head sec-head--c" style="align-items:center;text-align:center">
-      <p class="eyebrow eyebrow--c micro">若助理無法解決</p>
-      <h2 class="h3" style="max-width:26ch">三種轉接真人的方式。</h2>
-    </div>
-    <div class="iopts">
-      <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:ticket-linear"></iconify-icon></div>
-        <h3>提交工單</h3>
-        <span class="k">技術支援</span>
-        <p>請附上失敗呼叫的 <code class="inl">request_id</code> 與 <code class="inl">trace_id</code> 。缺少這兩個值，技術支援無法追查問題。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="login.html">開啟主控台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
-      </article>
-      <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:document-text-linear"></iconify-icon></div>
-        <h3>查閱文件</h3>
-        <span class="k">文件中心</span>
-        <p>介面清單、請求與回應結構、完整範例，以及全部錯誤碼表。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="api-docs-hotel.html">文件中心 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
-      </article>
-      <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon></div>
-        <h3>業務諮詢</h3>
-        <span class="k">業務</span>
-        <p>客製方案、專屬報價與 TMC 介面部署請洽業務團隊，而非技術支援。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="index.html#start-integration">預約示範 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
-      </article>
+      <button class="oauth" type="button">
+        <iconify-icon icon="solar:login-3-linear" aria-hidden="true"></iconify-icon>
+        使用 Google 注册
+      </button>
+
+      <p class="orline">或填写信息注册</p>
+
+      <form class="fields" action="#" method="post" novalidate>
+        <div class="fields--2">
+          <div class="fld">
+            <label for="user">用户名 <em aria-hidden="true">*</em></label>
+            <input id="user" name="username" type="text" autocomplete="username" required>
+          </div>
+          <div class="fld">
+            <label for="pw2">密码 <em aria-hidden="true">*</em></label>
+            <input id="pw2" name="password" type="password" autocomplete="new-password" required>
+          </div>
+        </div>
+        <div class="fld">
+          <label for="co">企业名称 <em aria-hidden="true">*</em></label>
+          <input id="co" name="company" type="text" autocomplete="organization" required>
+        </div>
+        <div class="fields--2">
+          <div class="fld">
+            <label for="who">联系人 <em aria-hidden="true">*</em></label>
+            <input id="who" name="contact" type="text" autocomplete="name" required>
+          </div>
+          <div class="fld">
+            <label for="tel">联系电话 <em aria-hidden="true">*</em></label>
+            <input id="tel" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="fld">
+          <label for="mail">邮箱 <em aria-hidden="true">*</em></label>
+          <input id="mail" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="fld">
+          <label for="cur">结算币种 <em aria-hidden="true">*</em></label>
+          <select id="cur" name="currency" required>
+            <option value="CNY">CNY — 人民币</option>
+            <option value="USD">USD — 美元</option>
+          </select>
+        </div>
+        <button class="btn auth-submit" type="submit">创建账号 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></button>
+      </form>
+
+      <p class="auth-legal">TMC 接口沙箱仅支持美元结算。结算币种可稍后在控制台修改。</p>
+      <p class="auth-alt">已有账号？ <a href="login.html">登录</a></p>
     </div>
   </div>
 </section>
@@ -1028,27 +971,27 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
     <div class="ftr-top">
       <div class="ftr-brand">
         <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 26px; width: auto;"><use href="#fcg-logo"></use></svg>
-        <p>FCG 開放平台：針對飯店、機票與商旅管理資源的標準化介面與彈性 SDK。</p>
+        <p>FCG 开放平台：面向酒店、机票与差旅管理资源的标准化接口与灵活 SDK。</p>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-products">產品</p>
+        <p class="ftr-h" id="ftr-products">产品</p>
         <nav aria-labelledby="ftr-products">
         <ul>
           <li><a href="api-docs-hotel.html">G-Link Hotel API</a></li>
           <li><a href="api-docs-flink.html">F-Link Flight API</a></li>
           <li><a href="index.html#products">TMC API</a></li>
-          <li><a href="index.html#use-cases">產品應用情境</a></li>
+          <li><a href="index.html#use-cases">产品应用场景</a></li>
         </ul>
         </nav>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-developers">開發者</p>
+        <p class="ftr-h" id="ftr-developers">开发者</p>
         <nav aria-labelledby="ftr-developers">
         <ul>
-          <li><a href="api-docs-hotel.html">介面文件</a></li>
+          <li><a href="api-docs-hotel.html">接口文档</a></li>
           <li><a href="sdk.html">SDK</a></li>
           <li><a href="skills.html">Skills 技能包</a></li>
-          <li><a href="api-docs-errors.html">錯誤碼說明</a></li>
+          <li><a href="api-docs-errors.html">错误码说明</a></li>
         </ul>
         </nav>
       </div>
@@ -1056,16 +999,16 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
         <p class="ftr-h" id="ftr-platform">平台</p>
         <nav aria-labelledby="ftr-platform">
         <ul>
-          <li><a href="index.html">首頁</a></li>
-          <li><a href="app-management.html">應用程式管理</a></li>
-          <li><a href="ai-assistant.html">AI 助理</a></li>
-          <li><a href="register.html">註冊</a></li>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="app-management.html">应用管理</a></li>
+          <li><a href="ai-assistant.html">AI 助手</a></li>
+          <li><a href="register.html">注册</a></li>
         </ul>
         </nav>
       </div>
     </div>
     <div class="ftr-bot">
-      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留一切權利。</span>
+      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留所有权利。</span>
       <span class="mono">ENG · 简体 · 繁體</span>
     </div>
   </div>

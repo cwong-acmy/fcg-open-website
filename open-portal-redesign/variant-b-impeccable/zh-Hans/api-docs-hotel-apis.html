@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>应用管理 — FCG 开放平台</title>
-<meta name="description" content="管理 FCG 接口对接所使用的应用。每个产品拥有独立的凭证。">
+<title>G-Link 接口参考 — FCG 开放平台</title>
+<meta name="description" content="G-Link 酒店接口全集，含请求方法、路径与完整的请求与响应示例。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -883,8 +883,8 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
     <nav class="shell" aria-label="主导航">
       <a href="index.html">首页</a>
-      <a class="on" href="app-management.html">应用管理</a>
-      <a href="api-docs-hotel.html">接口文档</a>
+      <a href="app-management.html">应用管理</a>
+      <a class="on" href="api-docs-hotel.html">接口文档</a>
       <a href="sdk.html">SDK</a>
       <a href="skills.html">Skills 技能包</a>
       <a href="ai-assistant.html">AI 助手</a>
@@ -892,9 +892,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
     <div class="nav-right">
       <div class="lang" role="group" aria-label="语言">
-        <a href="../app-management.html">ENG</a>
-        <a href="app-management.html" aria-current="page">简体</a>
-        <a href="../zh-TW/app-management.html">繁體</a>
+        <a href="../api-docs-hotel-apis.html">ENG</a>
+        <a href="api-docs-hotel-apis.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-hotel-apis.html">繁體</a>
       </div>
       <a class="login" href="login.html">登录</a>
       <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
@@ -917,9 +917,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <div class="m-cta">
         <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
         <div class="lang" role="group" aria-label="语言">
-        <a href="../app-management.html">ENG</a>
-        <a href="app-management.html" aria-current="page">简体</a>
-        <a href="../zh-TW/app-management.html">繁體</a>
+        <a href="../api-docs-hotel-apis.html">ENG</a>
+        <a href="api-docs-hotel-apis.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-hotel-apis.html">繁體</a>
       </div>
       </div>
     </div>
@@ -930,118 +930,135 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
+      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <a href="api-docs-hotel.html">G-Link Hotel API</a> <i>/</i> <span>接口参考</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">每个产品独立凭证</p>
+        <p class="eyebrow micro">沙箱与生产环境</p>
         
       </div>
-      <h1>应用管理</h1>
-      <p class="lede"><b>管理接口对接所使用的应用。</b> 每个产品拥有独立的凭证，因此酒店密钥无法调用机票接口，沙箱密钥也不会触达生产环境。</p>
-      <div class="band-foot"><a class="btn" href="register.html">创建应用 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="btn btn--ghost" href="login.html">登录控制台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>G-Link 接口参考</h1>
+      <p class="lede"><b>G-Link 全部接口，按功能分组。</b> 下方以其中一个接口作为完整示例；整套接口的请求与响应结构保持一致。</p>
+      <div class="band-foot"><nav class="rail" aria-label="章节"><a href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">对接流程</a><a class="on" href="api-docs-hotel-apis.html">接口参考</a><a href="api-docs-errors.html">错误码</a></nav></div>
   </div>
 </section>
 
-<section class="blk blk--top">
-  <div class="wrap">
-    <div class="blk-head">
-      <p class="eyebrow micro">应用</p>
-      <h2 class="h3">三个应用， <em>三套独立凭证。</em></h2>
-      <p class="lede">登录后可在控制台查看凭证。本页面不会展示任何真实密钥。</p>
+<div class="wrap">
+<div class="docs">
+  <aside class="docs-side">
+    <div class="docs-side-in">
+      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章节</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">对接流程</a></li><li><a class="on" href="api-docs-hotel-apis.html">接口参考</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">开发者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下载</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助手</a></li></ul></nav></div>
     </div>
-    <div class="cards">
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>G-Link Hotel</p>
-      <h3>G-Link Hotel API</h3>
-      <p>酒店查询、预订、支付与取消流程。</p>
+  </aside>
+  <div class="docs-main">
+    <h2>二十个接口， <em>五个分组。</em></h2>
+    <p>先是静态数据，其次实时预订，最后是订单与回调。路径基于生产环境域名；沙箱域名随沙箱凭证一并下发。</p>
+
+    <div class="tblwrap"><div class="tblscroll">
+  <table class="tbl" style="min-width:660px">
+    <thead><tr><th>接口</th><th>方法</th><th>路径</th></tr></thead>
+    <tbody>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">地区静态数据</td></tr>
+      <tr><td style="background:rgba(15,17,20,.02)">查询国家列表</td><td class="t-mid" style="background:rgba(15,17,20,.02)"><span class="method">POST</span></td><td class="t-path" style="background:rgba(15,17,20,.02)">/openapi/v1/glink/region/countries</td></tr>
+      <tr><td>查询城市列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/cities</td></tr>
+      <tr><td>查询热门城市列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/hotCities</td></tr>
+      <tr><td>查询商圈列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/businessZones</td></tr>
+      <tr><td>查询行政区列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/districts</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">酒店信息</td></tr>
+      <tr><td>可售酒店 ID 列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/search/hotelIdList</td></tr>
+      <tr><td>查询酒店基础信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/detail</td></tr>
+      <tr><td>酒店每日最低价</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/lowestPrice</td></tr>
+      <tr><td>酒店静态数据增量</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/increment</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">酒店预订</td></tr>
+      <tr><td>酒店实时产品查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/productDetails</td></tr>
+      <tr><td>试单（可订性校验）</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/availabilityCheck</td></tr>
+      <tr><td>创建订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/createOrder</td></tr>
+      <tr><td>订单支付</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/payOrder</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">订单信息</td></tr>
+      <tr><td>订单详情查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/orderDetail</td></tr>
+      <tr><td>取消订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/cancelOrder</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">回调通知</td></tr>
+      <tr><td>订单状态推送</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/notify/orderStatus</td></tr>
+    </tbody>
+  </table>
+</div></div>
+
+    <h3>完整示例——查询国家列表</h3>
+    <div class="ep">
+      <div class="ep-h">
+        <span class="method">POST</span>
+        <code>https://open.fusionconnectgroup.com/openapi/v1/glink/region/countries</code>
+      </div>
+      <div class="ep-b">
+        <h4>接口说明</h4>
+        <div class="card-meta" style="padding:0;margin-top:14px">
+          <div><span class="k">调用方</span><span class="v">合作伙伴</span></div>
+          <div><span class="k">响应方</span><span class="v">FCG</span></div>
+          <div><span class="k">限流</span><span class="v">100 req / min</span></div>
+        </div>
+        <p style="color:var(--muted);font-size:14px;line-height:23px;margin-top:16px;max-width:70ch">
+          合作伙伴调用该接口查询 FCG 系统中的国家列表，通常在搭建本地基础数据时调用一次。</p>
+      </div>
+      <div class="ep-b">
+        <h4>请求体参数</h4>
+        <div style="margin-top:14px"><ul class="plist">
+    <li><span class="pn">language</span><span class="pt">string</span><span class="pr">可选</span><span class="pd">语言。 <code class="inl">zh-CN</code> 为中文， <code class="inl">en-US</code> 为英文。默认英文。</span></li>
+  </ul></div>
+      </div>
+      <div class="ep-b">
+        <h4>响应结构</h4>
+        <div style="margin-top:14px"><ul class="plist">
+    <li><span class="pn">code</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台业务码。 <code class="inl">SUCCESS</code> 表示成功。供应商业务失败仍可能返回 HTTP 200，并带有 <code class="inl">code=SUPPLIER_BIZ_ERROR</code>.</span></li>
+    <li><span class="pn">data</span><span class="pt">array&lt;object&gt;</span><span class="pr">可选</span><span class="pd">国家列表。</span></li>
+    <li class="sub"><span class="pn">countryCode</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">国家编码。</span></li>
+    <li class="sub"><span class="pn">countryId</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">国家 ID。</span></li>
+    <li class="sub"><span class="pn">countryName</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">国家名称。</span></li>
+    <li><span class="pn">downstream_request_id</span><span class="pt">string</span><span class="pr">可选</span><span class="pd">G-Link 下游请求 ID。通常在调用成功后返回。</span></li>
+    <li><span class="pn">message</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台提示信息。成功时通常为 <code class="inl">ok</code> 。</span></li>
+    <li><span class="pn">request_id</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台请求 ID。</span></li>
+    <li><span class="pn">trace_id</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台链路追踪 ID。</span></li>
+  </ul></div>
+      </div>
+      <div class="ep-b" style="padding:0">
+        <div class="term" style="border-radius:0;border:0">
+          <div class="term-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="t-label">请求</span>
+            <span class="t-right">application/json</span>
+          </div>
+          <div class="term-body"><pre>{
+  <span class="t-key">"language"</span>: <span class="t-dim">"en-US"</span>
+}</pre></div>
+          <div class="term-split"><span>响应</span></div>
+          <div class="term-body"><pre>{
+  <span class="t-key">"code"</span>: <span class="t-dim">"SUCCESS"</span>,
+  <span class="t-key">"data"</span>: [
+    {
+      <span class="t-key">"countryCode"</span>: <span class="t-dim">"CN"</span>,
+      <span class="t-key">"countryId"</span>: <span class="t-dim">"5302980"</span>,
+      <span class="t-key">"countryName"</span>: <span class="t-dim">"China"</span>
+    }
+  ],
+  <span class="t-key">"message"</span>: <span class="t-dim">"ok"</span>,
+  <span class="t-key">"request_id"</span>: <span class="t-dim">"req_dc3qor2zg6omq…"</span>,
+  <span class="t-key">"trace_id"</span>: <span class="t-dim">"trc_dc3qor2zg6omq…"</span>
+}</pre></div>
+        </div>
+      </div>
     </div>
-    <div class="card-meta">
-      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">创建时间</span><span class="v">2026 年 4 月 28 日</span></div>
-      <div><span class="k">环境</span><span class="v">沙箱</span></div>
+
+    <div class="note">
+      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
+      <span><strong>请判断 <code class="inl">code</code>，而不是 HTTP 状态码。</strong> 供应商业务失败会返回 HTTP 200，并带有 <code class="inl">code=SUPPLIER_BIZ_ERROR</code>。请依据响应体分支处理。</span>
     </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="login.html">查看凭证 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="api-docs-hotel.html">产品文档 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>F-Link Flight</p>
-      <h3>F-Link Flight API</h3>
-      <p>航班查询、出票、退票与改期。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">创建时间</span><span class="v">2026 年 4 月 28 日</span></div>
-      <div><span class="k">环境</span><span class="v">沙箱</span></div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="login.html">查看凭证 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="api-docs-hotel.html">产品文档 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC API</p>
-      <h3>TMC API</h3>
-      <p>快速搭建企业差旅平台。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">创建时间</span><span class="v">2026 年 4 月 28 日</span></div>
-      <div><span class="k">环境</span><span class="v">沙箱</span></div>
-    </div>
-      <div class="note" style="margin:0 24px 20px"><iconify-icon icon="solar:info-circle-linear"></iconify-icon><span>TMC 接口沙箱仅支持美元结算。</span></div>    <div class="card-f">
-      <a class="btn btn--sm" href="login.html">查看凭证 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="api-docs-hotel.html">产品文档 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
+
+    <div class="band-foot">
+      <a class="btn" href="api-docs-errors.html">错误码说明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink tlink--o" href="sdk.html">改用 SDK 对接 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
-</section>
-
-<hr class="rule">
-
-<section class="blk">
-  <div class="wrap">
-    <div class="cards cards--2">
-      <article class="card rv">
-        <div class="card-h">
-          <p class="card-k"><span class="dot" aria-hidden="true"></span>应用示例</p>
-          <h3>面向旅客的前台首页。</h3>
-          <p>一个已接入 G-Link 酒店与 F-Link 机票实时库存的完整前台示例。打开、阅读，然后取走源码开始开发。</p>
-        </div>
-        <div class="card-meta" style="padding-bottom:4px">
-          <div><span class="k">库存</span><span class="v">G-Link &amp; F-Link 实时</span></div>
-          <div><span class="k">源码</span><span class="v">可申请获取</span></div>
-          <div><span class="k">环境</span><span class="v">沙箱</span></div>
-        </div>
-        <div class="card-f card-f--plain">
-          <a class="btn btn--sm" href="api-docs-hotel.html">打开完整示例 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-          <a class="tlink" href="sdk.html">下载源码 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
-        </div>
-      </article>
-      <article class="card rv">
-        <div class="card-h">
-          <p class="card-k"><span class="dot" aria-hidden="true"></span>环境</p>
-          <h3>先用沙箱，生产按量计费。</h3>
-          <p>在沙箱中免费测试全部接口，无前期费用。对接测试通过后即可获取生产密钥，按调用量计费，无最低消费。</p>
-        </div>
-        <div class="card-meta" style="padding-bottom:4px">
-          <div><span class="k">沙箱</span><span class="v">注册即开通</span></div>
-          <div><span class="k">生产环境限流</span><span class="v">100 req / min</span></div>
-          <div><span class="k">计费方式</span><span class="v">按量计费</span></div>
-        </div>
-        <div class="card-f card-f--plain">
-          <a class="btn btn--sm" href="register.html">免费注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+</div>
+</div>
 </main>
 
 <footer class="ftr">

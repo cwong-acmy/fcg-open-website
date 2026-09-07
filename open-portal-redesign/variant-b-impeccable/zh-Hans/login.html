@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>G-Link 对接流程 — FCG 开放平台</title>
-<meta name="description" content="G-Link 酒店接口推荐的八步对接流程，从查询到取消订单。">
+<title>登录 — FCG 开放平台</title>
+<meta name="description" content="登录 FCG 开放平台控制台。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -873,153 +873,72 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
 
-<header class="hdr" id="hdr">
+<header class="hdr hdr--min" id="hdr">
   <div class="wrap hdr-in">
     <a class="brand" href="index.html" aria-label="FCG 开放平台 — 首页">
       <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 28px; width: auto;"><use href="#fcg-logo"></use></svg>
       <span class="brand-div" aria-hidden="true"></span>
       <span class="brand-sub">开放平台</span>
     </a>
-
-    <nav class="shell" aria-label="主导航">
-      <a href="index.html">首页</a>
-      <a href="app-management.html">应用管理</a>
-      <a class="on" href="api-docs-hotel.html">接口文档</a>
-      <a href="sdk.html">SDK</a>
-      <a href="skills.html">Skills 技能包</a>
-      <a href="ai-assistant.html">AI 助手</a>
-    </nav>
-
     <div class="nav-right">
       <div class="lang" role="group" aria-label="语言">
-        <a href="../api-docs-hotel-process.html">ENG</a>
-        <a href="api-docs-hotel-process.html" aria-current="page">简体</a>
-        <a href="../zh-TW/api-docs-hotel-process.html">繁體</a>
+        <a href="../login.html">ENG</a>
+        <a href="login.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/login.html">繁體</a>
       </div>
-      <a class="login" href="login.html">登录</a>
-      <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="打开菜单">
-        <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
-      </button>
-    </div>
-  </div>
-
-  <div class="mnav" id="mnav">
-    <div class="wrap">
-      <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="app-management.html">应用管理</a></li>
-        <li><a href="api-docs-hotel.html">接口文档</a></li>
-        <li><a href="sdk.html">SDK</a></li>
-        <li><a href="skills.html">Skills 技能包</a></li>
-        <li><a href="ai-assistant.html">AI 助手</a></li>
-      </ul>
-      <div class="m-cta">
-        <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <div class="lang" role="group" aria-label="语言">
-        <a href="../api-docs-hotel-process.html">ENG</a>
-        <a href="api-docs-hotel-process.html" aria-current="page">简体</a>
-        <a href="../zh-TW/api-docs-hotel-process.html">繁體</a>
-      </div>
-      </div>
+      <a class="tlink" href="index.html">返回平台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
 </header>
 
 <main id="main">
-<section class="band">
-  <div class="band-grid" aria-hidden="true"></div>
-  <div class="wrap band-in">
-      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <a href="api-docs-hotel.html">G-Link Hotel API</a> <i>/</i> <span>对接流程</span></p>
-      <div class="band-top">
-        <p class="eyebrow micro">推荐对接流程</p>
-        
+<section class="auth">
+  <div class="auth-aside">
+    <div class="band-grid" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative;z-index:1">
+      <p class="eyebrow micro">开发者控制台</p>
+      <p class="ahead">旅游接口对接，一站完成。</p>
+      <p class="lede">为分销商与差旅管理公司打造，完整覆盖酒店与机票接口，同时支持 SDK 与 REST 两种对接方式。</p>
+      <div class="mini mini--aside" style="margin-top:48px">
+        <div><p class="n">200<u>+</u></p><p class="c">合作伙伴</p></div>
+        <div><p class="n">99.9<u>%</u></p><p class="c">可用性</p></div>
+        <div><p class="n">7<u>×24</u></p><p class="c">技术支持</p></div>
       </div>
-      <h1>G-Link 对接流程</h1>
-      <p class="lede"><b>G-Link 酒店接口的对接顺序。</b> 八个步骤，从查询到取消订单，每一步对应一个接口。</p>
-      <div class="band-foot"><nav class="rail" aria-label="章节"><a href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a class="on" href="api-docs-hotel-process.html">对接流程</a><a href="api-docs-hotel-apis.html">接口参考</a><a href="api-docs-errors.html">错误码</a></nav></div>
+    </div>
+  </div>
+
+  <div class="auth-main">
+    <div class="auth-card rv">
+      <h1>欢迎回来</h1>
+      <p>登录以进入开发者控制台。</p>
+
+      <button class="oauth" type="button">
+        <iconify-icon icon="solar:login-3-linear" aria-hidden="true"></iconify-icon>
+        使用 Google 继续
+      </button>
+
+      <p class="orline">或使用账号登录</p>
+
+      <form class="fields" action="#" method="post" novalidate>
+        <div class="fld">
+          <label for="acct">账号</label>
+          <input id="acct" name="account" type="text" autocomplete="username" placeholder="用户名或邮箱">
+        </div>
+        <div class="fld">
+          <label for="pw">密码</label>
+          <input id="pw" name="password" type="password" autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <div class="fld-row">
+          <span></span>
+          <a href="#reset">忘记密码？</a>
+        </div>
+        <button class="btn auth-submit" type="submit">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></button>
+      </form>
+
+      <p class="auth-alt">还没有账号？ <a href="register.html">免费注册</a></p>
+    </div>
   </div>
 </section>
-
-<div class="wrap">
-<div class="docs">
-  <aside class="docs-side">
-    <div class="docs-side-in">
-      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章节</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a class="on" href="api-docs-hotel-process.html">对接流程</a></li><li><a href="api-docs-hotel-apis.html">接口参考</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">开发者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下载</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助手</a></li></ul></nav></div>
-    </div>
-  </aside>
-  <div class="docs-main">
-    <h2>标准接口对接， <em>按序进行。</em></h2>
-    <p>请按顺序对接。第一、二步用于搭建本地基础数据，按计划任务执行；第三步起为实时调用，每笔预订触发一次。</p>
-
-    <div class="steps">
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 01</p>
-    <h3>查询全部可售酒店 ID</h3>
-    <code>/search/hotelIdList</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 02</p>
-    <h3>按酒店 ID 查询静态信息</h3>
-    <code>/hotel/detail</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 03</p>
-    <h3>实时查询在售信息与最低价</h3>
-    <code>/booking/productDetails</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 04</p>
-    <h3>校验价格计划可订性并返回最新价格</h3>
-    <code>/booking/availabilityCheck</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 05</p>
-    <h3>试单成功后创建订单</h3>
-    <code>/booking/createOrder</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 06</p>
-    <h3>订单创建后完成支付</h3>
-    <code>/booking/payOrder</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 07</p>
-    <h3>查询订单详情</h3>
-    <code>/order/orderDetail</code>
-  </div>
-  <div class="step rv">
-    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 08</p>
-    <h3>按需取消订单</h3>
-    <code>/order/cancelOrder</code>
-  </div>
-    </div>
-
-    <h3>哪些按计划执行，哪些实时调用</h3>
-    <ul class="bul">
-      <li><iconify-icon icon="solar:calendar-linear"></iconify-icon><span><strong>计划执行。</strong>
-        酒店 ID 列表、酒店与房型静态信息、国家与城市基础数据，以及
-        <code class="inl">/hotel/increment</code> 变更订阅。以上全部请在本地缓存。</span></li>
-      <li><iconify-icon icon="solar:bolt-linear"></iconify-icon><span><strong>实时调用。</strong>
-        产品详情、试单、创建订单、支付、取消与订单详情。这些接口随旅客操作触发，并计入限流额度。</span></li>
-      <li><iconify-icon icon="solar:shield-check-linear"></iconify-icon><span><strong>幂等处理。</strong>
-        订单状态推送 <code class="inl">notify/orderStatus</code>可能被投递多次。请做好去重，避免产生重复状态。</span></li>
-    </ul>
-
-    <div class="note">
-      <iconify-icon icon="solar:danger-triangle-linear"></iconify-icon>
-      <span><strong>试单执行两次。</strong> 请在调用 <code class="inl">booking/availabilityCheck</code> 之前，立即再执行一次 <code class="inl">booking/createOrder</code>。从客人决定下单到实际调用下单接口之间，库存与价格都可能变化。</span>
-    </div>
-
-    <div class="band-foot">
-      <a class="btn" href="api-docs-hotel-apis.html">打开接口参考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink tlink--o" href="skills.html">安装 G-Link Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </div>
-</div>
-</div>
 </main>
 
 <footer class="ftr">

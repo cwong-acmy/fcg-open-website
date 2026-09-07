@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>F-Link 機票介面 — FCG 開放平台</title>
-<meta name="description" content="F-Link 機票介面共 19 個：查詢、開票、改期、退票與基礎資料。">
+<title>SDK 整合中心 — FCG 開放平台</title>
+<meta name="description" content="FCG 旅遊介面的 Go、Java 與 Python SDK，附安裝指令與變更紀錄。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -884,17 +884,17 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
     <nav class="shell" aria-label="主導覽">
       <a href="index.html">首頁</a>
       <a href="app-management.html">應用程式管理</a>
-      <a class="on" href="api-docs-hotel.html">介面文件</a>
-      <a href="sdk.html">SDK</a>
+      <a href="api-docs-hotel.html">介面文件</a>
+      <a class="on" href="sdk.html">SDK</a>
       <a href="skills.html">Skills 技能包</a>
       <a href="ai-assistant.html">AI 助理</a>
     </nav>
 
     <div class="nav-right">
       <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-flink.html">ENG</a>
-        <a href="../zh-CN/api-docs-flink.html">简体</a>
-        <a href="api-docs-flink.html" aria-current="page">繁體</a>
+        <a href="../sdk.html">ENG</a>
+        <a href="../zh-Hans/sdk.html">简体</a>
+        <a href="sdk.html" aria-current="page">繁體</a>
       </div>
       <a class="login" href="login.html">登入</a>
       <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
@@ -917,9 +917,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <div class="m-cta">
         <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
         <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-flink.html">ENG</a>
-        <a href="../zh-CN/api-docs-flink.html">简体</a>
-        <a href="api-docs-flink.html" aria-current="page">繁體</a>
+        <a href="../sdk.html">ENG</a>
+        <a href="../zh-Hans/sdk.html">简体</a>
+        <a href="sdk.html" aria-current="page">繁體</a>
       </div>
       </div>
     </div>
@@ -930,84 +930,172 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
-      <p class="crumb"><a href="api-docs-hotel.html">文件中心</a> <i>/</i> <span>F-Link Flight API</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">航空公司直連艙位庫存</p>
+        <p class="eyebrow micro">內建驗證、重試與序列化</p>
         
       </div>
-      <h1>F-Link Flight API</h1>
-      <p class="lede"><b>航空公司直連艙位庫存。</b> 涵蓋國內與國際航空公司並支援 BSP，包含查詢、定價、開票、退票與改期。19 個介面，統一的路徑規則。</p>
-      <div class="band-foot"><nav class="rail" aria-label="章節"><a href="api-docs-hotel.html">G-Link Hotel</a><a class="on" href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">對接流程</a><a href="api-docs-hotel-apis.html">介面參考</a><a href="api-docs-errors.html">錯誤碼</a></nav><a class="btn btn--sm" href="sdk.html">下載 SDK <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>SDK 整合中心</h1>
+      <p class="lede"><b>多語言 SDK</b> ，附安裝指令、範例程式、變更紀錄與簽章驗證工具。目前已發布 Go、Java 與 Python，Node.js 開發中。</p>
+      <div class="band-foot"><a class="btn" href="register.html">取得沙箱憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="btn btn--ghost" href="skills.html">Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
   </div>
 </section>
 
-<div class="wrap">
-<div class="docs">
-  <aside class="docs-side">
-    <div class="docs-side-in">
-      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">產品文件</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a class="on" href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">錯誤碼說明</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章節</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">對接流程</a></li><li><a href="api-docs-hotel-apis.html">介面參考</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">開發者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下載</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助理</a></li></ul></nav></div>
-    </div>
-  </aside>
-  <div class="docs-main">
-    <h2>F-Link 全部介面。</h2>
-    <p>每個機票介面路徑都包含 <code class="inl">&#123;lang&#125;</code> 區段—— <code class="inl">zh-CN</code>
-       或 <code class="inl">en-US</code> ——用於指定回傳文字與錯誤訊息的語言。僅欄位翻譯介面例外，不帶語言區段。</p>
-
-    <div class="tblwrap"><div class="tblscroll">
-  <table class="tbl" style="min-width:720px">
-    <thead><tr><th>編號</th><th>介面</th><th>方法</th><th>路徑</th></tr></thead>
-    <tbody>
-      <tr><td class="t-num">1</td><td>航班查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/search</td></tr>
-      <tr><td class="t-num">2</td><td>取得更多票價</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/cabin</td></tr>
-      <tr><td class="t-num">3</td><td>下單前驗價</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/verify</td></tr>
-      <tr><td class="t-num">4</td><td>提交預訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/create</td></tr>
-      <tr><td class="t-num">5</td><td>訂單付款</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/pay</td></tr>
-      <tr><td class="t-num">6</td><td>標準訂單明細</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/detail</td></tr>
-      <tr><td class="t-num">7</td><td>取消標準訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/cancel</td></tr>
-      <tr><td class="t-num">8</td><td>改期航班查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/search</td></tr>
-      <tr><td class="t-num">9</td><td>提交改期申請</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/apply</td></tr>
-      <tr><td class="t-num">10</td><td>取消改期申請</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/cancel</td></tr>
-      <tr><td class="t-num">11</td><td>改期申請明細</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/detail</td></tr>
-      <tr><td class="t-num">12</td><td>提交退票申請</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/apply</td></tr>
-      <tr><td class="t-num">13</td><td>退票申請明細</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/detail</td></tr>
-      <tr><td class="t-num">14</td><td>確認或取消退票</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/confirm</td></tr>
-      <tr><td class="t-num">15</td><td>查詢機場資訊</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airports/list</td></tr>
-      <tr><td class="t-num">16</td><td>查詢航空公司資訊</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airlines/list</td></tr>
-      <tr><td class="t-num">17</td><td>搜尋機場資訊</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airports/search</td></tr>
-      <tr><td class="t-num">18</td><td>查詢國籍清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/nationality/list</td></tr>
-      <tr><td class="t-num">19</td><td>查詢欄位翻譯</td><td class="t-mid"><span class="method method--get">GET</span></td><td class="t-path">/openapi/v1/flink/fields</td></tr>
-    </tbody>
-  </table>
-</div></div>
-
-    <h3>介面分組</h3>
-    <ul class="bul">
-      <li><iconify-icon icon="solar:magnifer-linear"></iconify-icon><span><strong>查詢與定價</strong> —
-        <code class="inl">flight/search</code>, <code class="inl">flight/cabin</code>,
-        <code class="inl">flight/verify</code>。下單前務必驗價，票價會變動。</span></li>
-      <li><iconify-icon icon="solar:ticket-linear"></iconify-icon><span><strong>下單與開票</strong> —
-        <code class="inl">flight/order/create</code>, <code class="inl">flight/order/pay</code>,
-        <code class="inl">flight/order/detail</code>, <code class="inl">flight/order/cancel</code>.</span></li>
-      <li><iconify-icon icon="solar:restart-linear"></iconify-icon><span><strong>改期</strong> ——四個介面，從改期查詢到改期明細。距起飛不足四小時的改期會被拒絕，需人工處理。</span></li>
-      <li><iconify-icon icon="solar:hand-money-linear"></iconify-icon><span><strong>退票</strong> ——申請、明細，再確認或取消。</span></li>
-      <li><iconify-icon icon="solar:global-linear"></iconify-icon><span><strong>基礎資料</strong> ——機場、航空公司、機場搜尋、國籍清單與欄位翻譯。請在本機快取。</span></li>
-    </ul>
-
-    <div class="note">
-      <iconify-icon icon="solar:danger-triangle-linear"></iconify-icon>
-      <span><strong>下單前請立即驗價。</strong> <code class="inl">flight/verify</code>
-      會回傳目前價格並確認該票價仍可預訂。略過這一步是下單失敗最常見的原因 <code class="inl">order/create</code>.</span>
-    </div>
-
-    <div class="band-foot">
-      <a class="btn" href="api-docs-errors.html">錯誤碼說明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink tlink--o" href="skills.html">安裝 F-Link Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+<section class="blk blk--top">
+  <div class="wrap">
+    <div class="mini rv">
+      <div><p class="n">8</p><p class="c">已發布 SDK</p></div>
+      <div><p class="n">3</p><p class="c">支援語言 · Go · Java · Python</p></div>
+      <div><p class="n">100<u>%</u></p><p class="c">核心對接涵蓋率</p></div>
     </div>
   </div>
-</div>
-</div>
+</section>
+
+<section class="blk" style="padding-top:24px">
+  <div class="wrap">
+    <div class="blk-head">
+      <p class="eyebrow micro">現已提供</p>
+      <h2 class="h3">安裝、設定金鑰對， <em>即可呼叫介面。</em></h2>
+      <p class="lede">每個 SDK 都包含同樣三樣東西：快速上手、變更紀錄與簽章驗證工具。下載並安裝後，在伺服器端設定 AppKey 與 AppSecret——切勿放在用戶端。</p>
+    </div>
+    <div class="cards cards--2">
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 介面 · Java</p>
+      <h3>TMC Java SDK</h3>
+      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
+      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 30 日</span></div>
+      <div><span class="k">狀態</span><span class="v">已發布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安裝</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>mvn install:install-file -Dfile=tmc-sdk-java-1.0.0.jar -DgroupId=com.platform.tmc -DartifactId=tmc-sdk-java -Dversion=1.0.0 -Dpackaging=jar</code>
+        <button type="button">複製</button>
+      </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 介面 · Python</p>
+      <h3>TMC Python SDK</h3>
+      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
+      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 30 日</span></div>
+      <div><span class="k">狀態</span><span class="v">已發布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安裝</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>pip install tmc_sdk_python-1.0.0-py3-none-any.whl</code>
+        <button type="button">複製</button>
+      </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 介面 · Go</p>
+      <h3>開放平台 Go SDK</h3>
+      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
+      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 30 日</span></div>
+      <div><span class="k">狀態</span><span class="v">已發布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安裝</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>go get open-platform/sdk/tmc</code>
+        <button type="button">複製</button>
+      </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>G-Link 飯店 · Python</p>
+      <h3>G-Link 飯店 Python SDK</h3>
+      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v2.5.3</span></div>
+      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 13 日</span></div>
+      <div><span class="k">狀態</span><span class="v">已發布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安裝</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>pip install glink-sdk-python</code>
+        <button type="button">複製</button>
+      </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+    </div>
+
+    <div class="note rv" style="margin-top:24px">
+      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
+      <span><strong>Node.js 開發中。</strong> 在發布之前，請直接呼叫 REST 介面—— <a href="api-docs-hotel-apis.html" style="color:var(--ink);font-weight:500">介面參考</a>
+      中提供完整的請求與回應結構。</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="blk">
+  <div class="wrap">
+    <div class="blk-head">
+      <p class="eyebrow micro">對接方式</p>
+      <h2 class="h3">三種接入方式。</h2>
+    </div>
+    <div class="iopts">
+      <article class="icard rv">
+        <div class="icard-ic"><iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon></div>
+        <h3>MCP 智慧對接</h3>
+        <span class="k">Model Context Protocol</span>
+        <p>讓 AI 模型直接呼叫旅遊能力。為大型語言模型應用與助理而設計。</p>
+        <div class="icard-foot"><a class="tlink tlink--o" href="skills.html">Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </article>
+      <article class="icard rv">
+        <div class="icard-ic"><iconify-icon icon="solar:code-square-linear"></iconify-icon></div>
+        <h3>SDK 快速對接</h3>
+        <span class="k">Go · Java · Python</span>
+        <p>驗證、重試與序列化皆已內建。Node.js 開發中。</p>
+        <div class="icard-foot"><div class="langs">
+          <span class="chip">Go</span><span class="chip">Java</span><span class="chip">Python</span>
+          <span class="chip soon">Node.js</span>
+        </div></div>
+      </article>
+      <article class="icard rv">
+        <div class="icard-ic"><iconify-icon icon="solar:global-linear"></iconify-icon></div>
+        <h3>REST API</h3>
+        <span class="k">不限語言</span>
+        <p>標準介面，任何語言或框架都能呼叫，不需 SDK。</p>
+        <div class="icard-foot"><a class="tlink tlink--o" href="api-docs-hotel-apis.html">介面參考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="ftr">
@@ -1116,6 +1204,23 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   Array.prototype.forEach.call(items, function(el, i){
     el.style.transitionDelay = (Math.min(i, 3) * 60) + 'ms';
     io.observe(el);
+  });
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.cmd button');
+    if (!b) return;
+    var code = b.parentNode.querySelector('code');
+    if (!code || !navigator.clipboard) return;
+    navigator.clipboard.writeText(code.textContent.trim()).then(function(){
+      var was = b.textContent;
+      b.textContent = 'Copied';
+      b.classList.add('done');
+      setTimeout(function(){ b.textContent = was; b.classList.remove('done'); }, 1600);
+    });
   });
 })();
 </script>

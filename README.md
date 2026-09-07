@@ -9,7 +9,7 @@ Separate from `cwong-acmy/fcg-website`, which holds the marketing site.
 
 | Path | What |
 | --- | --- |
-| [open-portal-redesign/variant-b-impeccable/](open-portal-redesign/variant-b-impeccable) | The build. 12 pages × 3 languages: English at the root, Simplified in `zh-CN/`, Traditional in `zh-TW/`. |
+| [open-portal-redesign/variant-b-impeccable/](open-portal-redesign/variant-b-impeccable) | The build. 12 pages × 3 languages: English at the root, Simplified in `zh-Hans/`, Traditional in `zh-Hant/`. |
 | [open-portal-redesign/DESIGN-SYSTEM.md](open-portal-redesign/DESIGN-SYSTEM.md) | How to build a new page or app screen in this language. Written to be followed cold. |
 | [open-portal-redesign/BRIEF.md](open-portal-redesign/BRIEF.md) | The original brief. |
 | [open-portal-redesign/variant-a-huashu/](open-portal-redesign/variant-a-huashu) | The direction that was not chosen, kept for the record. |
@@ -32,7 +32,7 @@ python3 build-pages.py
 `build-pages.py` lifts the `<head>`, the token/CSS block and the behaviour script **verbatim** out of
 `index.html` and generates the nav and footer from one list, writing them back into `index.html` too — so
 a token cannot drift between pages. Page content is in `pages_content.py`. The Chinese editions are the
-same document with its text nodes swapped (`i18n.py` plus `i18n_zh_cn.py` / `i18n_zh_tw.py`), so markup
+same document with its text nodes swapped (`i18n.py` plus `i18n_zh_hans.py` / `i18n_zh_hant.py`), so markup
 and CSS are byte-identical across locales by construction.
 
 The build refuses to run if a copy rule breaks or if any string has no translation entry.
@@ -46,8 +46,8 @@ curl -s localhost:9222/json/version    # must return JSON
 
 cd open-portal-redesign
 NODE_PATH=$(npm root -g) node verify-pages.js            # English
-NODE_PATH=$(npm root -g) node verify-pages.js zh-CN      # Simplified
-NODE_PATH=$(npm root -g) node verify-pages.js zh-TW      # Traditional
+NODE_PATH=$(npm root -g) node verify-pages.js zh-Hans      # Simplified
+NODE_PATH=$(npm root -g) node verify-pages.js zh-Hant      # Traditional
 NODE_PATH=$(npm root -g) node verify-motion.js
 ```
 

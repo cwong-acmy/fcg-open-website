@@ -16,10 +16,10 @@ import sys
 from pathlib import Path
 
 import i18n
-from i18n_zh_cn import ZH_CN
-from i18n_zh_tw import ZH_TW
+from i18n_zh_hans import ZH_HANS
+from i18n_zh_hant import ZH_HANT
 
-TABLES = {"zh-CN": ZH_CN, "zh-TW": ZH_TW}
+TABLES = {"zh-Hans": ZH_HANS, "zh-Hant": ZH_HANT}
 
 HERE = Path(__file__).parent
 INDEX = HERE / "index.html"
@@ -98,8 +98,8 @@ LOGO = (
 # code, output subdirectory, <html lang>, switcher label
 LOCALES = [
     ("en", "", "en-GB", "ENG"),
-    ("zh-CN", "zh-CN", "zh-Hans", "简体"),
-    ("zh-TW", "zh-TW", "zh-Hant", "繁體"),
+    ("zh-Hans", "zh-Hans", "zh-Hans", "简体"),
+    ("zh-Hant", "zh-Hant", "zh-Hant", "繁體"),
 ]
 
 
@@ -644,7 +644,7 @@ BENIGN_COLLISIONS = {"AI Assistant", "App Management", "FCG Developer Platform"}
 
 def check_context_collisions(html, slug):
     # both locale tables carry identical keys, so either resolves the overrides
-    bad = i18n.find_context_collisions(html, ZH_CN) - BENIGN_COLLISIONS
+    bad = i18n.find_context_collisions(html, ZH_HANS) - BENIGN_COLLISIONS
     if bad:
         raise SystemExit(
             f"{slug}: these strings appear both in a heading and in ordinary copy, "

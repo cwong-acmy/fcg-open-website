@@ -16,7 +16,7 @@ would have produced mainland phrasing in Traditional characters:
   商旅管理公司 not 差旅管理公司   故障排除 not 故障排查
 """
 
-ZH_TW = {
+ZH_HANT = {
     # ---- chrome: nav, footer, meta ----------------------------------------
     "Skip to content": "跳至主要內容",
     "FCG Developer Platform — home": "FCG 開放平台 — 首頁",

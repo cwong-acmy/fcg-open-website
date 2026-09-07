@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>錯誤碼說明 — FCG 開放平台</title>
-<meta name="description" content="FCG 平台所有錯誤碼及其成因與處理方式，涵蓋 API、SDK 與 MCP 三種對接方式。">
+<title>G-Link 介面參考 — FCG 開放平台</title>
+<meta name="description" content="G-Link 飯店介面全集，含請求方法、路徑與完整的請求與回應範例。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -892,9 +892,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
     <div class="nav-right">
       <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-errors.html">ENG</a>
-        <a href="../zh-CN/api-docs-errors.html">简体</a>
-        <a href="api-docs-errors.html" aria-current="page">繁體</a>
+        <a href="../api-docs-hotel-apis.html">ENG</a>
+        <a href="../zh-Hans/api-docs-hotel-apis.html">简体</a>
+        <a href="api-docs-hotel-apis.html" aria-current="page">繁體</a>
       </div>
       <a class="login" href="login.html">登入</a>
       <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
@@ -917,9 +917,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <div class="m-cta">
         <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
         <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-errors.html">ENG</a>
-        <a href="../zh-CN/api-docs-errors.html">简体</a>
-        <a href="api-docs-errors.html" aria-current="page">繁體</a>
+        <a href="../api-docs-hotel-apis.html">ENG</a>
+        <a href="../zh-Hans/api-docs-hotel-apis.html">简体</a>
+        <a href="api-docs-hotel-apis.html" aria-current="page">繁體</a>
       </div>
       </div>
     </div>
@@ -930,14 +930,14 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
-      <p class="crumb"><a href="api-docs-hotel.html">文件中心</a> <i>/</i> <span>錯誤碼說明</span></p>
+      <p class="crumb"><a href="api-docs-hotel.html">文件中心</a> <i>/</i> <a href="api-docs-hotel.html">G-Link Hotel API</a> <i>/</i> <span>介面參考</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">涵蓋所有產品與對接方式</p>
+        <p class="eyebrow micro">沙箱與生產環境</p>
         
       </div>
-      <h1>錯誤碼說明</h1>
-      <p class="lede"><b>平台回傳的每一個錯誤碼</b>，以及成因與處理方式。錯誤碼在各產品間保持一致；產品與對接方式兩欄說明它可能出現在何處。</p>
-      <div class="band-foot"><nav class="rail" aria-label="章節"><a href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">對接流程</a><a href="api-docs-hotel-apis.html">介面參考</a><a class="on" href="api-docs-errors.html">錯誤碼</a></nav></div>
+      <h1>G-Link 介面參考</h1>
+      <p class="lede"><b>G-Link 全部介面，依功能分組。</b> 下方以其中一個介面作為完整範例；整套介面的請求與回應結構一致。</p>
+      <div class="band-foot"><nav class="rail" aria-label="章節"><a href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">對接流程</a><a class="on" href="api-docs-hotel-apis.html">介面參考</a><a href="api-docs-errors.html">錯誤碼</a></nav></div>
   </div>
 </section>
 
@@ -945,53 +945,116 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <div class="docs">
   <aside class="docs-side">
     <div class="docs-side-in">
-      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">產品文件</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a class="on" href="api-docs-errors.html">錯誤碼說明</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章節</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">對接流程</a></li><li><a href="api-docs-hotel-apis.html">介面參考</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">產品文件</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">錯誤碼說明</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章節</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">對接流程</a></li><li><a class="on" href="api-docs-hotel-apis.html">介面參考</a></li></ul></nav></div>
       <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">開發者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下載</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助理</a></li></ul></nav></div>
     </div>
   </aside>
   <div class="docs-main">
-    <h2>十二個錯誤碼， <em>四個類別。</em></h2>
-    <p>平台層錯誤碼 <code class="inl">1xxxx</code> 區間在所有情境下皆適用。產品層錯誤碼僅限 G-Link 或 F-Link。 <code class="inl">MCP</code> 與 <code class="inl">SDK</code> 前綴屬於對接層失敗，請求不會送達旅遊供應商。</p>
+    <h2>二十個介面， <em>五個分組。</em></h2>
+    <p>先是靜態資料，接著即時預訂，最後是訂單與回呼。路徑以生產環境網域為準；沙箱網域會隨沙箱憑證一併提供。</p>
 
     <div class="tblwrap"><div class="tblscroll">
-  <table class="tbl" style="min-width:1020px">
-    <thead><tr><th>錯誤碼</th><th>提示訊息</th><th>產品</th><th>對接方式</th><th>成因</th><th>處理方式</th></tr></thead>
+  <table class="tbl" style="min-width:660px">
+    <thead><tr><th>介面</th><th>方法</th><th>路徑</th></tr></thead>
     <tbody>
-      <tr><td class="t-code">10001</td><td>簽章驗證失敗</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">API</td><td class="t-dim">AppSecret 有誤，或簽章演算法不一致。</td><td>請核對 AppSecret，並依簽章指南重新產生簽章。</td></tr>
-      <tr><td class="t-code">10002</td><td>AppKey 不存在或已停用</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">—</td><td class="t-dim">應用程式狀態異常。</td><td>請登入主控台查看應用程式狀態；若已停用，請聯繫技術支援。</td></tr>
-      <tr><td class="t-code">10003</td><td>請求超出流量限制</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">API</td><td class="t-dim">呼叫頻率超出上限。</td><td>請降低呼叫頻率並在本機快取。生產環境預設每分鐘 100 次。</td></tr>
-      <tr><td class="t-code">20001</td><td>城市代碼無效</td><td class="t-mid t-dim">G-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">cityCode 不在支援清單內。</td><td>請使用 G-Link 城市代碼表中的標準代碼。</td></tr>
-      <tr><td class="t-code">20002</td><td>日期格式無效</td><td class="t-mid t-dim">G-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">日期未依 YYYY-MM-DD 格式。</td><td>請以 YYYY-MM-DD 傳入日期，例如 2026-04-01。</td></tr>
-      <tr><td class="t-code">20003</td><td>飯店無法預訂</td><td class="t-mid t-dim">G-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">所選飯店或房型暫時無法販售。</td><td>請改選房型，或聯繫技術支援確認飯店狀態。</td></tr>
-      <tr><td class="t-code">30001</td><td>航班已客滿</td><td class="t-mid t-dim">F-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">所選航班經濟艙已無空位。</td><td>請查詢其他航班或艙等。</td></tr>
-      <tr><td class="t-code">30002</td><td>改期申請過晚</td><td class="t-mid t-dim">F-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">距起飛不足四小時。</td><td>請提早提交改期，或聯繫技術支援人工處理。</td></tr>
-      <tr><td class="t-code">MCP001</td><td>MCP 連線逾時</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">MCP</td><td class="t-dim">網路不穩定，或伺服器忙碌。</td><td>請檢查網路，將逾時時間調整為 30 秒並加入重試機制。</td></tr>
-      <tr><td class="t-code">MCP002</td><td>MCP 驗證失敗</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">MCP</td><td class="t-dim">權杖已過期或格式不正確。</td><td>請重新取得權杖，並以 Bearer 形式放入 Authorization 標頭。</td></tr>
-      <tr><td class="t-code">SDK001</td><td>SDK 初始化失敗</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">SDK</td><td class="t-dim">AppKey 或 AppSecret 為空或格式不正確。</td><td>請檢查初始化參數，確認兩個值均已正確傳入。</td></tr>
-      <tr><td class="t-code">SDK002</td><td>SDK 版本不相容</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">SDK</td><td class="t-dim">目前 SDK 版本過舊，不支援此功能。</td><td>請升級至最新 SDK，並查閱變更紀錄。</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">地區靜態資料</td></tr>
+      <tr><td style="background:rgba(15,17,20,.02)">查詢國家清單</td><td class="t-mid" style="background:rgba(15,17,20,.02)"><span class="method">POST</span></td><td class="t-path" style="background:rgba(15,17,20,.02)">/openapi/v1/glink/region/countries</td></tr>
+      <tr><td>查詢城市清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/cities</td></tr>
+      <tr><td>查詢熱門城市清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/hotCities</td></tr>
+      <tr><td>查詢商圈清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/businessZones</td></tr>
+      <tr><td>查詢行政區清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/region/districts</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">飯店資訊</td></tr>
+      <tr><td>可販售飯店 ID 清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/search/hotelIdList</td></tr>
+      <tr><td>查詢飯店基本資訊</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/detail</td></tr>
+      <tr><td>飯店每日最低價</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/lowestPrice</td></tr>
+      <tr><td>飯店靜態資料增量</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/increment</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">飯店預訂</td></tr>
+      <tr><td>飯店即時商品查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/productDetails</td></tr>
+      <tr><td>試單（可訂性檢查）</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/availabilityCheck</td></tr>
+      <tr><td>建立訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/createOrder</td></tr>
+      <tr><td>訂單付款</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/payOrder</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">訂單資訊</td></tr>
+      <tr><td>訂單明細查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/orderDetail</td></tr>
+      <tr><td>取消訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/cancelOrder</td></tr>
+      <tr><td colspan="3" style="background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);padding:11px 20px">回呼通知</td></tr>
+      <tr><td>訂單狀態推送</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/notify/orderStatus</td></tr>
     </tbody>
   </table>
 </div></div>
 
-    <div class="note">
-      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
-      <span><strong>HTTP 200 並不代表成功。</strong> 請讀取回應內容中的 <code class="inl">code</code> 欄位。供應商業務失敗同樣回傳 HTTP 200，並帶有
-      <code class="inl">code=SUPPLIER_BIZ_ERROR</code>，上表中的錯誤碼也以同樣方式回傳。</span>
+    <h3>完整範例——查詢國家清單</h3>
+    <div class="ep">
+      <div class="ep-h">
+        <span class="method">POST</span>
+        <code>https://open.fusionconnectgroup.com/openapi/v1/glink/region/countries</code>
+      </div>
+      <div class="ep-b">
+        <h4>介面說明</h4>
+        <div class="card-meta" style="padding:0;margin-top:14px">
+          <div><span class="k">呼叫方</span><span class="v">合作夥伴</span></div>
+          <div><span class="k">回應方</span><span class="v">FCG</span></div>
+          <div><span class="k">流量限制</span><span class="v">100 req / min</span></div>
+        </div>
+        <p style="color:var(--muted);font-size:14px;line-height:23px;margin-top:16px;max-width:70ch">
+          合作夥伴呼叫此介面查詢 FCG 系統中的國家清單，通常在建立本機基礎資料時呼叫一次。</p>
+      </div>
+      <div class="ep-b">
+        <h4>請求內容參數</h4>
+        <div style="margin-top:14px"><ul class="plist">
+    <li><span class="pn">language</span><span class="pt">string</span><span class="pr">選填</span><span class="pd">語言。 <code class="inl">zh-CN</code> 為中文， <code class="inl">en-US</code> 為英文。預設為英文。</span></li>
+  </ul></div>
+      </div>
+      <div class="ep-b">
+        <h4>回應結構</h4>
+        <div style="margin-top:14px"><ul class="plist">
+    <li><span class="pn">code</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台業務代碼。 <code class="inl">SUCCESS</code> 表示成功。供應商業務失敗仍可能回傳 HTTP 200，並帶有 <code class="inl">code=SUPPLIER_BIZ_ERROR</code>.</span></li>
+    <li><span class="pn">data</span><span class="pt">array&lt;object&gt;</span><span class="pr">選填</span><span class="pd">國家清單。</span></li>
+    <li class="sub"><span class="pn">countryCode</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">國家代碼。</span></li>
+    <li class="sub"><span class="pn">countryId</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">國家 ID。</span></li>
+    <li class="sub"><span class="pn">countryName</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">國家名稱。</span></li>
+    <li><span class="pn">downstream_request_id</span><span class="pt">string</span><span class="pr">選填</span><span class="pd">G-Link 下游請求 ID。通常在呼叫成功後回傳。</span></li>
+    <li><span class="pn">message</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台提示訊息。成功時通常為 <code class="inl">ok</code> 。</span></li>
+    <li><span class="pn">request_id</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台請求 ID。</span></li>
+    <li><span class="pn">trace_id</span><span class="pt">string</span><span class="pr req">必填</span><span class="pd">平台追蹤 ID。</span></li>
+  </ul></div>
+      </div>
+      <div class="ep-b" style="padding:0">
+        <div class="term" style="border-radius:0;border:0">
+          <div class="term-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="t-label">請求</span>
+            <span class="t-right">application/json</span>
+          </div>
+          <div class="term-body"><pre>{
+  <span class="t-key">"language"</span>: <span class="t-dim">"en-US"</span>
+}</pre></div>
+          <div class="term-split"><span>回應</span></div>
+          <div class="term-body"><pre>{
+  <span class="t-key">"code"</span>: <span class="t-dim">"SUCCESS"</span>,
+  <span class="t-key">"data"</span>: [
+    {
+      <span class="t-key">"countryCode"</span>: <span class="t-dim">"CN"</span>,
+      <span class="t-key">"countryId"</span>: <span class="t-dim">"5302980"</span>,
+      <span class="t-key">"countryName"</span>: <span class="t-dim">"China"</span>
+    }
+  ],
+  <span class="t-key">"message"</span>: <span class="t-dim">"ok"</span>,
+  <span class="t-key">"request_id"</span>: <span class="t-dim">"req_dc3qor2zg6omq…"</span>,
+  <span class="t-key">"trace_id"</span>: <span class="t-dim">"trc_dc3qor2zg6omq…"</span>
+}</pre></div>
+        </div>
+      </div>
     </div>
 
-    <h3>需要記錄的資訊</h3>
-    <ul class="bul">
-      <li><iconify-icon icon="solar:document-text-linear"></iconify-icon><span>請保留 <code class="inl">request_id</code>
-        與 <code class="inl">trace_id</code> ，每次呼叫都要記錄。缺少這兩個值，技術支援無法追查問題。</span></li>
-      <li><iconify-icon icon="solar:link-linear"></iconify-icon><span>請保留
-        <code class="inl">downstream_request_id</code> （介面回傳此欄位時）——它標示的是供應商端的呼叫，而非平台端。</span></li>
-      <li><iconify-icon icon="solar:clock-circle-linear"></iconify-icon><span>請以 UTC 記錄請求時間。流量限制爭議以平台時鐘為準。</span></li>
-    </ul>
+    <div class="note">
+      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
+      <span><strong>請判讀 <code class="inl">code</code>，而非 HTTP 狀態碼。</strong> 供應商業務失敗會回傳 HTTP 200，並帶有 <code class="inl">code=SUPPLIER_BIZ_ERROR</code>。請依回應內容分支處理。</span>
+    </div>
 
     <div class="band-foot">
-      <a class="btn" href="ai-assistant.html">詢問 AI 助理 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink tlink--o" href="index.html#start-integration">提交工單 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="btn" href="api-docs-errors.html">錯誤碼說明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink tlink--o" href="sdk.html">改用 SDK 對接 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
 </div>

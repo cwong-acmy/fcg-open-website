@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="zh-Hans" id="top">
+<html lang="zh-Hant" id="top">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>F-Link 机票接口 — FCG 开放平台</title>
-<meta name="description" content="F-Link 机票接口全部 19 个：查询、出票、改期、退票与基础数据。">
+<title>AI 助理 — FCG 開放平台</title>
+<meta name="description" content="關於介面對接、簽章驗證與訂單流程，可直接詢問 FCG 開放平台 AI 助理。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -868,37 +868,37 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 </style>
 </head>
 <body>
-<a class="skip" href="#main">跳转到正文</a>
+<a class="skip" href="#main">跳至主要內容</a>
 
 <!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
 
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="index.html" aria-label="FCG 开放平台 — 首页">
+    <a class="brand" href="index.html" aria-label="FCG 開放平台 — 首頁">
       <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 28px; width: auto;"><use href="#fcg-logo"></use></svg>
       <span class="brand-div" aria-hidden="true"></span>
-      <span class="brand-sub">开放平台</span>
+      <span class="brand-sub">開放平台</span>
     </a>
 
-    <nav class="shell" aria-label="主导航">
-      <a href="index.html">首页</a>
-      <a href="app-management.html">应用管理</a>
-      <a class="on" href="api-docs-hotel.html">接口文档</a>
+    <nav class="shell" aria-label="主導覽">
+      <a href="index.html">首頁</a>
+      <a href="app-management.html">應用程式管理</a>
+      <a href="api-docs-hotel.html">介面文件</a>
       <a href="sdk.html">SDK</a>
       <a href="skills.html">Skills 技能包</a>
-      <a href="ai-assistant.html">AI 助手</a>
+      <a class="on" href="ai-assistant.html">AI 助理</a>
     </nav>
 
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="语言">
-        <a href="../api-docs-flink.html">ENG</a>
-        <a href="api-docs-flink.html" aria-current="page">简体</a>
-        <a href="../zh-TW/api-docs-flink.html">繁體</a>
+      <div class="lang" role="group" aria-label="語言">
+        <a href="../ai-assistant.html">ENG</a>
+        <a href="../zh-Hans/ai-assistant.html">简体</a>
+        <a href="ai-assistant.html" aria-current="page">繁體</a>
       </div>
-      <a class="login" href="login.html">登录</a>
-      <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="打开菜单">
+      <a class="login" href="login.html">登入</a>
+      <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="開啟選單">
         <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
       </button>
     </div>
@@ -907,19 +907,19 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   <div class="mnav" id="mnav">
     <div class="wrap">
       <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="app-management.html">应用管理</a></li>
-        <li><a href="api-docs-hotel.html">接口文档</a></li>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="app-management.html">應用程式管理</a></li>
+        <li><a href="api-docs-hotel.html">介面文件</a></li>
         <li><a href="sdk.html">SDK</a></li>
         <li><a href="skills.html">Skills 技能包</a></li>
-        <li><a href="ai-assistant.html">AI 助手</a></li>
+        <li><a href="ai-assistant.html">AI 助理</a></li>
       </ul>
       <div class="m-cta">
-        <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <div class="lang" role="group" aria-label="语言">
-        <a href="../api-docs-flink.html">ENG</a>
-        <a href="api-docs-flink.html" aria-current="page">简体</a>
-        <a href="../zh-TW/api-docs-flink.html">繁體</a>
+        <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <div class="lang" role="group" aria-label="語言">
+        <a href="../ai-assistant.html">ENG</a>
+        <a href="../zh-Hans/ai-assistant.html">简体</a>
+        <a href="ai-assistant.html" aria-current="page">繁體</a>
       </div>
       </div>
     </div>
@@ -930,84 +930,97 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
-      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <span>F-Link Flight API</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">航司直连舱位库存</p>
-        
+        <p class="eyebrow micro">技術支援 · 對接諮詢</p>
+        <span class="chip chip--live"><span class="dot" aria-hidden="true"></span>線上</span>
       </div>
-      <h1>F-Link Flight API</h1>
-      <p class="lede"><b>航司直连舱位库存。</b> 覆盖国内与国际航司并支持 BSP，涵盖查询、定价、出票、退票与改期。19 个接口，统一的路径规范。</p>
-      <div class="band-foot"><nav class="rail" aria-label="章节"><a href="api-docs-hotel.html">G-Link Hotel</a><a class="on" href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">对接流程</a><a href="api-docs-hotel-apis.html">接口参考</a><a href="api-docs-errors.html">错误码</a></nav><a class="btn btn--sm" href="sdk.html">下载 SDK <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>AI 助理</h1>
+      <p class="lede"><b>對接過程中遇到問題？</b> 直接提問，數秒內取得以平台介面文件為依據的回答與程式範例。</p>
+      <div class="band-foot"><a class="btn" href="#ask">開始對話 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="tlink tlink--o" href="api-docs-errors.html">錯誤碼說明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
   </div>
 </section>
 
-<div class="wrap">
-<div class="docs">
-  <aside class="docs-side">
-    <div class="docs-side-in">
-      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a class="on" href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章节</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">对接流程</a></li><li><a href="api-docs-hotel-apis.html">接口参考</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">开发者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下载</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助手</a></li></ul></nav></div>
-    </div>
-  </aside>
-  <div class="docs-main">
-    <h2>F-Link 全部接口。</h2>
-    <p>每个机票接口路径都包含 <code class="inl">&#123;lang&#125;</code> 段—— <code class="inl">zh-CN</code>
-       或 <code class="inl">en-US</code> ——用于指定返回文案与错误信息的语言。仅字段翻译接口例外，不带语言段。</p>
+<section class="blk blk--top" id="ask">
+  <div class="wrap">
+    <div class="chat">
+      <div class="chatbox rv">
+        <div class="chat-h">
+          <span class="av"><iconify-icon icon="solar:chat-square-code-linear"></iconify-icon></span>
+          <span>
+            <strong>FCG 開放平台 AI 助理</strong>
+            <span>技術支援 · 對接諮詢</span>
+          </span>
+          <span class="dot" aria-hidden="true" title="線上"></span>
+        </div>
+        <div class="chat-b">
+          <div class="msg msg--ai">
+            <p>您好，我是 FCG 開放平台 AI 助理。我可以協助處理介面對接、簽章驗證、訂單流程等問題。</p>
+            <p>直接輸入問題，或從常見問題中挑一個開始。</p>
+          </div>
+          <div class="msg msg--me">
+            <p>如何產生請求簽章？</p>
+          </div>
+          <div class="msg msg--ai">
+            <p>請依簽章指南中的演算法，使用 AppSecret 產生簽章，並隨請求一併送出。若驗證失敗，將回傳
+               <code class="inl">10001 Signature verification failed</code> ——常見原因是 AppSecret 有誤或簽章演算法不一致。</p>
+            <p>AppSecret 必須保存在伺服器端，切勿下發到用戶端。</p>
+          </div>
+        </div>
+        <div class="chat-in">
+          <label for="ask-in" class="micro" style="position:absolute;left:-9999px">您的問題</label>
+          <input id="ask-in" type="text" placeholder="可詢問簽章驗證、下單流程、錯誤碼……">
+          <button class="btn btn--sm" type="button">送出 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></button>
+        </div>
+        <p class="chat-f">AI 回答僅供參考。如需專業支援，請
+          <a href="index.html#start-integration">提交工單</a> 並聯繫技術團隊。</p>
+      </div>
 
-    <div class="tblwrap"><div class="tblscroll">
-  <table class="tbl" style="min-width:720px">
-    <thead><tr><th>序号</th><th>接口</th><th>方法</th><th>路径</th></tr></thead>
-    <tbody>
-      <tr><td class="t-num">1</td><td>航班查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/search</td></tr>
-      <tr><td class="t-num">2</td><td>获取更多运价</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/cabin</td></tr>
-      <tr><td class="t-num">3</td><td>下单前验价</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/verify</td></tr>
-      <tr><td class="t-num">4</td><td>提交预订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/create</td></tr>
-      <tr><td class="t-num">5</td><td>订单支付</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/pay</td></tr>
-      <tr><td class="t-num">6</td><td>标准订单详情</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/detail</td></tr>
-      <tr><td class="t-num">7</td><td>取消标准订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/cancel</td></tr>
-      <tr><td class="t-num">8</td><td>改期航班查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/search</td></tr>
-      <tr><td class="t-num">9</td><td>提交改期申请</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/apply</td></tr>
-      <tr><td class="t-num">10</td><td>取消改期申请</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/cancel</td></tr>
-      <tr><td class="t-num">11</td><td>改期申请详情</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/detail</td></tr>
-      <tr><td class="t-num">12</td><td>提交退票申请</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/apply</td></tr>
-      <tr><td class="t-num">13</td><td>退票申请详情</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/detail</td></tr>
-      <tr><td class="t-num">14</td><td>确认或取消退票</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/confirm</td></tr>
-      <tr><td class="t-num">15</td><td>查询机场信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airports/list</td></tr>
-      <tr><td class="t-num">16</td><td>查询航司信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airlines/list</td></tr>
-      <tr><td class="t-num">17</td><td>搜索机场信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airports/search</td></tr>
-      <tr><td class="t-num">18</td><td>查询国籍列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/nationality/list</td></tr>
-      <tr><td class="t-num">19</td><td>查询字段翻译</td><td class="t-mid"><span class="method method--get">GET</span></td><td class="t-path">/openapi/v1/flink/fields</td></tr>
-    </tbody>
-  </table>
-</div></div>
-
-    <h3>接口分组</h3>
-    <ul class="bul">
-      <li><iconify-icon icon="solar:magnifer-linear"></iconify-icon><span><strong>查询与定价</strong> —
-        <code class="inl">flight/search</code>, <code class="inl">flight/cabin</code>,
-        <code class="inl">flight/verify</code>。下单前务必验价，运价会变动。</span></li>
-      <li><iconify-icon icon="solar:ticket-linear"></iconify-icon><span><strong>下单与出票</strong> —
-        <code class="inl">flight/order/create</code>, <code class="inl">flight/order/pay</code>,
-        <code class="inl">flight/order/detail</code>, <code class="inl">flight/order/cancel</code>.</span></li>
-      <li><iconify-icon icon="solar:restart-linear"></iconify-icon><span><strong>改期</strong> ——四个接口，从改期查询到改期详情。距起飞不足四小时的改期将被拒绝，需人工处理。</span></li>
-      <li><iconify-icon icon="solar:hand-money-linear"></iconify-icon><span><strong>退票</strong> ——申请、详情，再确认或取消。</span></li>
-      <li><iconify-icon icon="solar:global-linear"></iconify-icon><span><strong>基础数据</strong> ——机场、航司、机场搜索、国籍列表与字段翻译。请在本地缓存。</span></li>
-    </ul>
-
-    <div class="note">
-      <iconify-icon icon="solar:danger-triangle-linear"></iconify-icon>
-      <span><strong>下单前请立即验价。</strong> <code class="inl">flight/verify</code>
-      会返回当前价格并确认该运价仍可预订。跳过这一步是导致下单失败最常见的原因 <code class="inl">order/create</code>.</span>
-    </div>
-
-    <div class="band-foot">
-      <a class="btn" href="api-docs-errors.html">错误码说明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink tlink--o" href="skills.html">安装 F-Link Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <div class="asks rv" role="group" aria-labelledby="asks-h">
+        <p class="asks-h" id="asks-h">常見問題</p>
+        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>如何產生請求簽章？</span></button>
+        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>availabilityCheck 為什麼回傳無法預訂？</span></button>
+        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>生產環境的流量限制是多少？</span></button>
+        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>orderStatus 重複推送該如何處理？</span></button>
+        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>哪一個 SDK 支援 TMC 介面？</span></button>
+        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>SUPPLIER_BIZ_ERROR 代表什麼？</span></button>
+      </div>
     </div>
   </div>
-</div>
-</div>
+</section>
+
+<hr class="rule">
+
+<section class="blk">
+  <div class="wrap">
+    <div class="blk-head sec-head--c" style="align-items:center;text-align:center">
+      <p class="eyebrow eyebrow--c micro">若助理無法解決</p>
+      <h2 class="h3" style="max-width:26ch">三種轉接真人的方式。</h2>
+    </div>
+    <div class="iopts">
+      <article class="icard rv">
+        <div class="icard-ic"><iconify-icon icon="solar:ticket-linear"></iconify-icon></div>
+        <h3>提交工單</h3>
+        <span class="k">技術支援</span>
+        <p>請附上失敗呼叫的 <code class="inl">request_id</code> 與 <code class="inl">trace_id</code> 。缺少這兩個值，技術支援無法追查問題。</p>
+        <div class="icard-foot"><a class="tlink tlink--o" href="login.html">開啟主控台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </article>
+      <article class="icard rv">
+        <div class="icard-ic"><iconify-icon icon="solar:document-text-linear"></iconify-icon></div>
+        <h3>查閱文件</h3>
+        <span class="k">文件中心</span>
+        <p>介面清單、請求與回應結構、完整範例，以及全部錯誤碼表。</p>
+        <div class="icard-foot"><a class="tlink tlink--o" href="api-docs-hotel.html">文件中心 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </article>
+      <article class="icard rv">
+        <div class="icard-ic"><iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon></div>
+        <h3>業務諮詢</h3>
+        <span class="k">業務</span>
+        <p>客製方案、專屬報價與 TMC 介面部署請洽業務團隊，而非技術支援。</p>
+        <div class="icard-foot"><a class="tlink tlink--o" href="index.html#start-integration">預約示範 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="ftr">
@@ -1015,27 +1028,27 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
     <div class="ftr-top">
       <div class="ftr-brand">
         <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 26px; width: auto;"><use href="#fcg-logo"></use></svg>
-        <p>FCG 开放平台：面向酒店、机票与差旅管理资源的标准化接口与灵活 SDK。</p>
+        <p>FCG 開放平台：針對飯店、機票與商旅管理資源的標準化介面與彈性 SDK。</p>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-products">产品</p>
+        <p class="ftr-h" id="ftr-products">產品</p>
         <nav aria-labelledby="ftr-products">
         <ul>
           <li><a href="api-docs-hotel.html">G-Link Hotel API</a></li>
           <li><a href="api-docs-flink.html">F-Link Flight API</a></li>
           <li><a href="index.html#products">TMC API</a></li>
-          <li><a href="index.html#use-cases">产品应用场景</a></li>
+          <li><a href="index.html#use-cases">產品應用情境</a></li>
         </ul>
         </nav>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-developers">开发者</p>
+        <p class="ftr-h" id="ftr-developers">開發者</p>
         <nav aria-labelledby="ftr-developers">
         <ul>
-          <li><a href="api-docs-hotel.html">接口文档</a></li>
+          <li><a href="api-docs-hotel.html">介面文件</a></li>
           <li><a href="sdk.html">SDK</a></li>
           <li><a href="skills.html">Skills 技能包</a></li>
-          <li><a href="api-docs-errors.html">错误码说明</a></li>
+          <li><a href="api-docs-errors.html">錯誤碼說明</a></li>
         </ul>
         </nav>
       </div>
@@ -1043,16 +1056,16 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
         <p class="ftr-h" id="ftr-platform">平台</p>
         <nav aria-labelledby="ftr-platform">
         <ul>
-          <li><a href="index.html">首页</a></li>
-          <li><a href="app-management.html">应用管理</a></li>
-          <li><a href="ai-assistant.html">AI 助手</a></li>
-          <li><a href="register.html">注册</a></li>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="app-management.html">應用程式管理</a></li>
+          <li><a href="ai-assistant.html">AI 助理</a></li>
+          <li><a href="register.html">註冊</a></li>
         </ul>
         </nav>
       </div>
     </div>
     <div class="ftr-bot">
-      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留所有权利。</span>
+      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留一切權利。</span>
       <span class="mono">ENG · 简体 · 繁體</span>
     </div>
   </div>

@@ -9,7 +9,7 @@ to read correctly when re-joined around that span — the surrounding punctuatio
 is carried in the fragment on purpose.
 """
 
-ZH_CN = {
+ZH_HANS = {
     # ---- chrome: nav, footer, meta ----------------------------------------
     "Skip to content": "跳转到正文",
     "FCG Developer Platform — home": "FCG 开放平台 — 首页",

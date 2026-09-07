@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 助手 — FCG 开放平台</title>
-<meta name="description" content="就接口对接、签名认证与订单流程，向 FCG 开放平台 AI 助手提问。">
+<title>SDK 接入中心 — FCG 开放平台</title>
+<meta name="description" content="FCG 旅游接口的 Go、Java 与 Python SDK，附安装命令与更新日志。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -885,16 +885,16 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <a href="index.html">首页</a>
       <a href="app-management.html">应用管理</a>
       <a href="api-docs-hotel.html">接口文档</a>
-      <a href="sdk.html">SDK</a>
+      <a class="on" href="sdk.html">SDK</a>
       <a href="skills.html">Skills 技能包</a>
-      <a class="on" href="ai-assistant.html">AI 助手</a>
+      <a href="ai-assistant.html">AI 助手</a>
     </nav>
 
     <div class="nav-right">
       <div class="lang" role="group" aria-label="语言">
-        <a href="../ai-assistant.html">ENG</a>
-        <a href="ai-assistant.html" aria-current="page">简体</a>
-        <a href="../zh-TW/ai-assistant.html">繁體</a>
+        <a href="../sdk.html">ENG</a>
+        <a href="sdk.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/sdk.html">繁體</a>
       </div>
       <a class="login" href="login.html">登录</a>
       <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
@@ -917,9 +917,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <div class="m-cta">
         <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
         <div class="lang" role="group" aria-label="语言">
-        <a href="../ai-assistant.html">ENG</a>
-        <a href="ai-assistant.html" aria-current="page">简体</a>
-        <a href="../zh-TW/ai-assistant.html">繁體</a>
+        <a href="../sdk.html">ENG</a>
+        <a href="sdk.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/sdk.html">繁體</a>
       </div>
       </div>
     </div>
@@ -931,59 +931,131 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
       <div class="band-top">
-        <p class="eyebrow micro">技术支持 · 对接咨询</p>
-        <span class="chip chip--live"><span class="dot" aria-hidden="true"></span>在线</span>
+        <p class="eyebrow micro">内置认证、重试与序列化</p>
+        
       </div>
-      <h1>AI 助手</h1>
-      <p class="lede"><b>对接过程中遇到问题？</b> 直接提问，数秒内获得基于平台自身接口文档的回答与代码示例。</p>
-      <div class="band-foot"><a class="btn" href="#ask">开始对话 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="tlink tlink--o" href="api-docs-errors.html">错误码说明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>SDK 接入中心</h1>
+      <p class="lede"><b>多语言 SDK</b> ，附安装命令、示例代码、更新日志与签名校验工具。目前已发布 Go、Java 与 Python，Node.js 正在开发中。</p>
+      <div class="band-foot"><a class="btn" href="register.html">获取沙箱凭证 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="btn btn--ghost" href="skills.html">Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
   </div>
 </section>
 
-<section class="blk blk--top" id="ask">
+<section class="blk blk--top">
   <div class="wrap">
-    <div class="chat">
-      <div class="chatbox rv">
-        <div class="chat-h">
-          <span class="av"><iconify-icon icon="solar:chat-square-code-linear"></iconify-icon></span>
-          <span>
-            <strong>FCG 开放平台 AI 助手</strong>
-            <span>技术支持 · 对接咨询</span>
-          </span>
-          <span class="dot" aria-hidden="true" title="在线"></span>
-        </div>
-        <div class="chat-b">
-          <div class="msg msg--ai">
-            <p>您好，我是 FCG 开放平台 AI 助手。我可以协助处理接口对接、签名认证、订单流程等问题。</p>
-            <p>直接输入问题，或从常见问题中选择一个开始。</p>
-          </div>
-          <div class="msg msg--me">
-            <p>如何生成请求签名？</p>
-          </div>
-          <div class="msg msg--ai">
-            <p>请按签名指南中的算法使用 AppSecret 生成签名，并随请求一并发送。若校验失败，将返回
-               <code class="inl">10001 Signature verification failed</code> ——常见原因是 AppSecret 有误或签名算法不一致。</p>
-            <p>AppSecret 必须保存在服务端，切勿下发到客户端。</p>
-          </div>
-        </div>
-        <div class="chat-in">
-          <label for="ask-in" class="micro" style="position:absolute;left:-9999px">您的问题</label>
-          <input id="ask-in" type="text" placeholder="可询问签名认证、下单流程、错误码……">
-          <button class="btn btn--sm" type="button">发送 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></button>
-        </div>
-        <p class="chat-f">AI 回答仅供参考。如需专业支持，请
-          <a href="index.html#start-integration">提交工单</a> 并联系技术团队。</p>
-      </div>
+    <div class="mini rv">
+      <div><p class="n">8</p><p class="c">已发布 SDK</p></div>
+      <div><p class="n">3</p><p class="c">支持语言 · Go · Java · Python</p></div>
+      <div><p class="n">100<u>%</u></p><p class="c">核心对接覆盖率</p></div>
+    </div>
+  </div>
+</section>
 
-      <div class="asks rv" role="group" aria-labelledby="asks-h">
-        <p class="asks-h" id="asks-h">常见问题</p>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>如何生成请求签名？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>availabilityCheck 为什么返回不可预订？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>生产环境的限流阈值是多少？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>orderStatus 重复推送该如何处理？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>哪个 SDK 支持 TMC 接口？</span></button>
-        <button type="button"><iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon><span>SUPPLIER_BIZ_ERROR 代表什么？</span></button>
+<section class="blk" style="padding-top:24px">
+  <div class="wrap">
+    <div class="blk-head">
+      <p class="eyebrow micro">现已提供</p>
+      <h2 class="h3">安装、配置密钥对， <em>即可调用接口。</em></h2>
+      <p class="lede">每个 SDK 都包含同样的三样东西：快速开始、更新日志与签名校验工具。下载并安装后，在服务端配置 AppKey 与 AppSecret——切勿放在客户端。</p>
+    </div>
+    <div class="cards cards--2">
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 接口 · Java</p>
+      <h3>TMC Java SDK</h3>
+      <p>正式发布版本。安装前请在发布说明中确认运行环境版本要求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
+      <div><span class="k">发布日期</span><span class="v">2026 年 7 月 30 日</span></div>
+      <div><span class="k">状态</span><span class="v">已发布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安装</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>mvn install:install-file -Dfile=tmc-sdk-java-1.0.0.jar -DgroupId=com.platform.tmc -DartifactId=tmc-sdk-java -Dversion=1.0.0 -Dpackaging=jar</code>
+        <button type="button">复制</button>
       </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文档 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下载 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 接口 · Python</p>
+      <h3>TMC Python SDK</h3>
+      <p>正式发布版本。安装前请在发布说明中确认运行环境版本要求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
+      <div><span class="k">发布日期</span><span class="v">2026 年 7 月 30 日</span></div>
+      <div><span class="k">状态</span><span class="v">已发布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安装</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>pip install tmc_sdk_python-1.0.0-py3-none-any.whl</code>
+        <button type="button">复制</button>
+      </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文档 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下载 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 接口 · Go</p>
+      <h3>开放平台 Go SDK</h3>
+      <p>正式发布版本。安装前请在发布说明中确认运行环境版本要求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
+      <div><span class="k">发布日期</span><span class="v">2026 年 7 月 30 日</span></div>
+      <div><span class="k">状态</span><span class="v">已发布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安装</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>go get open-platform/sdk/tmc</code>
+        <button type="button">复制</button>
+      </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文档 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下载 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+  <article class="card rv">
+    <div class="card-h">
+      <p class="card-k"><span class="dot" aria-hidden="true"></span>G-Link 酒店 · Python</p>
+      <h3>G-Link 酒店 Python SDK</h3>
+      <p>正式发布版本。安装前请在发布说明中确认运行环境版本要求。</p>
+    </div>
+    <div class="card-meta">
+      <div><span class="k">版本</span><span class="v">v2.5.3</span></div>
+      <div><span class="k">发布日期</span><span class="v">2026 年 7 月 13 日</span></div>
+      <div><span class="k">状态</span><span class="v">已发布</span></div>
+    </div>
+    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
+      <h4>安装</h4>
+      <div class="cmd" style="margin-top:12px">
+        <code>pip install glink-sdk-python</code>
+        <button type="button">复制</button>
+      </div>
+    </div>
+    <div class="card-f">
+      <a class="btn btn--sm" href="api-docs-hotel.html">查看文档 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink" href="login.html">下载 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </article>
+    </div>
+
+    <div class="note rv" style="margin-top:24px">
+      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
+      <span><strong>Node.js 正在开发中。</strong> 在发布之前，请直接调用 REST 接口—— <a href="api-docs-hotel-apis.html" style="color:var(--ink);font-weight:500">接口参考</a>
+      中提供了完整的请求与响应结构。</span>
     </div>
   </div>
 </section>
@@ -992,31 +1064,34 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
 <section class="blk">
   <div class="wrap">
-    <div class="blk-head sec-head--c" style="align-items:center;text-align:center">
-      <p class="eyebrow eyebrow--c micro">若助手无法解决</p>
-      <h2 class="h3" style="max-width:26ch">三条转人工的途径。</h2>
+    <div class="blk-head">
+      <p class="eyebrow micro">对接方式</p>
+      <h2 class="h3">三种接入方式。</h2>
     </div>
     <div class="iopts">
       <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:ticket-linear"></iconify-icon></div>
-        <h3>提交工单</h3>
-        <span class="k">技术支持</span>
-        <p>请附上失败调用的 <code class="inl">request_id</code> 与 <code class="inl">trace_id</code> 。缺少这两个值，技术支持无法定位问题。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="login.html">打开控制台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+        <div class="icard-ic"><iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon></div>
+        <h3>MCP 智能对接</h3>
+        <span class="k">Model Context Protocol</span>
+        <p>让 AI 模型直接调用旅游能力。面向大模型应用与助手场景。</p>
+        <div class="icard-foot"><a class="tlink tlink--o" href="skills.html">Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
       </article>
       <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:document-text-linear"></iconify-icon></div>
-        <h3>查阅文档</h3>
-        <span class="k">文档中心</span>
-        <p>接口清单、请求与响应结构、完整示例以及全部错误码表。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="api-docs-hotel.html">文档中心 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+        <div class="icard-ic"><iconify-icon icon="solar:code-square-linear"></iconify-icon></div>
+        <h3>SDK 快速对接</h3>
+        <span class="k">Go · Java · Python</span>
+        <p>认证、重试与序列化均已内置。Node.js 正在开发中。</p>
+        <div class="icard-foot"><div class="langs">
+          <span class="chip">Go</span><span class="chip">Java</span><span class="chip">Python</span>
+          <span class="chip soon">Node.js</span>
+        </div></div>
       </article>
       <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon></div>
-        <h3>商务咨询</h3>
-        <span class="k">商务</span>
-        <p>定制方案、专属报价与 TMC 接口部署请联系商务团队，而非技术支持。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="index.html#start-integration">预约演示 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+        <div class="icard-ic"><iconify-icon icon="solar:global-linear"></iconify-icon></div>
+        <h3>REST API</h3>
+        <span class="k">不限语言</span>
+        <p>标准接口，任何语言或框架均可调用，无需 SDK。</p>
+        <div class="icard-foot"><a class="tlink tlink--o" href="api-docs-hotel-apis.html">接口参考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
       </article>
     </div>
   </div>
@@ -1129,6 +1204,23 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   Array.prototype.forEach.call(items, function(el, i){
     el.style.transitionDelay = (Math.min(i, 3) * 60) + 'ms';
     io.observe(el);
+  });
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.cmd button');
+    if (!b) return;
+    var code = b.parentNode.querySelector('code');
+    if (!code || !navigator.clipboard) return;
+    navigator.clipboard.writeText(code.textContent.trim()).then(function(){
+      var was = b.textContent;
+      b.textContent = 'Copied';
+      b.classList.add('done');
+      setTimeout(function(){ b.textContent = was; b.classList.remove('done'); }, 1600);
+    });
   });
 })();
 </script>

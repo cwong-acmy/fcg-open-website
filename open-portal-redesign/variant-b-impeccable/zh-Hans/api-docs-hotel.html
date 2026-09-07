@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="zh-Hant" id="top">
+<html lang="zh-Hans" id="top">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SDK 整合中心 — FCG 開放平台</title>
-<meta name="description" content="FCG 旅遊介面的 Go、Java 與 Python SDK，附安裝指令與變更紀錄。">
+<title>G-Link 酒店接口 — FCG 开放平台</title>
+<meta name="description" content="G-Link 酒店接口的必接接口、静态数据处理与限流规则。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -868,37 +868,37 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 </style>
 </head>
 <body>
-<a class="skip" href="#main">跳至主要內容</a>
+<a class="skip" href="#main">跳转到正文</a>
 
 <!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
 
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="index.html" aria-label="FCG 開放平台 — 首頁">
+    <a class="brand" href="index.html" aria-label="FCG 开放平台 — 首页">
       <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 28px; width: auto;"><use href="#fcg-logo"></use></svg>
       <span class="brand-div" aria-hidden="true"></span>
-      <span class="brand-sub">開放平台</span>
+      <span class="brand-sub">开放平台</span>
     </a>
 
-    <nav class="shell" aria-label="主導覽">
-      <a href="index.html">首頁</a>
-      <a href="app-management.html">應用程式管理</a>
-      <a href="api-docs-hotel.html">介面文件</a>
-      <a class="on" href="sdk.html">SDK</a>
+    <nav class="shell" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="app-management.html">应用管理</a>
+      <a class="on" href="api-docs-hotel.html">接口文档</a>
+      <a href="sdk.html">SDK</a>
       <a href="skills.html">Skills 技能包</a>
-      <a href="ai-assistant.html">AI 助理</a>
+      <a href="ai-assistant.html">AI 助手</a>
     </nav>
 
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="語言">
-        <a href="../sdk.html">ENG</a>
-        <a href="../zh-CN/sdk.html">简体</a>
-        <a href="sdk.html" aria-current="page">繁體</a>
+      <div class="lang" role="group" aria-label="语言">
+        <a href="../api-docs-hotel.html">ENG</a>
+        <a href="api-docs-hotel.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-hotel.html">繁體</a>
       </div>
-      <a class="login" href="login.html">登入</a>
-      <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="開啟選單">
+      <a class="login" href="login.html">登录</a>
+      <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="打开菜单">
         <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
       </button>
     </div>
@@ -907,19 +907,19 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   <div class="mnav" id="mnav">
     <div class="wrap">
       <ul>
-        <li><a href="index.html">首頁</a></li>
-        <li><a href="app-management.html">應用程式管理</a></li>
-        <li><a href="api-docs-hotel.html">介面文件</a></li>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="app-management.html">应用管理</a></li>
+        <li><a href="api-docs-hotel.html">接口文档</a></li>
         <li><a href="sdk.html">SDK</a></li>
         <li><a href="skills.html">Skills 技能包</a></li>
-        <li><a href="ai-assistant.html">AI 助理</a></li>
+        <li><a href="ai-assistant.html">AI 助手</a></li>
       </ul>
       <div class="m-cta">
-        <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <div class="lang" role="group" aria-label="語言">
-        <a href="../sdk.html">ENG</a>
-        <a href="../zh-CN/sdk.html">简体</a>
-        <a href="sdk.html" aria-current="page">繁體</a>
+        <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <div class="lang" role="group" aria-label="语言">
+        <a href="../api-docs-hotel.html">ENG</a>
+        <a href="api-docs-hotel.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-hotel.html">繁體</a>
       </div>
       </div>
     </div>
@@ -930,172 +930,83 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
+      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <span>G-Link Hotel API</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">內建驗證、重試與序列化</p>
+        <p class="eyebrow micro">同时支持 SDK 与 API 对接</p>
         
       </div>
-      <h1>SDK 整合中心</h1>
-      <p class="lede"><b>多語言 SDK</b> ，附安裝指令、範例程式、變更紀錄與簽章驗證工具。目前已發布 Go、Java 與 Python，Node.js 開發中。</p>
-      <div class="band-foot"><a class="btn" href="register.html">取得沙箱憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="btn btn--ghost" href="skills.html">Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>G-Link Hotel API</h1>
+      <p class="lede"><b>全球主要酒店库存</b> ，通过一套标准化接口提供。完整流程涵盖实时查询、试单、预订、支付与取消。</p>
+      <div class="band-foot"><nav class="rail" aria-label="章节"><a class="on" href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">对接流程</a><a href="api-docs-hotel-apis.html">接口参考</a><a href="api-docs-errors.html">错误码</a></nav><a class="btn btn--sm" href="sdk.html">下载 SDK <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a></div>
   </div>
 </section>
 
-<section class="blk blk--top">
-  <div class="wrap">
-    <div class="mini rv">
-      <div><p class="n">8</p><p class="c">已發布 SDK</p></div>
-      <div><p class="n">3</p><p class="c">支援語言 · Go · Java · Python</p></div>
-      <div><p class="n">100<u>%</u></p><p class="c">核心對接涵蓋率</p></div>
+<div class="wrap">
+<div class="docs">
+  <aside class="docs-side">
+    <div class="docs-side-in">
+      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a class="on" href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章节</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">对接流程</a></li><li><a href="api-docs-hotel-apis.html">接口参考</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">开发者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下载</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助手</a></li></ul></nav></div>
     </div>
-  </div>
-</section>
+  </aside>
+  <div class="docs-main">
+    <h2>八个接口即可完成一笔酒店预订。</h2>
+    <p>以下为必接接口。接口参考中的其余部分，均为围绕它们的静态数据、增量更新与回调处理。</p>
 
-<section class="blk" style="padding-top:24px">
-  <div class="wrap">
-    <div class="blk-head">
-      <p class="eyebrow micro">現已提供</p>
-      <h2 class="h3">安裝、設定金鑰對， <em>即可呼叫介面。</em></h2>
-      <p class="lede">每個 SDK 都包含同樣三樣東西：快速上手、變更紀錄與簽章驗證工具。下載並安裝後，在伺服器端設定 AppKey 與 AppSecret——切勿放在用戶端。</p>
-    </div>
-    <div class="cards cards--2">
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 介面 · Java</p>
-      <h3>TMC Java SDK</h3>
-      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
-      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 30 日</span></div>
-      <div><span class="k">狀態</span><span class="v">已發布</span></div>
-    </div>
-    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
-      <h4>安裝</h4>
-      <div class="cmd" style="margin-top:12px">
-        <code>mvn install:install-file -Dfile=tmc-sdk-java-1.0.0.jar -DgroupId=com.platform.tmc -DartifactId=tmc-sdk-java -Dversion=1.0.0 -Dpackaging=jar</code>
-        <button type="button">複製</button>
-      </div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 介面 · Python</p>
-      <h3>TMC Python SDK</h3>
-      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
-      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 30 日</span></div>
-      <div><span class="k">狀態</span><span class="v">已發布</span></div>
-    </div>
-    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
-      <h4>安裝</h4>
-      <div class="cmd" style="margin-top:12px">
-        <code>pip install tmc_sdk_python-1.0.0-py3-none-any.whl</code>
-        <button type="button">複製</button>
-      </div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC 介面 · Go</p>
-      <h3>開放平台 Go SDK</h3>
-      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">版本</span><span class="v">v1.0.0</span></div>
-      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 30 日</span></div>
-      <div><span class="k">狀態</span><span class="v">已發布</span></div>
-    </div>
-    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
-      <h4>安裝</h4>
-      <div class="cmd" style="margin-top:12px">
-        <code>go get open-platform/sdk/tmc</code>
-        <button type="button">複製</button>
-      </div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>G-Link 飯店 · Python</p>
-      <h3>G-Link 飯店 Python SDK</h3>
-      <p>正式發布版本。安裝前請於發布說明中確認執行環境版本需求。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">版本</span><span class="v">v2.5.3</span></div>
-      <div><span class="k">發布日期</span><span class="v">2026 年 7 月 13 日</span></div>
-      <div><span class="k">狀態</span><span class="v">已發布</span></div>
-    </div>
-    <div class="ep-b" style="border-top:1px solid var(--hair);padding:20px 24px">
-      <h4>安裝</h4>
-      <div class="cmd" style="margin-top:12px">
-        <code>pip install glink-sdk-python</code>
-        <button type="button">複製</button>
-      </div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="api-docs-hotel.html">查看文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="login.html">下載 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-    </div>
+    <div class="tblwrap"><div class="tblscroll">
+  <table class="tbl" style="min-width:700px">
+    <thead><tr><th>序号</th><th>接口</th><th>方法</th><th>路径</th></tr></thead>
+    <tbody>
+      <tr><td class="t-num">1</td><td>可售酒店 ID 列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/search/hotelIdList</td></tr>
+      <tr><td class="t-num">2</td><td>查询酒店基础信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/detail</td></tr>
+      <tr><td class="t-num">3</td><td>酒店实时产品查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/productDetails</td></tr>
+      <tr><td class="t-num">4</td><td>试单（可订性校验）</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/availabilityCheck</td></tr>
+      <tr><td class="t-num">5</td><td>创建订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/createOrder</td></tr>
+      <tr><td class="t-num">6</td><td>订单支付</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/payOrder</td></tr>
+      <tr><td class="t-num">7</td><td>取消订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/cancelOrder</td></tr>
+      <tr><td class="t-num">8</td><td>订单详情查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/orderDetail</td></tr>
+    </tbody>
+  </table>
+</div></div>
 
-    <div class="note rv" style="margin-top:24px">
+    <h3>必接接口及其调用时机</h3>
+    <ul class="bul">
+      <li><iconify-icon icon="solar:magnifer-linear"></iconify-icon><span><strong>酒店每日最低价</strong> —
+        <code class="inl">hotel/lowestPrice</code>。查询已匹配酒店的最低价，作为该酒店是否展示在本地酒店列表中的依据。</span></li>
+      <li><iconify-icon icon="solar:bed-linear"></iconify-icon><span><strong>酒店实时产品查询</strong> —
+        <code class="inl">booking/productDetails</code>。客人进入酒店详情页或预订流程时实时调用。</span></li>
+      <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span><strong>试单</strong> —
+        <code class="inl">booking/availabilityCheck</code>。校验可售产品是否真的可订，需传入实际预订间数。</span></li>
+      <li><iconify-icon icon="solar:document-add-linear"></iconify-icon><span><strong>创建订单</strong> —
+        <code class="inl">booking/createOrder</code>。试单通过且本地订单创建成功后调用。调用前请再执行一次试单校验。</span></li>
+      <li><iconify-icon icon="solar:card-linear"></iconify-icon><span><strong>订单支付</strong> —
+        <code class="inl">booking/payOrder</code>。本地客人支付成功后，或订单需要确认时调用，用于通知服务团队处理该订单。</span></li>
+      <li><iconify-icon icon="solar:close-circle-linear"></iconify-icon><span><strong>取消订单</strong> —
+        <code class="inl">order/cancelOrder</code>。订单超过 30 分钟未支付，或客人主动取消时调用。返回成功即应停止轮询。</span></li>
+      <li><iconify-icon icon="solar:bell-linear"></iconify-icon><span><strong>订单状态推送</strong> —
+        <code class="inl">notify/orderStatus</code>。收到支付通知后，服务团队处理订单并推送状态。该接口必须实现幂等。</span></li>
+      <li><iconify-icon icon="solar:refresh-linear"></iconify-icon><span><strong>订单详情查询</strong> —
+        <code class="inl">order/orderDetail</code>。仅作为补偿手段，用于支付后未收到确认结果的情况。无需频繁轮询；订单确认或取消后即应停止。</span></li>
+    </ul>
+
+    <h3>静态数据与增量更新</h3>
+    <p>通过 <code class="inl">search/hotelIdList</code>拉取可售酒店列表，再通过 <code class="inl">/hotel/detail</code>. <code class="inl">region/countries</code> 与
+       <code class="inl">region/cities</code> 提供国家与城市基础数据，通常用于搭建基础数据并与 FCG 酒店系统做匹配。</p>
+    <p>请定期调用 <code class="inl">/hotel/increment</code> ，获取静态信息发生变化的酒店 ID 列表——包含新增、修改与删除——然后只同步受影响的记录，无需全量重拉。</p>
+
+    <div class="note">
       <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
-      <span><strong>Node.js 開發中。</strong> 在發布之前，請直接呼叫 REST 介面—— <a href="api-docs-hotel-apis.html" style="color:var(--ink);font-weight:500">介面參考</a>
-      中提供完整的請求與回應結構。</span>
+      <span><strong>限流说明。</strong> 生产环境默认每个应用每分钟 100 次。请在本地缓存静态数据，把实时调用留给查询、试单与订单操作。</span>
+    </div>
+
+    <div class="band-foot">
+      <a class="btn" href="api-docs-hotel-process.html">查看对接流程 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink tlink--o" href="api-docs-hotel-apis.html">完整接口参考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
-</section>
-
-<hr class="rule">
-
-<section class="blk">
-  <div class="wrap">
-    <div class="blk-head">
-      <p class="eyebrow micro">對接方式</p>
-      <h2 class="h3">三種接入方式。</h2>
-    </div>
-    <div class="iopts">
-      <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon></div>
-        <h3>MCP 智慧對接</h3>
-        <span class="k">Model Context Protocol</span>
-        <p>讓 AI 模型直接呼叫旅遊能力。為大型語言模型應用與助理而設計。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="skills.html">Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
-      </article>
-      <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:code-square-linear"></iconify-icon></div>
-        <h3>SDK 快速對接</h3>
-        <span class="k">Go · Java · Python</span>
-        <p>驗證、重試與序列化皆已內建。Node.js 開發中。</p>
-        <div class="icard-foot"><div class="langs">
-          <span class="chip">Go</span><span class="chip">Java</span><span class="chip">Python</span>
-          <span class="chip soon">Node.js</span>
-        </div></div>
-      </article>
-      <article class="icard rv">
-        <div class="icard-ic"><iconify-icon icon="solar:global-linear"></iconify-icon></div>
-        <h3>REST API</h3>
-        <span class="k">不限語言</span>
-        <p>標準介面，任何語言或框架都能呼叫，不需 SDK。</p>
-        <div class="icard-foot"><a class="tlink tlink--o" href="api-docs-hotel-apis.html">介面參考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
-      </article>
-    </div>
-  </div>
-</section>
+</div>
+</div>
 </main>
 
 <footer class="ftr">
@@ -1103,27 +1014,27 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
     <div class="ftr-top">
       <div class="ftr-brand">
         <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 26px; width: auto;"><use href="#fcg-logo"></use></svg>
-        <p>FCG 開放平台：針對飯店、機票與商旅管理資源的標準化介面與彈性 SDK。</p>
+        <p>FCG 开放平台：面向酒店、机票与差旅管理资源的标准化接口与灵活 SDK。</p>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-products">產品</p>
+        <p class="ftr-h" id="ftr-products">产品</p>
         <nav aria-labelledby="ftr-products">
         <ul>
           <li><a href="api-docs-hotel.html">G-Link Hotel API</a></li>
           <li><a href="api-docs-flink.html">F-Link Flight API</a></li>
           <li><a href="index.html#products">TMC API</a></li>
-          <li><a href="index.html#use-cases">產品應用情境</a></li>
+          <li><a href="index.html#use-cases">产品应用场景</a></li>
         </ul>
         </nav>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-developers">開發者</p>
+        <p class="ftr-h" id="ftr-developers">开发者</p>
         <nav aria-labelledby="ftr-developers">
         <ul>
-          <li><a href="api-docs-hotel.html">介面文件</a></li>
+          <li><a href="api-docs-hotel.html">接口文档</a></li>
           <li><a href="sdk.html">SDK</a></li>
           <li><a href="skills.html">Skills 技能包</a></li>
-          <li><a href="api-docs-errors.html">錯誤碼說明</a></li>
+          <li><a href="api-docs-errors.html">错误码说明</a></li>
         </ul>
         </nav>
       </div>
@@ -1131,16 +1042,16 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
         <p class="ftr-h" id="ftr-platform">平台</p>
         <nav aria-labelledby="ftr-platform">
         <ul>
-          <li><a href="index.html">首頁</a></li>
-          <li><a href="app-management.html">應用程式管理</a></li>
-          <li><a href="ai-assistant.html">AI 助理</a></li>
-          <li><a href="register.html">註冊</a></li>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="app-management.html">应用管理</a></li>
+          <li><a href="ai-assistant.html">AI 助手</a></li>
+          <li><a href="register.html">注册</a></li>
         </ul>
         </nav>
       </div>
     </div>
     <div class="ftr-bot">
-      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留一切權利。</span>
+      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留所有权利。</span>
       <span class="mono">ENG · 简体 · 繁體</span>
     </div>
   </div>
@@ -1204,23 +1115,6 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   Array.prototype.forEach.call(items, function(el, i){
     el.style.transitionDelay = (Math.min(i, 3) * 60) + 'ms';
     io.observe(el);
-  });
-})();
-</script>
-<script>
-(function(){
-  "use strict";
-  document.addEventListener('click', function(e){
-    var b = e.target.closest('.cmd button');
-    if (!b) return;
-    var code = b.parentNode.querySelector('code');
-    if (!code || !navigator.clipboard) return;
-    navigator.clipboard.writeText(code.textContent.trim()).then(function(){
-      var was = b.textContent;
-      b.textContent = 'Copied';
-      b.classList.add('done');
-      setTimeout(function(){ b.textContent = was; b.classList.remove('done'); }, 1600);
-    });
   });
 })();
 </script>

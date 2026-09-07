@@ -5,7 +5,7 @@
 ### What changed
 
 **36 pages now: English, Simplified Chinese and Traditional Chinese**, twelve each, at
-[variant-b-impeccable/](open-portal-redesign/variant-b-impeccable) with `zh-CN/` and `zh-TW/`
+[variant-b-impeccable/](open-portal-redesign/variant-b-impeccable) with `zh-Hans/` and `zh-Hant/`
 subdirectories. The language control is real cross-locale links, wired correctly in all three
 directions, with the current locale marked `aria-current="page"`.
 
@@ -65,8 +65,8 @@ marketing pages.
 
 ### Verified
 
-- `verify-pages.js` — 12 pages × 1280 and 375, per locale. **English 24/24, zh-CN 24/24, zh-TW 24/24**,
-  no JS errors. It takes an optional locale argument: `node verify-pages.js zh-CN`.
+- `verify-pages.js` — 12 pages × 1280 and 375, per locale. **English 24/24, zh-Hans 24/24, zh-Hant 24/24**,
+  no JS errors. It takes an optional locale argument: `node verify-pages.js zh-Hans`.
 - `verify-motion.js` — **12/12**, no `transition:all`, no `scale(0)` entry, no `ease-in` on UI, no UI
   transition over 300ms, no layout property animated, `:active` on every pressable, every hover gated.
 - Static: CSS token block and all `class` attributes byte-identical across the three locales; every

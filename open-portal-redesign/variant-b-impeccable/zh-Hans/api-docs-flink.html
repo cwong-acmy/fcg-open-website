@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>G-Link 酒店接口 — FCG 开放平台</title>
-<meta name="description" content="G-Link 酒店接口的必接接口、静态数据处理与限流规则。">
+<title>F-Link 机票接口 — FCG 开放平台</title>
+<meta name="description" content="F-Link 机票接口全部 19 个：查询、出票、改期、退票与基础数据。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -892,9 +892,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
     <div class="nav-right">
       <div class="lang" role="group" aria-label="语言">
-        <a href="../api-docs-hotel.html">ENG</a>
-        <a href="api-docs-hotel.html" aria-current="page">简体</a>
-        <a href="../zh-TW/api-docs-hotel.html">繁體</a>
+        <a href="../api-docs-flink.html">ENG</a>
+        <a href="api-docs-flink.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-flink.html">繁體</a>
       </div>
       <a class="login" href="login.html">登录</a>
       <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
@@ -917,9 +917,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <div class="m-cta">
         <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
         <div class="lang" role="group" aria-label="语言">
-        <a href="../api-docs-hotel.html">ENG</a>
-        <a href="api-docs-hotel.html" aria-current="page">简体</a>
-        <a href="../zh-TW/api-docs-hotel.html">繁體</a>
+        <a href="../api-docs-flink.html">ENG</a>
+        <a href="api-docs-flink.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-flink.html">繁體</a>
       </div>
       </div>
     </div>
@@ -930,14 +930,14 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
-      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <span>G-Link Hotel API</span></p>
+      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <span>F-Link Flight API</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">同时支持 SDK 与 API 对接</p>
+        <p class="eyebrow micro">航司直连舱位库存</p>
         
       </div>
-      <h1>G-Link Hotel API</h1>
-      <p class="lede"><b>全球主要酒店库存</b> ，通过一套标准化接口提供。完整流程涵盖实时查询、试单、预订、支付与取消。</p>
-      <div class="band-foot"><nav class="rail" aria-label="章节"><a class="on" href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">对接流程</a><a href="api-docs-hotel-apis.html">接口参考</a><a href="api-docs-errors.html">错误码</a></nav><a class="btn btn--sm" href="sdk.html">下载 SDK <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>F-Link Flight API</h1>
+      <p class="lede"><b>航司直连舱位库存。</b> 覆盖国内与国际航司并支持 BSP，涵盖查询、定价、出票、退票与改期。19 个接口，统一的路径规范。</p>
+      <div class="band-foot"><nav class="rail" aria-label="章节"><a href="api-docs-hotel.html">G-Link Hotel</a><a class="on" href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">对接流程</a><a href="api-docs-hotel-apis.html">接口参考</a><a href="api-docs-errors.html">错误码</a></nav><a class="btn btn--sm" href="sdk.html">下载 SDK <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a></div>
   </div>
 </section>
 
@@ -945,64 +945,65 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <div class="docs">
   <aside class="docs-side">
     <div class="docs-side-in">
-      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a class="on" href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a class="on" href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
       <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章节</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">对接流程</a></li><li><a href="api-docs-hotel-apis.html">接口参考</a></li></ul></nav></div>
       <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">开发者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下载</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助手</a></li></ul></nav></div>
     </div>
   </aside>
   <div class="docs-main">
-    <h2>八个接口即可完成一笔酒店预订。</h2>
-    <p>以下为必接接口。接口参考中的其余部分，均为围绕它们的静态数据、增量更新与回调处理。</p>
+    <h2>F-Link 全部接口。</h2>
+    <p>每个机票接口路径都包含 <code class="inl">&#123;lang&#125;</code> 段—— <code class="inl">zh-CN</code>
+       或 <code class="inl">en-US</code> ——用于指定返回文案与错误信息的语言。仅字段翻译接口例外，不带语言段。</p>
 
     <div class="tblwrap"><div class="tblscroll">
-  <table class="tbl" style="min-width:700px">
+  <table class="tbl" style="min-width:720px">
     <thead><tr><th>序号</th><th>接口</th><th>方法</th><th>路径</th></tr></thead>
     <tbody>
-      <tr><td class="t-num">1</td><td>可售酒店 ID 列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/search/hotelIdList</td></tr>
-      <tr><td class="t-num">2</td><td>查询酒店基础信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/detail</td></tr>
-      <tr><td class="t-num">3</td><td>酒店实时产品查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/productDetails</td></tr>
-      <tr><td class="t-num">4</td><td>试单（可订性校验）</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/availabilityCheck</td></tr>
-      <tr><td class="t-num">5</td><td>创建订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/createOrder</td></tr>
-      <tr><td class="t-num">6</td><td>订单支付</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/payOrder</td></tr>
-      <tr><td class="t-num">7</td><td>取消订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/cancelOrder</td></tr>
-      <tr><td class="t-num">8</td><td>订单详情查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/orderDetail</td></tr>
+      <tr><td class="t-num">1</td><td>航班查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/search</td></tr>
+      <tr><td class="t-num">2</td><td>获取更多运价</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/cabin</td></tr>
+      <tr><td class="t-num">3</td><td>下单前验价</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/verify</td></tr>
+      <tr><td class="t-num">4</td><td>提交预订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/create</td></tr>
+      <tr><td class="t-num">5</td><td>订单支付</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/pay</td></tr>
+      <tr><td class="t-num">6</td><td>标准订单详情</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/detail</td></tr>
+      <tr><td class="t-num">7</td><td>取消标准订单</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/order/cancel</td></tr>
+      <tr><td class="t-num">8</td><td>改期航班查询</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/search</td></tr>
+      <tr><td class="t-num">9</td><td>提交改期申请</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/apply</td></tr>
+      <tr><td class="t-num">10</td><td>取消改期申请</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/cancel</td></tr>
+      <tr><td class="t-num">11</td><td>改期申请详情</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/change/detail</td></tr>
+      <tr><td class="t-num">12</td><td>提交退票申请</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/apply</td></tr>
+      <tr><td class="t-num">13</td><td>退票申请详情</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/detail</td></tr>
+      <tr><td class="t-num">14</td><td>确认或取消退票</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/flight/refund/confirm</td></tr>
+      <tr><td class="t-num">15</td><td>查询机场信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airports/list</td></tr>
+      <tr><td class="t-num">16</td><td>查询航司信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airlines/list</td></tr>
+      <tr><td class="t-num">17</td><td>搜索机场信息</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/airports/search</td></tr>
+      <tr><td class="t-num">18</td><td>查询国籍列表</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/flink/&#123;lang&#125;/nationality/list</td></tr>
+      <tr><td class="t-num">19</td><td>查询字段翻译</td><td class="t-mid"><span class="method method--get">GET</span></td><td class="t-path">/openapi/v1/flink/fields</td></tr>
     </tbody>
   </table>
 </div></div>
 
-    <h3>必接接口及其调用时机</h3>
+    <h3>接口分组</h3>
     <ul class="bul">
-      <li><iconify-icon icon="solar:magnifer-linear"></iconify-icon><span><strong>酒店每日最低价</strong> —
-        <code class="inl">hotel/lowestPrice</code>。查询已匹配酒店的最低价，作为该酒店是否展示在本地酒店列表中的依据。</span></li>
-      <li><iconify-icon icon="solar:bed-linear"></iconify-icon><span><strong>酒店实时产品查询</strong> —
-        <code class="inl">booking/productDetails</code>。客人进入酒店详情页或预订流程时实时调用。</span></li>
-      <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span><strong>试单</strong> —
-        <code class="inl">booking/availabilityCheck</code>。校验可售产品是否真的可订，需传入实际预订间数。</span></li>
-      <li><iconify-icon icon="solar:document-add-linear"></iconify-icon><span><strong>创建订单</strong> —
-        <code class="inl">booking/createOrder</code>。试单通过且本地订单创建成功后调用。调用前请再执行一次试单校验。</span></li>
-      <li><iconify-icon icon="solar:card-linear"></iconify-icon><span><strong>订单支付</strong> —
-        <code class="inl">booking/payOrder</code>。本地客人支付成功后，或订单需要确认时调用，用于通知服务团队处理该订单。</span></li>
-      <li><iconify-icon icon="solar:close-circle-linear"></iconify-icon><span><strong>取消订单</strong> —
-        <code class="inl">order/cancelOrder</code>。订单超过 30 分钟未支付，或客人主动取消时调用。返回成功即应停止轮询。</span></li>
-      <li><iconify-icon icon="solar:bell-linear"></iconify-icon><span><strong>订单状态推送</strong> —
-        <code class="inl">notify/orderStatus</code>。收到支付通知后，服务团队处理订单并推送状态。该接口必须实现幂等。</span></li>
-      <li><iconify-icon icon="solar:refresh-linear"></iconify-icon><span><strong>订单详情查询</strong> —
-        <code class="inl">order/orderDetail</code>。仅作为补偿手段，用于支付后未收到确认结果的情况。无需频繁轮询；订单确认或取消后即应停止。</span></li>
+      <li><iconify-icon icon="solar:magnifer-linear"></iconify-icon><span><strong>查询与定价</strong> —
+        <code class="inl">flight/search</code>, <code class="inl">flight/cabin</code>,
+        <code class="inl">flight/verify</code>。下单前务必验价，运价会变动。</span></li>
+      <li><iconify-icon icon="solar:ticket-linear"></iconify-icon><span><strong>下单与出票</strong> —
+        <code class="inl">flight/order/create</code>, <code class="inl">flight/order/pay</code>,
+        <code class="inl">flight/order/detail</code>, <code class="inl">flight/order/cancel</code>.</span></li>
+      <li><iconify-icon icon="solar:restart-linear"></iconify-icon><span><strong>改期</strong> ——四个接口，从改期查询到改期详情。距起飞不足四小时的改期将被拒绝，需人工处理。</span></li>
+      <li><iconify-icon icon="solar:hand-money-linear"></iconify-icon><span><strong>退票</strong> ——申请、详情，再确认或取消。</span></li>
+      <li><iconify-icon icon="solar:global-linear"></iconify-icon><span><strong>基础数据</strong> ——机场、航司、机场搜索、国籍列表与字段翻译。请在本地缓存。</span></li>
     </ul>
 
-    <h3>静态数据与增量更新</h3>
-    <p>通过 <code class="inl">search/hotelIdList</code>拉取可售酒店列表，再通过 <code class="inl">/hotel/detail</code>. <code class="inl">region/countries</code> 与
-       <code class="inl">region/cities</code> 提供国家与城市基础数据，通常用于搭建基础数据并与 FCG 酒店系统做匹配。</p>
-    <p>请定期调用 <code class="inl">/hotel/increment</code> ，获取静态信息发生变化的酒店 ID 列表——包含新增、修改与删除——然后只同步受影响的记录，无需全量重拉。</p>
-
     <div class="note">
-      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
-      <span><strong>限流说明。</strong> 生产环境默认每个应用每分钟 100 次。请在本地缓存静态数据，把实时调用留给查询、试单与订单操作。</span>
+      <iconify-icon icon="solar:danger-triangle-linear"></iconify-icon>
+      <span><strong>下单前请立即验价。</strong> <code class="inl">flight/verify</code>
+      会返回当前价格并确认该运价仍可预订。跳过这一步是导致下单失败最常见的原因 <code class="inl">order/create</code>.</span>
     </div>
 
     <div class="band-foot">
-      <a class="btn" href="api-docs-hotel-process.html">查看对接流程 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink tlink--o" href="api-docs-hotel-apis.html">完整接口参考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="btn" href="api-docs-errors.html">错误码说明 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink tlink--o" href="skills.html">安装 F-Link Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
 </div>

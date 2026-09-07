@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="zh-Hant" id="top">
+<html lang="zh-Hans" id="top">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>應用程式管理 — FCG 開放平台</title>
-<meta name="description" content="管理 FCG 介面對接所使用的應用程式。每個產品都有獨立的憑證。">
+<title>错误码说明 — FCG 开放平台</title>
+<meta name="description" content="FCG 平台全部错误码及其成因与处理方式，覆盖 API、SDK 与 MCP 三种对接方式。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -868,37 +868,37 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 </style>
 </head>
 <body>
-<a class="skip" href="#main">跳至主要內容</a>
+<a class="skip" href="#main">跳转到正文</a>
 
 <!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
 
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="index.html" aria-label="FCG 開放平台 — 首頁">
+    <a class="brand" href="index.html" aria-label="FCG 开放平台 — 首页">
       <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 28px; width: auto;"><use href="#fcg-logo"></use></svg>
       <span class="brand-div" aria-hidden="true"></span>
-      <span class="brand-sub">開放平台</span>
+      <span class="brand-sub">开放平台</span>
     </a>
 
-    <nav class="shell" aria-label="主導覽">
-      <a href="index.html">首頁</a>
-      <a class="on" href="app-management.html">應用程式管理</a>
-      <a href="api-docs-hotel.html">介面文件</a>
+    <nav class="shell" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="app-management.html">应用管理</a>
+      <a class="on" href="api-docs-hotel.html">接口文档</a>
       <a href="sdk.html">SDK</a>
       <a href="skills.html">Skills 技能包</a>
-      <a href="ai-assistant.html">AI 助理</a>
+      <a href="ai-assistant.html">AI 助手</a>
     </nav>
 
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="語言">
-        <a href="../app-management.html">ENG</a>
-        <a href="../zh-CN/app-management.html">简体</a>
-        <a href="app-management.html" aria-current="page">繁體</a>
+      <div class="lang" role="group" aria-label="语言">
+        <a href="../api-docs-errors.html">ENG</a>
+        <a href="api-docs-errors.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-errors.html">繁體</a>
       </div>
-      <a class="login" href="login.html">登入</a>
-      <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="開啟選單">
+      <a class="login" href="login.html">登录</a>
+      <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="打开菜单">
         <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
       </button>
     </div>
@@ -907,19 +907,19 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
   <div class="mnav" id="mnav">
     <div class="wrap">
       <ul>
-        <li><a href="index.html">首頁</a></li>
-        <li><a href="app-management.html">應用程式管理</a></li>
-        <li><a href="api-docs-hotel.html">介面文件</a></li>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="app-management.html">应用管理</a></li>
+        <li><a href="api-docs-hotel.html">接口文档</a></li>
         <li><a href="sdk.html">SDK</a></li>
         <li><a href="skills.html">Skills 技能包</a></li>
-        <li><a href="ai-assistant.html">AI 助理</a></li>
+        <li><a href="ai-assistant.html">AI 助手</a></li>
       </ul>
       <div class="m-cta">
-        <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        <div class="lang" role="group" aria-label="語言">
-        <a href="../app-management.html">ENG</a>
-        <a href="../zh-CN/app-management.html">简体</a>
-        <a href="app-management.html" aria-current="page">繁體</a>
+        <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <div class="lang" role="group" aria-label="语言">
+        <a href="../api-docs-errors.html">ENG</a>
+        <a href="api-docs-errors.html" aria-current="page">简体</a>
+        <a href="../zh-Hant/api-docs-errors.html">繁體</a>
       </div>
       </div>
     </div>
@@ -930,118 +930,72 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <section class="band">
   <div class="band-grid" aria-hidden="true"></div>
   <div class="wrap band-in">
+      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <span>错误码说明</span></p>
       <div class="band-top">
-        <p class="eyebrow micro">每個產品獨立憑證</p>
+        <p class="eyebrow micro">覆盖全部产品与对接方式</p>
         
       </div>
-      <h1>應用程式管理</h1>
-      <p class="lede"><b>管理介面對接所使用的應用程式。</b> 每個產品都有獨立的憑證，因此飯店金鑰無法呼叫機票介面，沙箱金鑰也不會觸及生產環境。</p>
-      <div class="band-foot"><a class="btn" href="register.html">建立應用程式 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a><a class="btn btn--ghost" href="login.html">登入主控台 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      <h1>错误码说明</h1>
+      <p class="lede"><b>平台返回的每一个错误码</b>，以及成因与处理方式。错误码在各产品间保持一致；产品与对接方式两列说明它可能出现在哪里。</p>
+      <div class="band-foot"><nav class="rail" aria-label="章节"><a href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">对接流程</a><a href="api-docs-hotel-apis.html">接口参考</a><a class="on" href="api-docs-errors.html">错误码</a></nav></div>
   </div>
 </section>
 
-<section class="blk blk--top">
-  <div class="wrap">
-    <div class="blk-head">
-      <p class="eyebrow micro">應用程式</p>
-      <h2 class="h3">三個應用程式， <em>三套獨立憑證。</em></h2>
-      <p class="lede">登入後可在主控台查看憑證。本頁不會顯示任何真實金鑰。</p>
+<div class="wrap">
+<div class="docs">
+  <aside class="docs-side">
+    <div class="docs-side-in">
+      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a class="on" href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章节</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">对接流程</a></li><li><a href="api-docs-hotel-apis.html">接口参考</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">开发者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下载</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助手</a></li></ul></nav></div>
     </div>
-    <div class="cards">
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>G-Link Hotel</p>
-      <h3>G-Link Hotel API</h3>
-      <p>飯店查詢、預訂、付款與取消流程。</p>
+  </aside>
+  <div class="docs-main">
+    <h2>十二个错误码， <em>四个类别。</em></h2>
+    <p>平台级错误码 <code class="inl">1xxxx</code> 区间在所有场景下通用。产品级错误码仅限 G-Link 或 F-Link。 <code class="inl">MCP</code> 与 <code class="inl">SDK</code> 前缀属于对接层故障，请求不会到达旅游供应商。</p>
+
+    <div class="tblwrap"><div class="tblscroll">
+  <table class="tbl" style="min-width:1020px">
+    <thead><tr><th>错误码</th><th>提示信息</th><th>产品</th><th>对接方式</th><th>成因</th><th>处理方式</th></tr></thead>
+    <tbody>
+      <tr><td class="t-code">10001</td><td>签名校验失败</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">API</td><td class="t-dim">AppSecret 有误，或签名算法不一致。</td><td>请核对 AppSecret，并按签名指南重新生成签名。</td></tr>
+      <tr><td class="t-code">10002</td><td>AppKey 不存在或已停用</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">—</td><td class="t-dim">应用状态异常。</td><td>请登录控制台查看应用状态；若已停用，请联系技术支持。</td></tr>
+      <tr><td class="t-code">10003</td><td>请求超出限流阈值</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">API</td><td class="t-dim">调用频率超出上限。</td><td>请降低调用频率并在本地缓存。生产环境默认每分钟 100 次。</td></tr>
+      <tr><td class="t-code">20001</td><td>城市编码无效</td><td class="t-mid t-dim">G-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">cityCode 不在支持范围内。</td><td>请使用 G-Link 城市编码表中的标准编码。</td></tr>
+      <tr><td class="t-code">20002</td><td>日期格式无效</td><td class="t-mid t-dim">G-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">日期未遵循 YYYY-MM-DD 格式。</td><td>请按 YYYY-MM-DD 传入日期，例如 2026-04-01。</td></tr>
+      <tr><td class="t-code">20003</td><td>酒店不可预订</td><td class="t-mid t-dim">G-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">所选酒店或房型暂不可售。</td><td>请更换房型，或联系技术支持确认酒店状态。</td></tr>
+      <tr><td class="t-code">30001</td><td>航班已售罄</td><td class="t-mid t-dim">F-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">所选航班经济舱已无余位。</td><td>请查询其他航班或舱位。</td></tr>
+      <tr><td class="t-code">30002</td><td>改期申请过晚</td><td class="t-mid t-dim">F-Link</td><td class="t-mid t-dim">—</td><td class="t-dim">距起飞不足四小时。</td><td>请提前提交改期，或联系技术支持人工处理。</td></tr>
+      <tr><td class="t-code">MCP001</td><td>MCP 连接超时</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">MCP</td><td class="t-dim">网络不稳定，或服务器繁忙。</td><td>请检查网络，将超时时间提高到 30 秒并增加重试逻辑。</td></tr>
+      <tr><td class="t-code">MCP002</td><td>MCP 认证失败</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">MCP</td><td class="t-dim">令牌已过期或格式不正确。</td><td>请重新获取令牌，并以 Bearer 形式放入 Authorization 请求头。</td></tr>
+      <tr><td class="t-code">SDK001</td><td>SDK 初始化失败</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">SDK</td><td class="t-dim">AppKey 或 AppSecret 为空或格式不正确。</td><td>请检查初始化参数，确认两个值均已正确传入。</td></tr>
+      <tr><td class="t-code">SDK002</td><td>SDK 版本不兼容</td><td class="t-mid t-dim">—</td><td class="t-mid t-dim">SDK</td><td class="t-dim">当前 SDK 版本过低，不支持该能力。</td><td>请升级到最新 SDK，并查阅更新日志。</td></tr>
+    </tbody>
+  </table>
+</div></div>
+
+    <div class="note">
+      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
+      <span><strong>HTTP 200 并不代表成功。</strong> 请读取响应体中的 <code class="inl">code</code> 字段。供应商业务失败同样返回 HTTP 200，并带有
+      <code class="inl">code=SUPPLIER_BIZ_ERROR</code>，上表中的错误码也以同样方式返回。</span>
     </div>
-    <div class="card-meta">
-      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">建立時間</span><span class="v">2026 年 4 月 28 日</span></div>
-      <div><span class="k">環境</span><span class="v">沙箱</span></div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="login.html">查看憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="api-docs-hotel.html">產品文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>F-Link Flight</p>
-      <h3>F-Link Flight API</h3>
-      <p>航班查詢、開票、退票與改期。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">建立時間</span><span class="v">2026 年 4 月 28 日</span></div>
-      <div><span class="k">環境</span><span class="v">沙箱</span></div>
-    </div>
-    <div class="card-f">
-      <a class="btn btn--sm" href="login.html">查看憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="api-docs-hotel.html">產品文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
-  <article class="card rv">
-    <div class="card-h">
-      <p class="card-k"><span class="dot" aria-hidden="true"></span>TMC API</p>
-      <h3>TMC API</h3>
-      <p>快速建置企業商旅平台。</p>
-    </div>
-    <div class="card-meta">
-      <div><span class="k">AppKey</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">AppSecret</span><span class="v">••••••••••••</span></div>
-      <div><span class="k">建立時間</span><span class="v">2026 年 4 月 28 日</span></div>
-      <div><span class="k">環境</span><span class="v">沙箱</span></div>
-    </div>
-      <div class="note" style="margin:0 24px 20px"><iconify-icon icon="solar:info-circle-linear"></iconify-icon><span>TMC 介面沙箱僅支援美元結算。</span></div>    <div class="card-f">
-      <a class="btn btn--sm" href="login.html">查看憑證 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink" href="api-docs-hotel.html">產品文件 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-    </div>
-  </article>
+
+    <h3>需要记录的信息</h3>
+    <ul class="bul">
+      <li><iconify-icon icon="solar:document-text-linear"></iconify-icon><span>请保留 <code class="inl">request_id</code>
+        与 <code class="inl">trace_id</code> ，每次调用都要记录。缺少这两个值，技术支持无法定位问题。</span></li>
+      <li><iconify-icon icon="solar:link-linear"></iconify-icon><span>请保留
+        <code class="inl">downstream_request_id</code> （接口返回该字段时）——它标识的是供应商侧的调用，而非平台侧。</span></li>
+      <li><iconify-icon icon="solar:clock-circle-linear"></iconify-icon><span>请以 UTC 记录请求时间。限流争议以平台时钟为准。</span></li>
+    </ul>
+
+    <div class="band-foot">
+      <a class="btn" href="ai-assistant.html">咨询 AI 助手 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink tlink--o" href="index.html#start-integration">提交工单 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
     </div>
   </div>
-</section>
-
-<hr class="rule">
-
-<section class="blk">
-  <div class="wrap">
-    <div class="cards cards--2">
-      <article class="card rv">
-        <div class="card-h">
-          <p class="card-k"><span class="dot" aria-hidden="true"></span>應用範例</p>
-          <h3>面向旅客的前台首頁。</h3>
-          <p>一個已接上 G-Link 飯店與 F-Link 機票即時庫存的完整前台範例。開啟、閱讀，然後取走原始碼開始開發。</p>
-        </div>
-        <div class="card-meta" style="padding-bottom:4px">
-          <div><span class="k">庫存</span><span class="v">G-Link &amp; F-Link 即時</span></div>
-          <div><span class="k">原始碼</span><span class="v">可申請取得</span></div>
-          <div><span class="k">環境</span><span class="v">沙箱</span></div>
-        </div>
-        <div class="card-f card-f--plain">
-          <a class="btn btn--sm" href="api-docs-hotel.html">開啟完整範例 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-          <a class="tlink" href="sdk.html">下載原始碼 <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a>
-        </div>
-      </article>
-      <article class="card rv">
-        <div class="card-h">
-          <p class="card-k"><span class="dot" aria-hidden="true"></span>環境</p>
-          <h3>先用沙箱，生產按量計費。</h3>
-          <p>在沙箱中免費測試全部介面，無前期費用。對接測試通過後即可取得生產金鑰，按呼叫量計費，無最低消費。</p>
-        </div>
-        <div class="card-meta" style="padding-bottom:4px">
-          <div><span class="k">沙箱</span><span class="v">註冊即開通</span></div>
-          <div><span class="k">生產環境流量限制</span><span class="v">100 req / min</span></div>
-          <div><span class="k">計費方式</span><span class="v">按量計費</span></div>
-        </div>
-        <div class="card-f card-f--plain">
-          <a class="btn btn--sm" href="register.html">免費註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+</div>
+</div>
 </main>
 
 <footer class="ftr">
@@ -1049,27 +1003,27 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
     <div class="ftr-top">
       <div class="ftr-brand">
         <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 26px; width: auto;"><use href="#fcg-logo"></use></svg>
-        <p>FCG 開放平台：針對飯店、機票與商旅管理資源的標準化介面與彈性 SDK。</p>
+        <p>FCG 开放平台：面向酒店、机票与差旅管理资源的标准化接口与灵活 SDK。</p>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-products">產品</p>
+        <p class="ftr-h" id="ftr-products">产品</p>
         <nav aria-labelledby="ftr-products">
         <ul>
           <li><a href="api-docs-hotel.html">G-Link Hotel API</a></li>
           <li><a href="api-docs-flink.html">F-Link Flight API</a></li>
           <li><a href="index.html#products">TMC API</a></li>
-          <li><a href="index.html#use-cases">產品應用情境</a></li>
+          <li><a href="index.html#use-cases">产品应用场景</a></li>
         </ul>
         </nav>
       </div>
       <div class="ftr-col">
-        <p class="ftr-h" id="ftr-developers">開發者</p>
+        <p class="ftr-h" id="ftr-developers">开发者</p>
         <nav aria-labelledby="ftr-developers">
         <ul>
-          <li><a href="api-docs-hotel.html">介面文件</a></li>
+          <li><a href="api-docs-hotel.html">接口文档</a></li>
           <li><a href="sdk.html">SDK</a></li>
           <li><a href="skills.html">Skills 技能包</a></li>
-          <li><a href="api-docs-errors.html">錯誤碼說明</a></li>
+          <li><a href="api-docs-errors.html">错误码说明</a></li>
         </ul>
         </nav>
       </div>
@@ -1077,16 +1031,16 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
         <p class="ftr-h" id="ftr-platform">平台</p>
         <nav aria-labelledby="ftr-platform">
         <ul>
-          <li><a href="index.html">首頁</a></li>
-          <li><a href="app-management.html">應用程式管理</a></li>
-          <li><a href="ai-assistant.html">AI 助理</a></li>
-          <li><a href="register.html">註冊</a></li>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="app-management.html">应用管理</a></li>
+          <li><a href="ai-assistant.html">AI 助手</a></li>
+          <li><a href="register.html">注册</a></li>
         </ul>
         </nav>
       </div>
     </div>
     <div class="ftr-bot">
-      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留一切權利。</span>
+      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留所有权利。</span>
       <span class="mono">ENG · 简体 · 繁體</span>
     </div>
   </div>

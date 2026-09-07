@@ -10,9 +10,9 @@
 const puppeteer = require("puppeteer-core");
 const path = require("path");
 
-// first arg may be a locale subdirectory: node verify-pages.js zh-CN [pages...]
+// first arg may be a locale subdirectory: node verify-pages.js zh-Hans [pages...]
 const argv = process.argv.slice(2);
-const LOCALE = ["zh-CN", "zh-TW"].includes(argv[0]) ? argv.shift() : "";
+const LOCALE = ["zh-Hans", "zh-Hant"].includes(argv[0]) ? argv.shift() : "";
 const DIR = path.join(__dirname, "variant-b-impeccable", LOCALE);
 const OUT = path.join(__dirname, "shots", "b-pages");
 const ALL = [

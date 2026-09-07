@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="zh-Hant" id="top">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>G-Link 飯店介面 — FCG 開放平台</title>
-<meta name="description" content="G-Link 飯店介面的必接介面、靜態資料處理與流量限制規則。">
+<title>FCG 開放平台</title>
+<meta name="description" content="為分銷商打造的旅遊開放平台。以標準化介面與彈性 SDK 提供飯店、機票與 TMC 商旅資源。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -523,349 +522,6 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity 1s var(--ease),transf
   .btn{font-size:14px;padding-left:20px}
 }
 </style>
-<style>
-/* ============================================================
-   SUB-PAGE SHELL — page band, docs layout, tables, auth, chat
-   Same tokens as index.html. Accent stays graphic only.
-   ============================================================ */
-.hdr--min .hdr-in{gap:16px}
-
-/* ---------- page band (replaces the hero on inner pages) ---------- */
-.band{position:relative;padding:74px 0 52px;border-bottom:1px solid var(--hair);overflow:hidden}
-.band-grid{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    linear-gradient(to right,rgba(15,17,20,.05) 1px,transparent 1px),
-    linear-gradient(to bottom,rgba(15,17,20,.05) 1px,transparent 1px);
-  background-size:40px 40px;
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 92%);
-  mask-image:linear-gradient(to bottom,#000 0%,transparent 92%);
-}
-/* every child clamps to the wrap: a column flex item sizes to content and
-   min-width:auto stops it shrinking, which is how the tab rail ended up
-   587px wide inside a 335px column and silently clipped. */
-.band-in{position:relative;z-index:1;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
-.band-in > *{max-width:100%;min-width:0}
-/* eyebrow + status chip share one micro row, so the CTA row stays CTAs only */
-.band-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
-.band h1{font-size:clamp(34px,4.6vw,62px);line-height:1.02;letter-spacing:-.032em;max-width:22ch}
-.band h1 em{display:block;font-style:normal;color:var(--accent)}
-.band .lede{font-size:16.5px;line-height:27px;max-width:60ch}
-.band-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:8px;width:100%;min-width:0}
-.crumb{display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-.crumb a{color:var(--muted);transition:color 240ms ease}
-@media (hover:hover) and (pointer:fine){ .crumb a:hover{color:var(--ink)} }
-.crumb i{font-style:normal;color:var(--line)}
-
-/* ---------- tab rail (reuses the nav shell grammar) ---------- */
-/* min-width:0 + align-self:stretch — without them this nowrap flex row keeps
-   its min-content width and gets clipped by body{overflow-x:hidden}. */
-.rail{display:flex;gap:2px;padding:3px;background:var(--shell);border:1px solid var(--hair);border-radius:999px;overflow-x:auto;max-width:100%;min-width:0;flex:0 1 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.rail a,.rail button{
-  display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 15px;border:0;border-radius:999px;
-  background:transparent;font-size:13.5px;font-weight:400;color:var(--ink);white-space:nowrap;cursor:pointer;
-  transition:background var(--hover) ease,transform var(--press) var(--ease-out);
-}
-.rail a:active,.rail button:active{transform:scale(.97)}
-@media (hover:hover) and (pointer:fine){
-  .rail a:hover,.rail button:hover{background:#fff}
-}
-.rail a.on,.rail button.on{background:#fff;font-weight:500}
-.rail::-webkit-scrollbar{height:0}
-.docs-side-in{min-width:0}
-
-/* ---------- generic content block ---------- */
-.blk{padding:80px 0}
-.blk--top{padding-top:64px}
-.blk h2.h3{max-width:26ch}
-.blk-head{display:flex;flex-direction:column;gap:18px;margin-bottom:38px}
-.blk-head .lede{font-size:15px;line-height:25px}
-.note{
-  display:flex;gap:12px;align-items:flex-start;
-  padding:18px 22px;border:1px solid var(--line);border-radius:16px;background:var(--card);
-  font-size:14px;line-height:23px;color:var(--muted-card);
-}
-.note iconify-icon{font-size:18px;color:var(--ink);flex:none;margin-top:2px}
-.note strong{color:var(--ink);font-weight:500}
-
-/* ---------- data table ---------- */
-.tblwrap{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
-.tblscroll{overflow-x:auto}
-table.tbl{width:100%;border-collapse:collapse;min-width:640px}
-table.tbl th{
-  text-align:left;padding:14px 20px;background:var(--card);border-bottom:1px solid var(--line);
-  font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);white-space:nowrap;
-}
-table.tbl td{padding:16px 20px;border-top:1px solid var(--hair);font-size:14px;line-height:22px;vertical-align:top}
-table.tbl tbody tr:first-child td{border-top:0}
-/* t- prefix, deliberately: a bare .path here collided with the homepage's
-   unscoped .path closing card and rendered every cell as a rounded panel. */
-table.tbl td.t-num{font-family:var(--mono);font-size:11.5px;color:var(--muted);width:44px;white-space:nowrap}
-table.tbl td.t-path,table.tbl td.t-code{font-family:var(--mono);font-size:12px;letter-spacing:-.01em;color:var(--ink)}
-table.tbl td.t-mid{white-space:nowrap;width:1%}
-table.tbl td.t-dim{color:var(--muted)}
-table.tbl td{border-radius:0;background:none}
-@media (hover:hover) and (pointer:fine){
-  table.tbl tbody tr{transition:background var(--hover) ease}
-  table.tbl tbody tr:hover{background:rgba(15,17,20,.015)}
-}
-
-/* ---------- docs two-column ---------- */
-.docs{display:grid;grid-template-columns:252px minmax(0,1fr);gap:0;border-top:1px solid var(--hair)}
-.docs-side{border-right:1px solid var(--hair);padding:38px 28px 60px 0}
-.docs-side-in{position:sticky;top:100px;display:flex;flex-direction:column;gap:26px}
-.docs-grp .docs-h{margin:0;font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink)}
-.docs-grp ul{margin-top:12px;display:flex;flex-direction:column}
-.docs-grp a{
-  display:flex;align-items:center;gap:8px;padding:8px 12px;margin-left:-12px;border-radius:999px;
-  color:var(--muted);font-size:13.5px;
-  transition:background var(--hover) ease,color var(--hover) ease,transform var(--press) var(--ease-out);
-}
-.docs-grp a:active{transform:scale(.98)}
-@media (hover:hover) and (pointer:fine){
-  .docs-grp a:hover{color:var(--ink);background:var(--shell)}
-}
-.docs-grp a.on{color:var(--ink);font-weight:500;background:var(--card)}
-.docs-main{padding:38px 0 80px 40px;min-width:0}
-.docs-main > * + *{margin-top:22px}
-.docs-main > h2 + *,.docs-main > h3 + *{margin-top:16px}   /* tight under a heading */
-.docs-main > * + h3{margin-top:54px}                        /* open above one */
-.docs-main > * + h2{margin-top:64px}
-.docs-main > * + .tblwrap,.docs-main > * + .steps{margin-top:28px}
-.docs-main > * + .note{margin-top:34px}
-.docs-main > * + .ep{margin-top:28px}
-.docs-main > * + .band-foot{margin-top:40px}
-.docs-main h2{font-size:clamp(24px,2.4vw,32px);line-height:1.12;letter-spacing:-.02em}
-.docs-main h2 em{display:block;font-style:normal;color:var(--accent)}
-.docs-main h3{font-size:19px;letter-spacing:-.01em}
-.docs-main h4{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.docs-main p{color:var(--muted);font-size:15px;line-height:25px;max-width:66ch}
-.docs-main ol,.docs-main ul.bul{display:flex;flex-direction:column;gap:0;padding:0;list-style:none;counter-reset:s}
-.docs-main ol li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--hair-soft);font-size:14.5px;line-height:23px}
-.docs-main ol li:last-child{border-bottom:1px solid var(--hair-soft)}
-.docs-main ol li::before{
-  counter-increment:s;content:counter(s,decimal-leading-zero);
-  font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:4px;flex:none;
-}
-.docs-main ul.bul li{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--hair-soft);font-size:14.5px;line-height:23px}
-.docs-main ul.bul li:last-child{border-bottom:1px solid var(--hair-soft)}
-.docs-main ul.bul li iconify-icon{font-size:16px;color:var(--ink);flex:none;margin-top:3px}
-code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:1px solid var(--hair);border-radius:5px;padding:1px 6px;color:var(--ink)}
-.msg--me code.inl{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.2);color:#fff}
-
-/* ---------- endpoint card ---------- */
-.ep{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
-.ep-h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 22px;border-bottom:1px solid var(--hair);background:var(--card)}
-.ep-h code{font-family:var(--mono);font-size:12.5px;color:var(--ink);letter-spacing:-.01em;word-break:break-all}
-.ep-b{padding:22px}
-.ep-b + .ep-b{border-top:1px solid var(--hair)}
-.plist{display:flex;flex-direction:column}
-.plist li{display:grid;grid-template-columns:190px 90px 76px minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid var(--hair-soft);font-size:13.5px;line-height:21px;align-items:baseline}
-.plist li:first-child{border-top:0}
-.plist .pn{font-family:var(--mono);font-size:12px;color:var(--ink);word-break:break-all}
-.plist .pt{font-family:var(--mono);font-size:11px;color:var(--muted)}
-.plist .pr{font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.plist .pr.req{color:var(--ink)}
-.plist .pd{color:var(--muted)}
-.plist li.sub .pn{padding-left:18px;position:relative}
-.plist li.sub .pn::before{content:"";position:absolute;left:4px;top:8px;width:8px;height:1px;background:var(--line)}
-
-/* ---------- flow steps ---------- */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
-.step{padding:22px 22px 24px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.step:nth-child(4n){border-right:0}
-.step:nth-last-child(-n+4){border-bottom:0}
-.step .sn{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
-.step h3{font-size:15px;font-weight:500;letter-spacing:-.01em;margin-top:14px;line-height:1.3}
-.step code{display:block;margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--muted);word-break:break-all}
-
-/* ---------- app / sdk / skill cards ---------- */
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.cards--2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.card{border:1px solid var(--line);border-radius:20px;background:#fff;display:flex;flex-direction:column;overflow:hidden}
-.card-h{padding:24px 24px 20px}
-.card-k{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
-.card-h h3{font-size:19px;letter-spacing:-.01em;margin-top:14px}
-.card-h p{color:var(--muted);font-size:14px;line-height:23px;margin-top:12px}
-/* ponytail: three lines reserved (3 x 23px) so meta rows start at the same y
-   across a row of cards. Ceiling — a description over three lines at 1280px
-   misaligns again; use grid subgrid if the copy ever needs to run longer. */
-.cards .card-h > p:not(.card-k){min-height:69px}
-.cards--tall .card-h > p:not(.card-k){min-height:92px}  /* 4 lines: narrow 3-up columns */
-.card-meta{display:flex;flex-direction:column;padding:0 24px}
-.card-meta div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--hair-soft);font-size:13px}
-.card-meta dt,.card-meta .k{color:var(--muted);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;flex:none}
-.card-meta .v{font-family:var(--mono);font-size:12px;color:var(--ink);text-align:right;word-break:break-all}
-.card-f{margin-top:auto;padding:20px 24px 22px;background:var(--card);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.card-f--plain{background:#fff;border-top:1px solid var(--hair)}
-
-/* ---------- copy row (install commands) ---------- */
-.cmd{display:flex;align-items:stretch;border:1px solid var(--dark);border-radius:12px;overflow:hidden;background:var(--dark)}
-.cmd code{flex:1;min-width:0;padding:13px 16px;font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--dark-fg);overflow-x:auto;white-space:nowrap}
-.cmd button{
-  flex:none;padding:0 16px;border:0;border-left:1px solid var(--dark-line);background:transparent;cursor:pointer;
-  color:var(--dark-muted);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-  transition:color var(--hover) ease,background var(--hover) ease,transform var(--press) var(--ease-out);
-}
-.cmd button:active{transform:scale(.96)}
-.cmd button.done{color:#fff}
-@media (hover:hover) and (pointer:fine){
-  .cmd button:hover{color:#fff;background:rgba(255,255,255,.06)}
-}
-
-/* ---------- stat strip variant used on inner pages ---------- */
-.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.mini div{padding:30px 24px}
-.mini div + div{border-left:1px solid var(--hair)}
-.mini .n{font-size:clamp(28px,3vw,42px);line-height:1;letter-spacing:-.03em;font-weight:500}
-.mini .n u{text-decoration:none;color:var(--accent)}
-.mini .c{margin-top:12px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
-.mini--aside{border-bottom:0;background:transparent}
-.mini--aside div{padding:30px 22px}
-.mini--aside div:first-child{padding-left:0}
-
-/* ---------- auth ---------- */
-.auth{min-height:calc(100vh - 76px);display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)}
-/* top-aligned, not centred: the register form is far taller than this
-   column, and centring pushed the aside's list below the fold. Sticky so
-   it stays in view while the form scrolls. */
-.auth-aside{position:relative;padding:64px 0 72px;border-right:1px solid var(--hair);overflow:hidden;display:flex;align-items:flex-start}
-.auth-aside .wrap{position:sticky;top:0}
-.auth-aside .wrap{max-width:none;padding:0 64px 0 max(32px,calc((100vw - var(--wrap)) / 2 + 32px));width:100%}
-.auth-aside .ahead{font-size:clamp(30px,3.6vw,50px);line-height:1.04;letter-spacing:-.03em;max-width:18ch;margin-top:22px;color:var(--ink);font-weight:500}
-.auth-aside .ahead em{display:block;font-style:normal;color:var(--accent)}
-.auth-aside .lede{margin-top:22px;font-size:16px;line-height:26px;max-width:44ch}
-.auth-main{display:flex;align-items:center;justify-content:center;padding:64px 32px 72px;background:var(--footer)}
-.auth-card{width:100%;max-width:436px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px 38px 36px}
-.auth-card h1{font-size:clamp(26px,2.6vw,34px);line-height:1.1;letter-spacing:-.025em}
-.auth-card > p{color:var(--muted);font-size:14.5px;line-height:23px;margin-top:12px}
-.oauth{
-  display:flex;align-items:center;justify-content:center;gap:11px;width:100%;height:50px;margin-top:28px;
-  border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;
-  font-size:14.5px;font-weight:500;
-  transition:background var(--hover) ease,border-color var(--hover) ease,
-             transform var(--press) var(--ease-out);
-}
-.oauth:active{transform:scale(.98)}
-@media (hover:hover) and (pointer:fine){
-  .oauth:hover{background:var(--card);border-color:var(--ink)}
-}
-.oauth iconify-icon{font-size:19px}
-.orline{display:flex;align-items:center;gap:14px;margin:24px 0 22px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
-.orline::before,.orline::after{content:"";flex:1;height:1px;background:var(--hair)}
-.fields{display:flex;flex-direction:column;gap:16px}
-.fld{display:flex;flex-direction:column;gap:8px;min-width:0}
-.fld label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.fld label em{font-style:normal;color:var(--ink)}  /* 11px orange on white is 2.80:1 and fails AA. Kept ink until the
-     small-orange-text decision is made — see STATE-LOG. */
-.fld input,.fld select{
-  height:48px;padding:0 15px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);
-  font-family:var(--sans);font-size:14.5px;width:100%;transition:border-color var(--hover) var(--ease-out),background var(--hover) ease;
-}
-.fld select{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
-@media (hover:hover) and (pointer:fine){
-  .fld input:hover,.fld select:hover{border-color:var(--muted)}
-}
-.fld input:focus,.fld select:focus{border-color:var(--ink);outline:none}
-.fld input:focus-visible,.fld select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.fields--2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.fld-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:-4px}
-.fld-row a{font-size:13px;color:var(--muted);transition:color 240ms ease}
-@media (hover:hover) and (pointer:fine){ .fld-row a:hover{color:var(--ink)} }
-.auth-submit{width:100%;justify-content:space-between;margin-top:26px}
-.auth-alt{margin-top:22px;padding-top:20px;border-top:1px solid var(--hair);color:var(--muted);font-size:13.5px;text-align:center}
-.auth-alt a{color:var(--ink);font-weight:500}
-.auth-legal{margin-top:16px;color:var(--muted);font-size:11.5px;line-height:18px;text-align:center}
-
-/* ---------- chat ---------- */
-.chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
-.chatbox{border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
-.chat-h{display:flex;align-items:center;gap:13px;padding:20px 24px;border-bottom:1px solid var(--hair)}
-.chat-h .av{width:40px;height:40px;border-radius:999px;background:var(--card);border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}
-.chat-h strong{display:block;font-size:15px;font-weight:500;letter-spacing:-.01em}
-.chat-h span{display:block;margin-top:3px;color:var(--muted);font-size:12px}
-.chat-h .dot{margin-left:auto}
-.chat-b{padding:26px 24px;display:flex;flex-direction:column;gap:18px;background:var(--footer)}
-.msg{max-width:78%;padding:16px 19px;border-radius:18px;font-size:14.5px;line-height:24px}
-.msg--ai{background:#fff;border:1px solid var(--hair);color:var(--ink);border-bottom-left-radius:6px}
-.msg--me{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:6px}
-.msg p + p{margin-top:12px}
-.chat-in{display:flex;align-items:center;gap:12px;padding:16px 20px;border-top:1px solid var(--hair);background:#fff}
-.chat-in input{flex:1;min-width:0;height:46px;padding:0 16px;border:1px solid var(--line);border-radius:999px;font-family:var(--sans);font-size:14.5px;color:var(--ink)}
-.chat-in input:focus{border-color:var(--ink);outline:none}
-.chat-in input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.chat-f{padding:14px 24px 18px;color:var(--muted);font-size:11.5px;line-height:18px;background:#fff;border-top:1px solid var(--hair-soft)}
-.chat-f a{color:var(--ink);font-weight:500}
-.asks{border:1px solid var(--line);border-radius:20px;background:#fff;overflow:hidden;position:sticky;top:100px}
-.asks .asks-h{margin:0;padding:16px 20px;border-bottom:1px solid var(--hair);background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card)}
-.asks button{
-  display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;padding:15px 20px;border:0;
-  border-top:1px solid var(--hair-soft);background:#fff;cursor:pointer;font-size:13.5px;line-height:21px;
-  transition:background var(--hover) ease,transform var(--press) var(--ease-out);
-}
-.asks button:first-of-type{border-top:0}
-.asks button:active{transform:scale(.99)}
-@media (hover:hover) and (pointer:fine){
-  .asks button:hover{background:var(--shell)}
-}
-.asks button iconify-icon{font-size:15px;color:var(--muted);flex:none;margin-top:3px}
-
-/* ---------- responsive ---------- */
-@media (max-width:1180px){
-  .docs{grid-template-columns:220px minmax(0,1fr)}
-  .docs-main{padding-left:32px}
-  .plist li{grid-template-columns:160px 78px 68px minmax(0,1fr);gap:12px}
-  .auth-aside .wrap{padding:0 48px 0 max(32px,calc((100vw - var(--wrap)) / 2 + 32px))}
-}
-@media (max-width:1000px){
-  .cards{grid-template-columns:minmax(0,1fr)}
-  .cards--2{grid-template-columns:minmax(0,1fr)}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .step:nth-child(2n){border-right:0}
-  .step:nth-child(4n){border-right:0}
-  .step:nth-last-child(-n+4){border-bottom:1px solid var(--hair)}
-  .step:nth-last-child(-n+2){border-bottom:0}
-  .docs{grid-template-columns:minmax(0,1fr)}
-  .docs-side{border-right:0;border-bottom:1px solid var(--hair);padding:26px 0 30px}
-  .docs-side-in{position:static;flex-direction:row;flex-wrap:wrap;gap:26px 44px}
-  .docs-main{padding:38px 0 72px}
-  .auth{grid-template-columns:minmax(0,1fr);min-height:0}
-  .auth-aside{border-right:0;border-bottom:1px solid var(--hair);padding:56px 0 52px}
-  .auth-aside .wrap{position:static}
-  .auth-aside .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
-  .auth-main{padding:56px 32px 72px}
-  .chat{grid-template-columns:minmax(0,1fr)}
-  .asks{position:static}
-  .mini{grid-template-columns:minmax(0,1fr)}
-  .mini div + div{border-left:0;border-top:1px solid var(--hair)}
-  /* stacking starts here, so the flush rule has to start here too — putting it
-     in the 640px block left 641-1000px indented */
-  .mini--aside div{padding-left:0;padding-right:0}
-}
-@media (max-width:640px){
-  /* wrap the rail instead of scrolling it: a horizontal scroller on a phone
-     hides options behind an edge with no affordance */
-  .rail{flex-wrap:wrap;overflow:visible;border-radius:18px;gap:4px;padding:5px}
-  .rail a,.rail button{height:32px;padding:0 13px;font-size:13px}
-  .band{padding:52px 0 42px}
-  .blk{padding:60px 0}
-  .blk--top{padding-top:48px}
-  .steps{grid-template-columns:minmax(0,1fr)}
-  .step{border-right:0!important;border-bottom:1px solid var(--hair)!important}
-  .step:last-child{border-bottom:0!important}
-  .plist li{grid-template-columns:minmax(0,1fr);gap:4px}
-  .plist .pr{margin-top:2px}
-  .auth-card{padding:30px 22px 28px;border-radius:20px}
-  .auth-main{padding:40px 20px 56px}
-  .fields--2{grid-template-columns:minmax(0,1fr)}
-  .msg{max-width:92%}
-  .chat-b{padding:20px 16px}
-  .card-h,.card-f,.card-meta{padding-left:20px;padding-right:20px}
-  .band-foot .btn{justify-content:flex-start}
-}
-</style>
 </head>
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
@@ -873,6 +529,7 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 <!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
 
+<!-- ===================== NAV ===================== -->
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
     <a class="brand" href="index.html" aria-label="FCG 開放平台 — 首頁">
@@ -882,9 +539,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
     </a>
 
     <nav class="shell" aria-label="主導覽">
-      <a href="index.html">首頁</a>
+      <a class="on" href="index.html">首頁</a>
       <a href="app-management.html">應用程式管理</a>
-      <a class="on" href="api-docs-hotel.html">介面文件</a>
+      <a href="api-docs-hotel.html">介面文件</a>
       <a href="sdk.html">SDK</a>
       <a href="skills.html">Skills 技能包</a>
       <a href="ai-assistant.html">AI 助理</a>
@@ -892,9 +549,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 
     <div class="nav-right">
       <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-hotel.html">ENG</a>
-        <a href="../zh-CN/api-docs-hotel.html">简体</a>
-        <a href="api-docs-hotel.html" aria-current="page">繁體</a>
+        <a href="../index.html">ENG</a>
+        <a href="../zh-Hans/index.html">简体</a>
+        <a href="index.html" aria-current="page">繁體</a>
       </div>
       <a class="login" href="login.html">登入</a>
       <a class="btn btn--sm" href="register.html">註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
@@ -917,9 +574,9 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
       <div class="m-cta">
         <a class="btn btn--ghost" href="login.html">登入 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
         <div class="lang" role="group" aria-label="語言">
-        <a href="../api-docs-hotel.html">ENG</a>
-        <a href="../zh-CN/api-docs-hotel.html">简体</a>
-        <a href="api-docs-hotel.html" aria-current="page">繁體</a>
+        <a href="../index.html">ENG</a>
+        <a href="../zh-Hans/index.html">简体</a>
+        <a href="index.html" aria-current="page">繁體</a>
       </div>
       </div>
     </div>
@@ -927,88 +584,451 @@ code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:
 </header>
 
 <main id="main">
-<section class="band">
-  <div class="band-grid" aria-hidden="true"></div>
-  <div class="wrap band-in">
-      <p class="crumb"><a href="api-docs-hotel.html">文件中心</a> <i>/</i> <span>G-Link Hotel API</span></p>
-      <div class="band-top">
-        <p class="eyebrow micro">同時支援 SDK 與 API 對接</p>
-        
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="rv">
+      <p class="eyebrow micro">同時支援 SDK 與 API 對接</p>
+      <h1>FCG<br>開放平台</h1>
+      <p class="lede"><b>為分銷商打造的旅遊開放平台</b> ，服務 OTA 與商旅管理公司等客戶。以標準化介面與彈性 SDK 彙整並分銷飯店、機票等核心旅遊資源，並提供 TMC 介面能力，協助合作夥伴更快推出自有品牌的旅遊平台。</p>
+      <div class="hero-cta">
+        <a class="btn" href="#start-integration">開始對接 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <a class="btn btn--ghost" href="#start-integration">預約示範</a>
       </div>
-      <h1>G-Link Hotel API</h1>
-      <p class="lede"><b>全球主要飯店庫存</b> ，透過一套標準化介面提供。完整流程涵蓋即時查詢、試單、預訂、付款與取消。</p>
-      <div class="band-foot"><nav class="rail" aria-label="章節"><a class="on" href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a href="api-docs-hotel-process.html">對接流程</a><a href="api-docs-hotel-apis.html">介面參考</a><a href="api-docs-errors.html">錯誤碼</a></nav><a class="btn btn--sm" href="sdk.html">下載 SDK <iconify-icon icon="solar:download-minimalistic-linear" aria-hidden="true"></iconify-icon></a></div>
+      <div class="hero-facts">
+        <div><span class="dot" aria-hidden="true"></span><b>3</b> 核心產品</div>
+        <div><b>SDK</b> Go · Java · Python</div>
+        <div><b>MCP</b> 智慧對接</div>
+      </div>
+    </div>
+
+    <div class="rv">
+      <div class="term">
+        <div class="term-bar">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="t-label">沙箱請求</span>
+          <span class="t-right">shell</span>
+        </div>
+        <div class="term-body">
+<pre><span class="t-dim">$</span> <span class="t-cmd">curl</span> -X POST <span class="t-key">https://{host}/{version}/hotel/search</span> \
+    -H <span class="t-key">"Authorization: Bearer $FCG_TOKEN"</span> \
+    -H <span class="t-key">"Content-Type: application/json"</span> \
+    -d <span class="t-key">'{ "destination": "{cityCode}", "nights": 2 }'</span></pre>
+        </div>
+        <div class="term-split"><span>回應</span><span class="t-right" style="margin-left:auto">application/json</span></div>
+        <div class="term-body">
+<pre>{
+  <span class="t-key">"requestId"</span>: <span class="t-dim">"{uuid}"</span>,
+  <span class="t-key">"status"</span>: <span class="t-dim">"ok"</span>,
+  <span class="t-key">"results"</span>: [
+    { <span class="t-key">"hotelId"</span>: <span class="t-dim">"{id}"</span>, <span class="t-key">"rates"</span>: [ <span class="t-dim">/* … */</span> ] }
+  ]
+}<span class="cursor" aria-hidden="true"></span></pre>
+        </div>
+      </div>
+      <p class="term-note">此處僅為示意片段。大括號中的佔位符代表實際值，正式的請求與回應規格請以介面文件為準。</p>
+    </div>
   </div>
 </section>
 
-<div class="wrap">
-<div class="docs">
-  <aside class="docs-side">
-    <div class="docs-side-in">
-      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">產品文件</p><nav aria-labelledby="nav-product-docs"><ul><li><a class="on" href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">錯誤碼說明</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章節</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a href="api-docs-hotel-process.html">對接流程</a></li><li><a href="api-docs-hotel-apis.html">介面參考</a></li></ul></nav></div>
-      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">開發者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下載</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助理</a></li></ul></nav></div>
-    </div>
-  </aside>
-  <div class="docs-main">
-    <h2>八個介面即可完成一筆飯店預訂。</h2>
-    <p>以下為必接介面。介面參考中的其餘部分，都是圍繞這些介面的靜態資料、增量更新與回呼處理。</p>
-
-    <div class="tblwrap"><div class="tblscroll">
-  <table class="tbl" style="min-width:700px">
-    <thead><tr><th>編號</th><th>介面</th><th>方法</th><th>路徑</th></tr></thead>
-    <tbody>
-      <tr><td class="t-num">1</td><td>可販售飯店 ID 清單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/search/hotelIdList</td></tr>
-      <tr><td class="t-num">2</td><td>查詢飯店基本資訊</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/hotel/detail</td></tr>
-      <tr><td class="t-num">3</td><td>飯店即時商品查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/productDetails</td></tr>
-      <tr><td class="t-num">4</td><td>試單（可訂性檢查）</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/availabilityCheck</td></tr>
-      <tr><td class="t-num">5</td><td>建立訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/createOrder</td></tr>
-      <tr><td class="t-num">6</td><td>訂單付款</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/booking/payOrder</td></tr>
-      <tr><td class="t-num">7</td><td>取消訂單</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/cancelOrder</td></tr>
-      <tr><td class="t-num">8</td><td>訂單明細查詢</td><td class="t-mid"><span class="method">POST</span></td><td class="t-path">/openapi/v1/glink/order/orderDetail</td></tr>
-    </tbody>
-  </table>
-</div></div>
-
-    <h3>必接介面及其呼叫時機</h3>
-    <ul class="bul">
-      <li><iconify-icon icon="solar:magnifer-linear"></iconify-icon><span><strong>飯店每日最低價</strong> —
-        <code class="inl">hotel/lowestPrice</code>。查詢已對應飯店的最低價，作為該飯店是否顯示在本機飯店清單中的依據。</span></li>
-      <li><iconify-icon icon="solar:bed-linear"></iconify-icon><span><strong>飯店即時商品查詢</strong> —
-        <code class="inl">booking/productDetails</code>。客人進入飯店明細頁或預訂流程時即時呼叫。</span></li>
-      <li><iconify-icon icon="solar:check-circle-linear"></iconify-icon><span><strong>試單</strong> —
-        <code class="inl">booking/availabilityCheck</code>。檢查可販售商品是否真的可訂，需傳入實際預訂間數。</span></li>
-      <li><iconify-icon icon="solar:document-add-linear"></iconify-icon><span><strong>建立訂單</strong> —
-        <code class="inl">booking/createOrder</code>。試單通過且本機訂單建立成功後呼叫。呼叫前請再執行一次試單檢查。</span></li>
-      <li><iconify-icon icon="solar:card-linear"></iconify-icon><span><strong>訂單付款</strong> —
-        <code class="inl">booking/payOrder</code>。本機客人付款成功後，或訂單需要確認時呼叫，用於通知服務團隊處理該訂單。</span></li>
-      <li><iconify-icon icon="solar:close-circle-linear"></iconify-icon><span><strong>取消訂單</strong> —
-        <code class="inl">order/cancelOrder</code>。訂單超過 30 分鐘未付款，或客人主動取消時呼叫。回傳成功即應停止輪詢。</span></li>
-      <li><iconify-icon icon="solar:bell-linear"></iconify-icon><span><strong>訂單狀態推送</strong> —
-        <code class="inl">notify/orderStatus</code>。收到付款通知後，服務團隊處理訂單並推送狀態。此介面必須實作冪等。</span></li>
-      <li><iconify-icon icon="solar:refresh-linear"></iconify-icon><span><strong>訂單明細查詢</strong> —
-        <code class="inl">order/orderDetail</code>。僅作為補償機制，用於付款後未收到確認結果的情況。不需頻繁輪詢；訂單確認或取消後即應停止。</span></li>
-    </ul>
-
-    <h3>靜態資料與增量更新</h3>
-    <p>透過 <code class="inl">search/hotelIdList</code>取得可販售飯店清單，再透過 <code class="inl">/hotel/detail</code>. <code class="inl">region/countries</code> 與
-       <code class="inl">region/cities</code> 提供國家與城市基礎資料，通常用於建立基礎資料並與 FCG 飯店系統進行對應。</p>
-    <p>請定期呼叫 <code class="inl">/hotel/increment</code> ，取得靜態資訊有變動的飯店 ID 清單——包含新增、修改與刪除——然後只同步受影響的紀錄，不需全量重新拉取。</p>
-
-    <div class="note">
-      <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
-      <span><strong>流量限制說明。</strong> 生產環境預設每個應用程式每分鐘 100 次。請在本機快取靜態資料，把即時呼叫留給查詢、試單與訂單操作。</span>
+<!-- ===================== CORE PRODUCTS ===================== -->
+<section class="sec" id="products">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow micro">核心產品</p>
+      <h2 class="h2">三大核心產品， <em>一套對接介面。</em></h2>
+      <p class="lede">三大核心產品端到端涵蓋關鍵旅遊業務流程。逐列比較，再從你的系統最先需要的那一個開始。</p>
     </div>
 
-    <div class="band-foot">
-      <a class="btn" href="api-docs-hotel-process.html">查看對接流程 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
-      <a class="tlink tlink--o" href="api-docs-hotel-apis.html">完整介面參考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+    <div class="pmatrix rv">
+      <!-- G-Link -->
+      <div class="pcol">
+        <div class="pcell pcell--head">
+          <span class="code"><iconify-icon icon="solar:buildings-3-linear" aria-hidden="true" style="font-size:14px"></iconify-icon> G-Link</span>
+          <h3 class="h3">飯店介面</h3>
+        </div>
+        <div class="pcell pcell--what">全球主要飯店庫存，業界級資料準確度。</div>
+        <div class="pcell">
+          <span class="rlabel">涵蓋範圍</span>
+          <p class="rtext">全球主要飯店庫存，完整流程涵蓋即時查詢、試單、預訂與取消。</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">業務流程</span>
+          <p class="flow">查詢 <i>→</i> 試單 <i>→</i> 預訂 <i>→</i> 取消</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">對接介面</span>
+          <ul class="eplist">
+            <li><span class="method">POST</span><code>/{v}/hotel/search</code></li>
+            <li><span class="method method--get">GET</span><code>/{v}/hotel/rates/calendar</code></li>
+            <li><span class="method method--get">GET</span><code>/{v}/hotel/rooms/{id}</code></li>
+            <li><span class="method">POST</span><code>/{v}/hotel/bookings</code></li>
+          </ul>
+          <p class="disclaim">僅為結構示意，非正式介面規格。</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">能力</span>
+          <div class="chips">
+            <span class="chip chip--plain">查詢介面</span>
+            <span class="chip chip--plain">預訂管理</span>
+            <span class="chip chip--plain">價格日曆</span>
+            <span class="chip chip--plain">房型明細</span>
+          </div>
+        </div>
+        <div class="pcell pcell--foot">
+          <a class="tlink" href="#start-integration">從 G-Link 開始 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </div>
+
+      <!-- F-Link -->
+      <div class="pcol">
+        <div class="pcell pcell--head">
+          <span class="code"><iconify-icon icon="solar:route-linear" aria-hidden="true" style="font-size:14px"></iconify-icon> F-Link</span>
+          <h3 class="h3">機票介面</h3>
+        </div>
+        <div class="pcell pcell--what">涵蓋國內與國際航空公司的直連艙位庫存。</div>
+        <div class="pcell">
+          <span class="rlabel">涵蓋範圍</span>
+          <p class="rtext">涵蓋國內與國際航空公司的直連艙位庫存，支援 BSP，包含查詢、定價、開票、退票與改期。</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">業務流程</span>
+          <p class="flow">查詢 <i>→</i> 定價 <i>→</i> 開票 <i>→</i> 退改</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">對接介面</span>
+          <ul class="eplist">
+            <li><span class="method">POST</span><code>/{v}/flight/search</code></li>
+            <li><span class="method method--get">GET</span><code>/{v}/flight/fares</code></li>
+            <li><span class="method">POST</span><code>/{v}/flight/orders</code></li>
+            <li><span class="method method--get">GET</span><code>/{v}/flight/refund-rules</code></li>
+          </ul>
+          <p class="disclaim">僅為結構示意，非正式介面規格。</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">能力</span>
+          <div class="chips">
+            <span class="chip chip--plain">航班查詢</span>
+            <span class="chip chip--plain">即時票價</span>
+            <span class="chip chip--plain">訂單管理</span>
+            <span class="chip chip--plain">退改規則</span>
+          </div>
+        </div>
+        <div class="pcell pcell--foot">
+          <a class="tlink" href="#start-integration">從 F-Link 開始 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </div>
+
+      <!-- TMC -->
+      <div class="pcol">
+        <div class="pcell pcell--head">
+          <span class="code"><iconify-icon icon="solar:widget-5-linear" aria-hidden="true" style="font-size:14px"></iconify-icon> TMC</span>
+          <h3 class="h3">商旅管理介面</h3>
+        </div>
+        <div class="pcell pcell--what">為企業商旅專案打造的成熟介面化商旅管理層。</div>
+        <div class="pcell">
+          <span class="rlabel">涵蓋範圍</span>
+          <p class="rtext">成熟的介面化商旅管理能力。快速推出自有品牌的企業商旅服務，支援深度客製，不需從零建置。</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">業務流程</span>
+          <p class="flow">商旅政策 <i>→</i> 簽核 <i>→</i> 費用 <i>→</i> 結算</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">對接介面</span>
+          <ul class="eplist">
+            <li><span class="method method--get">GET</span><code>/{v}/tmc/policies</code></li>
+            <li><span class="method">POST</span><code>/{v}/tmc/approvals</code></li>
+            <li><span class="method method--get">GET</span><code>/{v}/tmc/expense-rules</code></li>
+            <li><span class="method method--get">GET</span><code>/{v}/tmc/reports/billing</code></li>
+          </ul>
+          <p class="disclaim">僅為結構示意，非正式介面規格。</p>
+        </div>
+        <div class="pcell">
+          <span class="rlabel">能力</span>
+          <div class="chips">
+            <span class="chip chip--plain">企業控管</span>
+            <span class="chip chip--plain">費用規則</span>
+            <span class="chip chip--plain">結算報表</span>
+            <span class="chip chip--plain">簽核流程</span>
+          </div>
+        </div>
+        <div class="pcell pcell--foot">
+          <a class="tlink" href="#start-integration">從 TMC 介面開始 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+</section>
+
+<!-- ===================== SKILLS PACKAGES ===================== -->
+<section class="sec" id="skills" style="background:#fff">
+  <div class="wrap skills">
+    <div class="rv">
+      <p class="eyebrow micro">Skills 技能包 <span class="badge" style="margin-left:6px">新</span></p>
+      <h2 class="h2" style="margin-top:22px;max-width:16ch">為 AI 程式助理打造的對接技能包。</h2>
+      <p class="lede" style="margin-top:22px"><b>為 AI 程式助理打造的對接技能包。</b> 匯入 Claude、ChatGPT 或 Copilot，取得更準確的驗證程式碼、介面除錯與問題診斷。</p>
+      <ul class="tick">
+        <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>完整涵蓋 G-Link 與 F-Link</span></li>
+        <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>驗證、查詢、預訂與付款流程</span></li>
+        <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>內建提示詞範本</span></li>
+        <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>持續更新</span></li>
+      </ul>
+      <div style="margin-top:36px">
+        <a class="btn" href="#start-integration">瀏覽技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      </div>
+    </div>
+
+    <div class="rv">
+      <div class="tree">
+        <div class="tree-h">
+          <iconify-icon icon="solar:folder-open-linear" aria-hidden="true" style="font-size:16px;color:var(--muted-card)"></iconify-icon>
+          <span>技能包結構</span>
+        </div>
+<pre>fcg-skills/
+├─ g-link/      <span class="d">auth · query · booking · payment</span>
+├─ f-link/      <span class="d">auth · query · booking · payment</span>
+├─ prompts/     <span class="d">templates for debugging + diagnosis</span>
+└─ README.md    <span class="d">import into Claude / ChatGPT / Copilot</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== USE CASES ===================== -->
+<section class="sec" id="use-cases">
+  <div class="wrap">
+    <div class="sec-head sec-head--c rv">
+      <p class="eyebrow micro eyebrow--c">產品應用情境</p>
+      <h2 class="h2">各產品的典型應用情境。</h2>
+      <p class="lede" style="text-align:center"><b>三個產品，九種成熟模式。</b> 在評估對接範圍前，先找到與你最接近的那一種。</p>
+    </div>
+
+    <div class="ucases rv">
+      <div class="ugroup">
+        <span class="ucode">G-Link</span>
+        <h3>飯店介面分銷</h3>
+        <ul class="ulist">
+          <li><em>01</em><span>OTA 彙整</span></li>
+          <li><em>02</em><span>企業商旅採購</span></li>
+          <li><em>03</em><span>目的地管理</span></li>
+        </ul>
+      </div>
+      <div class="ugroup">
+        <span class="ucode">F-Link</span>
+        <h3>機票介面分銷</h3>
+        <ul class="ulist">
+          <li><em>01</em><span>代理商分銷</span></li>
+          <li><em>02</em><span>商旅政策控管</span></li>
+          <li><em>03</em><span>票價彙整比價</span></li>
+        </ul>
+      </div>
+      <div class="ugroup">
+        <span class="ucode">TMC API</span>
+        <h3>商旅管理介面</h3>
+        <ul class="ulist">
+          <li><em>01</em><span>品牌化部署</span></li>
+          <li><em>02</em><span>企業政策控管</span></li>
+          <li><em>03</em><span>統一結算與報表</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTEGRATION OPTIONS ===================== -->
+<section class="sec" id="integration">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow micro">彈性的對接方式</p>
+      <h2 class="h2">依你的技術架構方式對接。</h2>
+      <p class="lede"><b>三條路徑，通往同一套能力。</b> 選擇最符合團隊現有開發方式的那一條。</p>
+    </div>
+
+    <div class="iopts rv">
+      <div class="icard">
+        <div class="icard-ic"><iconify-icon icon="solar:cpu-bolt-linear" aria-hidden="true"></iconify-icon></div>
+        <h3>MCP 智慧對接</h3>
+        <span class="k">Model Context Protocol</span>
+        <p>透過 Model Context Protocol 開放旅遊能力，讓 AI 模型直接呼叫。為大型語言模型應用與助理而設計。</p>
+        <div class="icard-foot">
+          <div class="langs">
+            <span class="chip">MCP server</span>
+            <span class="chip">工具呼叫</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="icard">
+        <div class="icard-ic"><iconify-icon icon="solar:code-square-linear" aria-hidden="true"></iconify-icon></div>
+        <h3>SDK 快速對接</h3>
+        <span class="k">具型別的用戶端</span>
+        <p>內建驗證、重試與序列化，幾行程式碼即可完成一次可用呼叫，不必另開專案。目前提供 Go、Java 與 Python。</p>
+        <div class="icard-foot">
+          <div class="langs">
+            <span class="chip">Go</span>
+            <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip soon">Node.js — 開發中</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="icard">
+        <div class="icard-ic"><iconify-icon icon="solar:global-linear" aria-hidden="true"></iconify-icon></div>
+        <h3>API</h3>
+        <span class="k">不限語言</span>
+        <p>標準介面，任何語言或框架都能呼叫。適合希望自行掌控用戶端層的團隊。</p>
+        <div class="icard-foot">
+          <div class="langs">
+            <span class="chip">HTTP / JSON</span>
+            <span class="chip">不限框架</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CUSTOMER TYPES ===================== -->
+<section class="sec" id="customers">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow micro">客戶類型</p>
+      <h2 class="h2">找到適合你的對接路徑。</h2>
+      <p class="lede"><b>三類客戶，三條建議路徑。</b> 找到你所屬的那一列，從那裡開始。</p>
+    </div>
+
+    <div class="dtable rv">
+      <div class="dhead" aria-hidden="true">
+        <span>你是誰</span>
+        <span>你要解決什麼</span>
+        <span>建議路徑</span>
+        <span></span>
+      </div>
+
+      <div class="drow">
+        <div class="dwho"><strong>分銷商 / OTA</strong></div>
+        <p class="dwhy">彙整飯店與機票供給並對外分銷。</p>
+        <div class="dpath">
+          <span class="chip">API</span>
+          <span class="chip">SDK</span>
+        </div>
+        <div class="dact"><a class="tlink" href="#start-integration" aria-label="分銷商與 OTA 開始對接">開始 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </div>
+
+      <div class="drow hl">
+        <div class="dwho">
+          <strong>商旅管理公司</strong>
+          <span class="badge" style="align-self:flex-start">最受歡迎</span>
+        </div>
+        <p class="dwhy">在同一個平台統一管理飯店、機票與商旅政策。</p>
+        <div class="dpath">
+          <span class="chip">全產品線</span>
+          <span class="chip">介面對接</span>
+        </div>
+        <div class="dact"><a class="tlink" href="#start-integration" aria-label="商旅管理公司開始對接">開始 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </div>
+
+      <div class="drow">
+        <div class="dwho"><strong>大型企業</strong></div>
+        <p class="dwhy">在不需從零建置的前提下，推出自有品牌的企業商旅服務。</p>
+        <div class="dpath">
+          <span class="chip">TMC 介面快速部署</span>
+        </div>
+        <div class="dact"><a class="tlink" href="#start-integration" aria-label="大型企業開始對接">開始 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATISTICS ===================== -->
+<section class="sec sec--tight" aria-label="平台數據">
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="stat"><p class="n">50<u>+</u></p><p class="c">企業客戶</p></div>
+      <div class="stat"><p class="n">10<u>M+</u></p><p class="c">每日請求</p></div>
+      <div class="stat"><p class="n">99.9<u>%</u></p><p class="c">服務可用率</p></div>
+      <div class="stat"><p class="n">7<u>×24</u></p><p class="c">技術支援</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARTNERS ===================== -->
+<section class="sec" id="network">
+  <div class="wrap">
+    <div class="sec-head sec-head--c rv">
+      <p class="eyebrow micro eyebrow--c">合作網路</p>
+      <h2 class="h2">FCG 背後的供給與合作網路。</h2>
+      <p class="lede" style="text-align:center"><b>已服務 50 餘家企業客戶</b>，其中包括國家電網、中國移動、平安等中央企業與《財星》全球 500 大企業。</p>
+    </div>
+
+    <div class="board rv">
+      <div class="board-g">
+        <div class="cell">PST</div>
+        <div class="cell alt">CONNEXUS TRAVEL</div>
+        <div class="cell">SABRE</div>
+        <div class="cell alt">HILTON</div>
+        <div class="cell alt">AMADEUS</div>
+        <div class="cell">华住</div>
+        <div class="cell alt">IHG</div>
+        <div class="cell">MARRIOTT</div>
+      </div>
+      <span class="xh" style="left:25%;top:50%" aria-hidden="true"></span>
+      <span class="xh" style="left:50%;top:50%" aria-hidden="true"></span>
+      <span class="xh" style="left:75%;top:50%" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="sec" id="start-integration">
+  <div class="wrap">
+    <div class="sec-head sec-head--c rv">
+      <p class="eyebrow micro eyebrow--c">開始使用</p>
+      <h2 class="h2">兩種開始方式。</h2>
+      <p class="lede" style="text-align:center"><b>自行測試平台</b>，或洽業務團隊進行客製化部署。</p>
+    </div>
+
+    <div class="paths rv">
+      <div class="path">
+        <span class="micro" style="color:var(--muted)">免費接入</span>
+        <h3>註冊沙箱環境。</h3>
+        <p>註冊沙箱即可免費測試全部介面，無前期費用。生產環境按呼叫量計費。</p>
+        <ul>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>完整沙箱體驗</span></li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>完整介面文件與 SDK</span></li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>社群支援與文件中心</span></li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>按量計費，無最低消費</span></li>
+        </ul>
+        <div class="path-foot">
+          <a class="btn" href="#start-integration">免費註冊 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </div>
+
+      <div class="path path--fill">
+        <span class="micro" style="color:var(--muted-card)">業務諮詢</span>
+        <h3>洽詢業務團隊。</h3>
+        <p>與業務團隊討論客製方案、專屬報價與 TMC 介面部署。</p>
+        <ul>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>專屬業務經理</span></li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>客製對接方案</span></li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>TMC 介面部署示範</span></li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon><span>專屬 SLA 保障</span></li>
+        </ul>
+        <div class="path-foot">
+          <a class="btn" href="#start-integration">預約 30 分鐘示範 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
+<!-- ===================== FOOTER ===================== -->
 <footer class="ftr">
   <div class="wrap">
     <div class="ftr-top">
