@@ -635,6 +635,23 @@ DOUBLE_ORANGE = re.compile(
 )
 
 
+# Verified benign: each is a page's own name, appearing as its h1 and as its
+# nav/footer link, and both want the same translation. Anything NOT on this
+# list is a headline fragment colliding with a label — the bug that translated
+# the hero h1 to "FCG平台" — and fails the build.
+BENIGN_COLLISIONS = {"AI Assistant", "App Management", "FCG Developer Platform"}
+
+
+def check_context_collisions(html, slug):
+    # both locale tables carry identical keys, so either resolves the overrides
+    bad = i18n.find_context_collisions(html, ZH_CN) - BENIGN_COLLISIONS
+    if bad:
+        raise SystemExit(
+            f"{slug}: these strings appear both in a heading and in ordinary copy, "
+            f"so one translation has to serve both — split the markup or reword: {sorted(bad)}"
+        )
+
+
 def check_double_orange(html, slug):
     for m in DOUBLE_ORANGE.finditer(html):
         if "<em>" in m.group(1) and "<b>" in m.group(2):
@@ -693,6 +710,7 @@ def build(slug, title, desc, body, nav="", minimal=False, extra="", locale="en")
         check_em_rule(html, slug)
         check_h1_rule(html, slug)
         check_double_orange(html, slug)
+        check_context_collisions(html, slug)
 
     missing = set()
     if locale != "en":
@@ -739,6 +757,7 @@ if __name__ == "__main__":
     check_em_rule(_idx, "index.html")
     check_h1_rule(_idx, "index.html")
     check_double_orange(_idx, "index.html")
+    check_context_collisions(_idx, "index.html")
     print(f"index.html nav/footer: {'rewritten' if changed else 'already current'}")
 
     all_missing = {}

@@ -22,6 +22,33 @@ from html.parser import HTMLParser
 # Tags whose text is code, data or a proper noun — never translated.
 SKIP_TEXT_IN = {"script", "style", "code", "pre"}
 
+# Void elements have no end tag. Pushing them onto the open-element stack and
+# never popping them corrupts every ancestor test that follows — the hero's
+# <br> left h1 on the stack permanently, so the footer heading also looked like
+# it was inside a heading.
+VOID = {
+    "area", "base", "br", "col", "embed", "hr", "img", "input",
+    "link", "meta", "param", "source", "track", "wbr",
+}
+
+
+def _push(stack, tag):
+    if tag not in VOID:
+        stack.append(tag)
+
+
+def _pop(stack, tag):
+    """Unwind to the matching tag, tolerating unclosed elements."""
+    if tag in VOID or tag not in stack:
+        return
+    while stack:
+        if stack.pop() == tag:
+            return
+
+
+# Headings whose text nodes may carry a "h:" prefixed override.
+HEADING_TAGS = {"h1", "h2", "h3"}
+
 # Attributes that carry user-visible copy.
 TRANSLATABLE_ATTRS = {"placeholder", "aria-label", "title", "alt", "content"}
 
@@ -86,7 +113,7 @@ class _Extract(HTMLParser):
         self.found = []
 
     def handle_starttag(self, tag, attrs):
-        self.stack.append(tag)
+        _push(self.stack, tag)
         for name, value in attrs:
             if name in TRANSLATABLE_ATTRS and norm(value or ""):
                 self.found.append(norm(value))
@@ -97,8 +124,7 @@ class _Extract(HTMLParser):
                 self.found.append(norm(value))
 
     def handle_endtag(self, tag):
-        if self.stack and self.stack[-1] == tag:
-            self.stack.pop()
+        _pop(self.stack, tag)
 
     def handle_data(self, data):
         if any(t in SKIP_TEXT_IN for t in self.stack):
@@ -164,14 +190,16 @@ class _Translate(HTMLParser):
                 continue
             v = value
             if name in TRANSLATABLE_ATTRS and norm(value):
-                v = self._swap(value)
+                v = self._swap(value, False)
             parts.append(f' {name}="{v}"')
         return "".join(parts)
 
-    def _swap(self, raw):
+    def _swap(self, raw, in_heading=False):
         key = norm(raw)
         if not key:
             return raw
+        if in_heading and ("h:" + key) in self.table:
+            key = "h:" + key
         if key in self.table:
             # keep the original leading/trailing whitespace so inline runs like
             # "text <code>x</code> more text" keep their spacing
@@ -183,22 +211,26 @@ class _Translate(HTMLParser):
         return raw
 
     def handle_starttag(self, tag, attrs):
-        self.stack.append(tag)
+        _push(self.stack, tag)
         self.out.append(f"<{tag}{self._attrs(attrs)}>")
 
     def handle_startendtag(self, tag, attrs):
         self.out.append(f"<{tag}{self._attrs(attrs)}>")
 
     def handle_endtag(self, tag):
-        if self.stack and self.stack[-1] == tag:
-            self.stack.pop()
+        _pop(self.stack, tag)
         self.out.append(f"</{tag}>")
 
     def handle_data(self, data):
         if any(t in SKIP_TEXT_IN for t in self.stack):
             self.out.append(data)
             return
-        self.out.append(self._swap(data) if data.strip() else data)
+        # A fragment inside a heading can need a different translation from the
+        # same word used as a label: "Platform" is the second line of the hero
+        # h1 and also a footer column heading. A "h:" prefixed entry wins inside
+        # h1/h2/h3, so neither has to be reworded.
+        in_heading = any(t in HEADING_TAGS for t in self.stack)
+        self.out.append(self._swap(data, in_heading) if data.strip() else data)
 
     def handle_comment(self, data):
         self.out.append(f"<!--{data}-->")
@@ -223,3 +255,47 @@ def translate(html, table):
     p.feed(html)
     p.close()
     return "".join(p.out), missing
+
+
+# ---------------------------------------------------------------- collisions
+# The table is keyed on the exact string, so one string gets one translation
+# everywhere. That is fine for a word used consistently, and wrong when a
+# headline fragment happens to match a label: "Platform" as the second half of
+# "FCG Developer<br>Platform" collided with the footer column heading and
+# translated the hero to "FCG平台". Flag any string that appears both inside a
+# heading and outside one.
+
+class _Contexts(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack = []
+        self.seen = {}
+
+    def handle_starttag(self, tag, attrs):
+        _push(self.stack, tag)
+
+    def handle_startendtag(self, tag, attrs):
+        pass
+
+    def handle_endtag(self, tag):
+        _pop(self.stack, tag)
+
+    def handle_data(self, data):
+        if any(t in SKIP_TEXT_IN for t in self.stack):
+            return
+        key = norm(data)
+        if not key or not _translatable(key):
+            return
+        in_heading = any(t in HEADING_TAGS for t in self.stack)
+        self.seen.setdefault(key, set()).add("heading" if in_heading else "body")
+
+
+def find_context_collisions(html, table=None):
+    """Strings living in both a heading and ordinary copy on the same page.
+    A key with a "h:" override is already resolved, so it is not a collision."""
+    p = _Contexts()
+    p.feed(html)
+    overridden = {k[2:] for k in (table or {}) if k.startswith("h:")}
+    return {
+        k for k, ctx in p.seen.items() if len(ctx) > 1 and k not in overridden
+    }

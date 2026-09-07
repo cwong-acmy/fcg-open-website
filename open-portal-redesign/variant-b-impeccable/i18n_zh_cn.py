@@ -31,6 +31,9 @@ ZH_CN = {
     "Product use cases": "产品应用场景",
     "Developers": "开发者",
     "Platform": "平台",
+    # inside a heading only: the hero h1's second line, which is the
+    # same word as the footer column but means the product, not a section
+    "h:Platform": "开放平台",
     "Error code reference": "错误码说明",
     "© 2026 Fusion Connect Group Holdings Ltd (BVI). All rights reserved.":
         "© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留所有权利。",
