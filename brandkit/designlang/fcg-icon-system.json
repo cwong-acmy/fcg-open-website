@@ -1,0 +1,107 @@
+{
+  "library": "phosphor",
+  "confidence": 0.7,
+  "alternates": [],
+  "stats": {
+    "count": 14,
+    "strokeOnly": 10,
+    "fillOnly": 1,
+    "mixed": 1,
+    "avgStrokeWidth": 1.5,
+    "gridDistribution": {
+      "24": 11
+    },
+    "roundedCapsFraction": 0.79
+  },
+  "signals": [
+    "strokeDominant",
+    "roundedCaps",
+    "grid24"
+  ],
+  "icons": [
+    {
+      "class": "",
+      "grid": null,
+      "strokeWidth": null,
+      "style": "mixed"
+    },
+    {
+      "class": "animate-pulse",
+      "grid": 24,
+      "strokeWidth": 2,
+      "style": "mixed"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "w-full h-4 overflow-visible",
+      "grid": null,
+      "strokeWidth": 2,
+      "style": "fill"
+    },
+    {
+      "class": "absolute -top-[12px] -left-[12px] w-6 h-6 text-neutral-800",
+      "grid": 24,
+      "strokeWidth": 1,
+      "style": "stroke"
+    },
+    {
+      "class": "absolute -top-[12px] -right-[12px] w-6 h-6 text-neutral-800",
+      "grid": 24,
+      "strokeWidth": 1,
+      "style": "stroke"
+    },
+    {
+      "class": "absolute top-4 left-4 w-4 h-4 text-neutral-700",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "absolute top-4 right-4 w-4 h-4 text-neutral-700",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "absolute bottom-4 left-4 w-4 h-4 text-neutral-700",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "absolute bottom-4 right-4 w-4 h-4 text-neutral-700",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": null,
+      "strokeWidth": null,
+      "style": "mixed"
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+:root {
+  /* Colors — Primary */
+  --color-primary: #f97316;
+  --color-secondary: #020617;
+  --color-accent: #10b981;
+
+  /* Colors — Neutrals */
+  --color-neutral-50: #e2e4e9;
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #0f1114;
+  --color-neutral-300: #6b7280;
+  --color-neutral-400: #64748b;
+  --color-neutral-500: #52525b;
+  --color-neutral-600: #3f3f46;
+  --color-neutral-700: #1f1f1f;
+  --color-neutral-800: #fff7ed;
+  --color-neutral-900: #334155;
+
+  /* Colors — Backgrounds */
+  --color-bg: #f5f7fa;
+  --color-bg-1: #f9fafb;
+  --color-bg-2: #ffffff;
+  --color-bg-3: #020617;
+  --color-bg-4: #0f1114;
+  --color-bg-5: #fbfcfd;
+
+  /* Colors — Text */
+  --color-text: #1f1f1f;
+  --color-text-1: #0f172a;
+  --color-text-2: #182231;
+  --color-text-3: #ffffff;
+  --color-text-4: #0f1114;
+
+  /* Typography — Families */
+  --font-sans: 'SF Pro Display', sans-serif;
+
+  /* Typography — Scale */
+  --font-size-96: 96px;
+  --font-size-44: 44px;
+  --font-size-36: 36px;
+  --font-size-32: 32px;
+  --font-size-28: 28px;
+  --font-size-24: 24px;
+  --font-size-20: 20px;
+  --font-size-18: 18px;
+  --font-size-16: 16px;
+  --font-size-15: 15px;
+  --font-size-14: 14px;
+  --font-size-12: 12px;
+
+  /* Spacing */
+  --spacing-2: 2px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-78: 78px;
+  --spacing-88: 88px;
+  --spacing-112: 112px;
+  --spacing-192: 192px;
+  --spacing-272: 272px;
+  --spacing-288: 288px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 50px;
+  --radius-full: 999px;
+  --radius-full: 9999px;
+
+  /* Box Shadows */
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 17, 20, 0.06) 0px 18px 50px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 17, 20, 0.06) 0px 10px 30px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 17, 20, 0.16) 0px 18px 48px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 17, 20, 0.06) 0px 12px 34px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 17, 20, 0.38) 0px 24px 54px -34px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 17, 20, 0.06) 0px 1px 3px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 23, 42, 0.14) 0px 18px 50px 0px;
+  --shadow-xl: rgba(36, 50, 68, 0.26) 0px 16px 42px -24px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset;
+  --shadow-xl: rgba(100, 116, 139, 0.1) 0px 22px 46px 0px, rgba(100, 116, 139, 0.043) 0px 2px 5px 0px, rgba(255, 255, 255, 0.86) 0px 1px 0px 0px inset;
+  --shadow-xl: rgba(15, 17, 20, 0.38) 0px 24px 54px -34px;
+  --shadow-xl: rgba(148, 163, 184, 0.2) 0px 24px 80px 0px, rgba(255, 255, 255, 0.92) 0px 1px 0px 0px inset;
+
+  /* Original Site Variables */
+  /* — colors — */
+  --opaque-button-border-intensity: -8;
+  --foreground: 220 14% 7%;
+  --border: 220 14% 90%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 14% 7%;
+  --card-border: 220 14% 91%;
+  --sidebar-foreground: 220 12% 86%;
+  --sidebar-border: 220 12% 18%;
+  --sidebar-primary: 24 95% 53%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 12% 18%;
+  --sidebar-accent-foreground: 220 12% 92%;
+  --sidebar-ring: 24 95% 53%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 14% 7%;
+  --popover-border: 220 14% 90%;
+  --primary: 24 95% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 14% 95%;
+  --secondary-foreground: 220 14% 12%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 45%;
+  --accent: 24 95% 96%;
+  --accent-foreground: 220 14% 7%;
+  --premium-ink-border: #344458;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 24 95% 53%;
+  --chart-1: 24 95% 53%;
+  --chart-2: 142 76% 36%;
+  --chart-3: 47 96% 53%;
+  --chart-4: 25 95% 53%;
+  --chart-5: 16 85% 58%;
+  --tag-hotel-bg: 40 100% 96%;
+  --tag-hotel-foreground: 32 78% 32%;
+  --tag-hotel-border: 42 82% 82%;
+  --tag-flight-bg: 197 100% 96%;
+  --tag-flight-foreground: 200 88% 34%;
+  --tag-flight-border: 200 88% 84%;
+  --tag-tmc-bg: 268 100% 97%;
+  --tag-tmc-foreground: 270 61% 42%;
+  --tag-tmc-border: 268 83% 86%;
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --primary-border: hsl(var(--primary));
+  --secondary-border: hsl(var(--secondary));
+  --muted-border: hsl(var(--muted));
+  --accent-border: hsl(var(--accent));
+  --destructive-border: hsl(var(--destructive));
+  --op-select-border: #e5e7eb;
+  --op-select-hover-border: #cbd5e1;
+  --op-select-focus-border: #0f172a;
+  --op-select-focus-ring: rgba(15, 23, 42, 0.1);
+  --op-select-option-hover-bg: #f8fafc;
+  --op-select-option-selected-bg: #f1f5f9;
+  --op-select-option-selected-hover-bg: #e2e8f0;
+  --op-json-bg: #f8fafc;
+  --op-json-bg-hover: #f1f5f9;
+  --op-json-border: #e5e7eb;
+  --op-json-border-focus: #0f172a;
+  --op-json-ring: rgba(15, 23, 42, 0.1);
+  --op-json-muted: #64748b;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-border-spacing-x: 0;
+  --tw-ring-color: rgb(59 130 246 / .5);
+  --tw-ring-offset-color: #fff;
+  --tw-ring-offset-width: 0px;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-inset: ;
+  --tw-border-spacing-y: 0;
+  --tw-border-opacity: 1;
+  /* — spacing — */
+  --spacing: .25rem;
+  --tw-numeric-spacing: ;
+  --tw-contain-size: ;
+  /* — typography — */
+  --app-font-sans: "SF Pro Display", "SF Pro Text", "Poppins", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: "JetBrains Mono", Menlo, monospace;
+  --tracking-normal: 0em;
+  --op-select-option-hover-text: #0f172a;
+  --op-select-option-selected-text: #0f172a;
+  --op-select-option-selected-hover-text: #0f172a;
+  --op-json-text: #334155;
+  /* — shadows — */
+  --shadow-2xs: 0px 1px 2px 0px rgba(0, 0, 0, .05);
+  --shadow-xs: 0px 1px 3px 0px rgba(15, 17, 20, .06);
+  --shadow-sm: 0px 10px 28px -24px rgba(15, 17, 20, .28);
+  --shadow: 0px 18px 42px -30px rgba(15, 17, 20, .34);
+  --shadow-md: 0px 24px 54px -34px rgba(15, 17, 20, .38);
+  --shadow-lg: 0px 32px 68px -42px rgba(15, 17, 20, .42);
+  --shadow-xl: 0px 40px 90px -52px rgba(15, 17, 20, .5);
+  --shadow-2xl: 0px 56px 120px -64px rgba(15, 17, 20, .55);
+  --tw-drop-shadow: ;
+  --tw-shadow: 0 0 #0000;
+  /* — radii — */
+  --radius: .375rem;
+  /* — other — */
+  --button-outline: rgba(0, 0, 0, .1);
+  --badge-outline: rgba(0, 0, 0, .05);
+  --elevate-1: rgba(0, 0, 0, .03);
+  --elevate-2: rgba(0, 0, 0, .08);
+  --background: 210 20% 98%;
+  --sidebar: 220 16% 10%;
+  --premium-ink: #182231;
+  --premium-ink-soft: #243244;
+  --premium-ink-deep: #101722;
+  --premium-ink-glow: rgba(36, 50, 68, .26);
+  --input: 30 18% 85%;
+  --tw-backdrop-sepia: ;
+  --tw-sepia: ;
+  --tw-ordinal: ;
+  --tw-contain-style: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-pan-y: ;
+  --tw-rotate: 0;
+  --tw-gradient-via-position: ;
+  --tw-saturate: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-gradient-to-position: ;
+  --tw-numeric-fraction: ;
+  --tw-skew-y: 0;
+  --tw-slashed-zero: ;
+  --tw-backdrop-opacity: ;
+  --tw-gradient-from-position: ;
+  --tw-pinch-zoom: ;
+  --tw-contain-paint: ;
+  --tw-backdrop-saturate: ;
+  --tw-brightness: ;
+  --tw-scale-y: 1;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-brightness: ;
+  --tw-pan-x: ;
+  --tw-translate-y: 0;
+  --tw-contrast: ;
+  --tw-skew-x: 0;
+  --tw-backdrop-blur: ;
+  --tw-translate-x: 0;
+  --tw-scale-x: 1;
+  --tw-blur: ;
+  --tw-invert: ;
+  --tw-numeric-figure: ;
+  --tw-contain-layout: ;
+  /* — dependencies — */
+  --sidebar-primary-border: --sidebar-primary;
+  --sidebar-accent-border: --sidebar-accent;
+  --primary-border: --primary;
+  --secondary-border: --secondary;
+  --muted-border: --muted;
+  --accent-border: --accent;
+  --destructive-border: --destructive;
+  /* — semantic — */
+  success: [object Object];
+  warning: [object Object];
+  error: [object Object];
+  info: [object Object];
+
+}

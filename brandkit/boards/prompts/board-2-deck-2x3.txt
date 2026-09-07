@@ -1,0 +1,27 @@
+Create a premium 2x3 brand-deck overview board for "FCG" (Fusion Connect Group), a travel supply infrastructure company providing hotel and flight content APIs.
+
+Layout:
+2 columns x 3 rows on a warm off-white canvas with wide gutters, hairline rules and small uppercase footer labels. Cinematic mini-deck rhythm: quiet, functional, atmospheric.
+
+Panels:
+1. Logo / wordmark — large black "FCG" in a tight geometric grotesque, offset left, enormous negative space, one small orange dot
+2. Product surface — a clean browser bar fragment on white showing a single URL field and a small orange LIVE.NETWORK status pill
+3. Command panel — a near-black terminal card with two short monospace lines of an API call and one orange cursor block
+4. Atmosphere — a halftone-textured dusk aerial of a coastline at very low contrast, overlaid with three thin orange routing arcs and tiny dark uppercase city chips
+5. Symbol construction — the arc-and-node mark centred inside a thin black circular aperture with crosshair construction lines and small measurement ticks
+6. Tagline — "One connection." in very large black type on white, with a tiny uppercase label beneath
+
+Visual mode:
+Light editorial infrastructure. Flat, print-like, restrained. Near-black ink on white with a single orange accent.
+
+Palette:
+#080805, #0F1114, #FFFFFF, #F3F4F6, #D1D5DB, accent #F97316 only.
+
+Style:
+premium identity deck, sparse, art-directed, senior designer presentation board, subtle paper grain, no gradients, no glow, no 3D clay icons, no purple or blue, no stock people, no travel clichés, no copied real-world logos.
+
+Typography:
+large, sparse, high hierarchy, readable. No fake tiny body text.
+
+Logo:
+the same FCG wordmark and arc-and-node symbol in every panel, consistent and simple.

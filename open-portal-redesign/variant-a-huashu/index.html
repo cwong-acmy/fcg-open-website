@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FCG Developer Platform</title>
+<meta name="description" content="A travel-focused open platform for distributors. Standardised APIs and flexible SDKs for hotel, flight and TMC resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script async src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+/* ============================================================
+   FCG Developer Platform — Variant A (editorial / typographic)
+   Design language: FCG marketing site. Inter only. One accent.
+   #F97316 is used ONLY as: 6px status dots, 12px section dashes,
+   statistic unit suffixes, thin SVG arcs, focus rings.
+   Never a button fill, panel fill or gradient.
+   ============================================================ */
+
+:root{
+  --bg:#FFFFFF;
+  --ink:#0F1114;
+  --ink-2:#111827;
+  --muted:#6B7280;
+  --card:#F3F4F6;
+  --hair:#D1D5DB;
+  --hair-soft:rgba(15,17,20,.08);
+  --footer:#f7f8fa;
+  --accent:#F97316;
+  --shell:rgba(15,17,20,.04);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --max:1200px;
+  --gutter:clamp(20px,4vw,48px);
+  --band:clamp(96px,11.5vw,168px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:24px;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  font-feature-settings:'ss01','cv05';
+}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul{list-style:none;padding:0}
+::selection{background:var(--card)}
+
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ---------- type scale ---------- */
+.h1{
+  font-size:clamp(42px,8.1vw,112px);
+  line-height:1.0;
+  letter-spacing:-.035em;
+  font-weight:500;
+  text-wrap:balance;
+}
+.h2{
+  font-size:clamp(33px,5.6vw,76px);
+  line-height:1.0;
+  letter-spacing:-.03em;
+  font-weight:500;
+  text-wrap:balance;
+}
+.h3{
+  font-size:clamp(26px,3.5vw,48px);
+  line-height:1.04;
+  letter-spacing:-.022em;
+  font-weight:500;
+}
+.h4{
+  font-size:clamp(21px,2vw,30px);
+  line-height:1.2;
+  letter-spacing:-.015em;
+  font-weight:500;
+}
+.lede{
+  font-size:clamp(16px,1.25vw,19px);
+  line-height:1.6;
+  color:var(--muted);
+  font-weight:400;
+  text-wrap:pretty;
+}
+.body{color:var(--muted);text-wrap:pretty}
+.micro{
+  font-size:11px;
+  line-height:1.2;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+}
+.num{
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:'tnum';
+}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.band{padding:var(--band) 0}
+.band--tight{padding:calc(var(--band) * .62) 0}
+.rule{height:1px;background:var(--hair);border:0;margin:0}
+.rule--soft{background:var(--hair-soft)}
+
+/* ---------- section head ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:12px;margin-bottom:clamp(20px,2.4vw,32px)}
+.eyebrow i{display:block;width:12px;height:1px;background:var(--accent);flex:none}
+.eyebrow span{color:var(--ink)}
+.sechead{max-width:960px}
+.sechead .lede{margin-top:clamp(18px,2vw,28px);max-width:65ch}
+.sechead--mid{margin-left:auto;margin-right:auto;text-align:center}
+.sechead--mid .lede{margin-left:auto;margin-right:auto;max-width:56ch}
+.sechead--mid .eyebrow{justify-content:center}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  height:52px;padding:0 26px;
+  border-radius:999px;
+  font-size:15px;font-weight:500;letter-spacing:-.01em;
+  transition:background 240ms ease,color 240ms ease,border-color 240ms ease,transform 240ms var(--ease);
+  white-space:nowrap;
+}
+.btn iconify-icon{font-size:17px;transition:transform 240ms var(--ease)}
+.btn--primary{background:var(--ink-2);color:#fff}
+.btn--primary:hover{background:#000}
+.btn--primary:hover iconify-icon{transform:translateX(4px)}
+.btn--ghost{border:1px solid var(--hair);color:var(--ink);background:transparent}
+.btn--ghost:hover{background:var(--card);border-color:var(--hair)}
+.btn--ghost:hover iconify-icon{transform:translateX(4px)}
+.btn--sm{height:40px;padding:0 18px;font-size:14px}
+.btn--link{padding:0;height:auto;gap:8px;font-size:15px;border-radius:0}
+.btn--link::after{
+  content:'';position:absolute;left:0;bottom:-4px;width:100%;height:1px;
+  background:var(--hair);transform:scaleX(0);transform-origin:left;
+  transition:transform 320ms var(--ease);
+}
+.btn--link{position:relative}
+.btn--link:hover::after{transform:scaleX(1)}
+.btn--link:hover iconify-icon{transform:translateX(4px)}
+
+/* ---------- pills / chips / dots ---------- */
+.pill{
+  display:inline-flex;align-items:center;gap:9px;
+  min-height:34px;padding:8px 16px;
+  border:1px solid var(--hair);border-radius:999px;
+  background:transparent;
+  line-height:1.35;
+}
+.pill iconify-icon{flex:none}
+.chip{
+  display:inline-flex;align-items:center;
+  height:32px;padding:0 14px;
+  border:1px solid var(--hair);border-radius:999px;
+  font-size:13px;color:var(--muted);
+  transition:color 240ms ease,border-color 240ms ease,background 240ms ease;
+}
+.chip:hover{color:var(--ink);background:var(--card)}
+.badge-dark{
+  display:inline-flex;align-items:center;height:26px;padding:0 12px;
+  background:var(--ink-2);color:#fff;border-radius:999px;
+  font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;
+}
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);flex:none;position:relative;display:inline-block;
+}
+.dot--live::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:var(--accent);
+  animation:ping 2.6s var(--ease) infinite;
+}
+@keyframes ping{
+  0%{transform:scale(1);opacity:.5}
+  70%{transform:scale(3.2);opacity:0}
+  100%{transform:scale(3.2);opacity:0}
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-head{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color 240ms ease;
+}
+.site-head.is-stuck{border-bottom-color:var(--hair-soft)}
+.head-inner{
+  max-width:1400px;margin:0 auto;
+  padding:0 var(--gutter);
+  height:78px;
+  display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);
+}
+.lockup{display:flex;align-items:center;gap:14px;flex:none}
+.lockup svg{height:28px;width:auto;display:block;color:var(--ink)}
+.lockup .divider{width:1px;height:22px;background:var(--hair);flex:none}
+.lockup .sub{
+  font-size:14px;font-weight:300;letter-spacing:-.005em;color:var(--muted);
+  white-space:nowrap;
+}
+.navshell{
+  display:flex;align-items:center;gap:2px;
+  background:var(--shell);
+  border:1px solid var(--hair-soft);
+  border-radius:999px;
+  padding:3px;
+  margin:0 auto;
+}
+.navshell a{
+  display:inline-flex;align-items:center;gap:7px;
+  height:36px;padding:0 15px;border-radius:999px;
+  font-size:14.5px;font-weight:400;color:var(--ink);
+  transition:background 240ms ease,color 240ms ease;
+  white-space:nowrap;
+}
+.navshell a:hover{background:#fff}
+.navshell a.is-current{background:#fff}
+.head-right{display:flex;align-items:center;gap:10px;flex:none;margin-left:auto}
+.lang{position:relative}
+.lang-btn{
+  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 13px;
+  border-radius:999px;font-size:14px;color:var(--ink);
+  transition:background 240ms ease;
+}
+.lang-btn:hover{background:var(--shell)}
+.lang-btn iconify-icon:first-child{font-size:17px;color:var(--muted)}
+.lang-btn .caret{font-size:14px;color:var(--muted);transition:transform 240ms var(--ease)}
+.lang.is-open .caret{transform:rotate(180deg)}
+.lang-menu{
+  position:absolute;top:calc(100% + 8px);right:0;min-width:150px;
+  background:#fff;border:1px solid var(--hair);border-radius:15px;padding:6px;
+  display:none;
+}
+.lang.is-open .lang-menu{display:block}
+.lang-menu button{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  width:100%;height:38px;padding:0 12px;border-radius:999px;
+  font-size:14px;text-align:left;
+  transition:background 240ms ease;
+}
+.lang-menu button:hover{background:var(--card)}
+.lang-menu button iconify-icon{font-size:16px;color:var(--muted);opacity:0}
+.lang-menu button[aria-checked="true"] iconify-icon{opacity:1}
+.head-login{
+  display:inline-flex;align-items:center;height:36px;padding:0 12px;
+  font-size:14.5px;color:var(--ink);border-radius:999px;
+  transition:background 240ms ease;
+}
+.head-login:hover{background:var(--shell)}
+.burger{
+  display:none;width:40px;height:40px;border:1px solid var(--hair);
+  border-radius:999px;align-items:center;justify-content:center;
+}
+.burger iconify-icon{font-size:19px}
+.mobile-nav{
+  display:none;
+  border-top:1px solid var(--hair-soft);
+  background:#fff;
+  padding:14px var(--gutter) 26px;
+}
+.mobile-nav.is-open{display:block}
+.mobile-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  height:50px;font-size:17px;
+  border-bottom:1px solid var(--hair-soft);
+}
+.mobile-nav a iconify-icon{font-size:17px;color:var(--muted)}
+.mobile-nav .m-actions{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.mobile-nav .btn{width:100%;justify-content:center}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding:clamp(52px,7vw,92px) 0 clamp(72px,9vw,116px);overflow:hidden}
+.hero-grid-tex{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(15,17,20,.05) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(15,17,20,.05) 1px,transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,transparent 100%);
+  animation:drift 20s linear infinite;
+}
+@keyframes drift{from{background-position:0 0}to{background-position:40px 40px}}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr;gap:clamp(48px,6vw,72px);align-items:center}
+.hero-copy{max-width:760px}
+.hero .h1{margin-bottom:clamp(26px,3vw,40px)}
+.hero .lede{max-width:52ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(32px,3.6vw,44px)}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:10px 30px;align-items:center;
+  margin-top:clamp(36px,4vw,52px);
+  padding-top:clamp(24px,2.6vw,32px);
+  border-top:1px solid var(--hair-soft);
+}
+.hero-meta .item{display:inline-flex;align-items:center;gap:9px;color:var(--muted)}
+.hero-art{position:relative}
+.hero-art svg{display:block;width:100%;height:auto}
+.status-card{
+  position:absolute;left:0;bottom:6%;
+  background:var(--card);
+  border:1px solid var(--hair);
+  border-radius:15px;
+  padding:16px 20px 18px;
+  max-width:240px;
+}
+.status-card .top{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.status-card dl{margin:0;display:grid;gap:5px}
+.status-card .row{display:flex;justify-content:space-between;gap:14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.status-card .row b{font-weight:500;color:var(--ink)}
+
+/* ============================================================
+   CORE PRODUCTS — editorial rows
+   ============================================================ */
+.prod{
+  display:grid;grid-template-columns:1fr;gap:clamp(24px,3vw,40px);
+  padding:clamp(44px,5.4vw,76px) 0;
+  border-top:1px solid var(--hair);
+  align-items:start;
+}
+.prod:last-of-type{border-bottom:1px solid var(--hair)}
+.prod-index{display:flex;align-items:baseline;gap:16px;color:var(--muted)}
+.prod-index .n{font-size:13px;letter-spacing:.16em;font-weight:500}
+.prod-mark{width:64px;height:64px;flex:none}
+.prod-mark svg{display:block;width:100%;height:100%}
+.prod-name{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.prod-body{max-width:58ch}
+.prod-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.prod-side{display:flex;flex-direction:column;gap:22px}
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+.skills{
+  display:grid;grid-template-columns:1fr;gap:clamp(40px,5vw,72px);align-items:start;
+}
+.skills-list{display:grid;gap:0;border-top:1px solid var(--hair)}
+.skills-list li{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px 0;border-bottom:1px solid var(--hair);
+}
+.skills-list iconify-icon{font-size:21px;color:var(--ink);flex:none;margin-top:1px}
+.skills-list p{font-size:15.5px;line-height:1.5}
+.skills-art{border:1px solid var(--hair);border-radius:24px;background:var(--card);padding:clamp(22px,2.6vw,34px);overflow:hidden}
+.skills-art .head{display:flex;align-items:center;gap:9px;margin-bottom:20px;color:var(--muted)}
+.skills-art pre{
+  margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12.5px;line-height:1.8;color:var(--ink);
+  white-space:pre;overflow-x:auto;
+}
+.skills-art pre .c{color:var(--muted)}
+
+/* ============================================================
+   USE CASES
+   ============================================================ */
+.cases{display:grid;grid-template-columns:1fr;gap:0}
+.case-col{border-top:1px solid var(--hair);padding-top:28px;padding-bottom:8px}
+.case-col .kicker{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.case-col h3{margin-bottom:24px}
+.case-col ul{display:grid;gap:0}
+.case-col li{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:15px 0;border-bottom:1px solid var(--hair-soft);
+  font-size:15.5px;
+}
+.case-col li iconify-icon{font-size:16px;color:var(--hair);flex:none}
+
+/* ============================================================
+   INTEGRATION
+   ============================================================ */
+.integ{display:grid;grid-template-columns:1fr;gap:0}
+.integ-item{
+  border-top:1px solid var(--hair);
+  padding:clamp(30px,3.4vw,44px) 0;
+  display:grid;grid-template-columns:1fr;gap:20px;
+}
+.integ-item:last-child{border-bottom:1px solid var(--hair)}
+.integ-icon{
+  width:46px;height:46px;border:1px solid var(--hair);border-radius:999px;
+  display:grid;place-items:center;flex:none;
+}
+.integ-icon iconify-icon{font-size:21px}
+.integ-item h3{margin-bottom:14px}
+.integ-item .body{max-width:52ch}
+.integ-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+
+/* ============================================================
+   CUSTOMER TYPES
+   ============================================================ */
+.custs{display:grid;grid-template-columns:1fr;gap:clamp(16px,1.6vw,20px)}
+.cust{
+  border:1px solid var(--hair);border-radius:24px;
+  padding:clamp(26px,3vw,38px);
+  display:flex;flex-direction:column;gap:16px;
+  transition:background 240ms ease;
+}
+.cust:hover{background:var(--card)}
+.cust .top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:26px}
+.cust h3{font-size:clamp(22px,2.1vw,30px);line-height:1.15;letter-spacing:-.018em;font-weight:500}
+.cust .rec{margin-top:auto;padding-top:20px;border-top:1px solid var(--hair-soft)}
+.cust .rec .micro{color:var(--muted);display:block;margin-bottom:8px}
+.cust .rec p{font-size:15px;line-height:1.5}
+
+/* ============================================================
+   STATISTICS
+   ============================================================ */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--hair)}
+.stat{
+  padding:clamp(30px,3.4vw,46px) clamp(18px,2vw,30px);
+  border-bottom:1px solid var(--hair);
+  border-right:1px solid var(--hair);
+}
+.stat:nth-child(2n){border-right:0}
+/* keep the outer numerals flush with the section's text edge */
+.stat:nth-child(2n+1){padding-left:0}
+.stat:nth-child(2n){padding-right:0}
+.stat .figure{
+  font-size:clamp(44px,6.4vw,84px);
+  line-height:1.0;letter-spacing:-.035em;font-weight:500;
+  display:flex;align-items:baseline;gap:2px;
+}
+.stat .figure em{font-style:normal;color:var(--accent)}
+.stat .cap{display:block;margin-top:16px;color:var(--muted)}
+
+/* ============================================================
+   PARTNERS — bordered checkerboard
+   ============================================================ */
+.logo-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  border:1px solid var(--hair);border-radius:15px;overflow:hidden;
+  margin-top:clamp(40px,4.6vw,64px);
+}
+.logo-cell{
+  position:relative;
+  min-height:112px;
+  display:grid;place-items:center;
+  padding:18px;
+  border-right:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);
+}
+.logo-cell.c-b{background:var(--card)}
+.logo-cell span{
+  font-size:clamp(15px,1.5vw,19px);font-weight:500;letter-spacing:-.01em;
+  color:#9CA3AF;
+  filter:grayscale(1);
+  text-align:center;
+  transition:color 240ms ease;
+}
+.logo-cell:hover span{color:var(--muted)}
+/* '+' crosshairs at the INTERIOR grid intersections only.
+   Every rule below is written at the same specificity (0,2,1) so source
+   order decides — a plain `.logo-cell::after` override would lose to the
+   nth-child rules and the responsive switch would silently never apply. */
+.logo-cell::after{
+  content:'+';
+  position:absolute;right:0;bottom:0;
+  transform:translate(50%,50%);
+  font-size:13px;line-height:1;font-weight:400;color:var(--hair);
+  pointer-events:none;
+}
+/* 2 columns: drop the right-hand column and the last row */
+.logo-cell:nth-child(2n){border-right:0}
+.logo-cell:nth-last-child(-n+2){border-bottom:0}
+.logo-cell:nth-child(2n)::after{content:none}
+.logo-cell:nth-last-child(-n+2)::after{content:none}
+
+/* ============================================================
+   CLOSING PATHS
+   ============================================================ */
+.paths{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--hair)}
+.path{
+  padding:clamp(38px,4.4vw,64px) 0;
+  border-bottom:1px solid var(--hair);
+  display:flex;flex-direction:column;gap:22px;
+}
+.path h3{margin-bottom:4px}
+.path ul{display:grid;gap:0;margin-top:6px}
+.path li{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 0;border-bottom:1px solid var(--hair-soft);
+  font-size:15.5px;
+}
+.path li iconify-icon{font-size:17px;color:var(--ink);flex:none}
+.path .cta{margin-top:12px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-foot{background:var(--footer);border-top:1px solid rgba(15,17,20,.1)}
+.foot-top{
+  display:grid;grid-template-columns:1fr;gap:clamp(40px,4vw,56px);
+  padding:clamp(56px,6vw,92px) 0 clamp(40px,4vw,60px);
+}
+.foot-brand .lockup{margin-bottom:20px}
+.foot-brand p{max-width:34ch;font-size:15px;line-height:1.6;color:var(--muted)}
+.foot-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,3vw,44px)}
+.foot-col h4{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;margin-bottom:18px}
+.foot-col li{margin-bottom:11px}
+.foot-col a{font-size:15px;color:var(--muted);transition:color 240ms ease}
+.foot-col a:hover{color:var(--ink)}
+.foot-bar{
+  display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;justify-content:space-between;
+  padding:24px 0 34px;border-top:1px solid rgba(15,17,20,.1);
+}
+.foot-bar p,.foot-bar a{font-size:13px;color:var(--muted)}
+.foot-bar nav{display:flex;flex-wrap:wrap;gap:22px}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+[data-reveal]{opacity:0;transform:translateY(30px)}
+[data-reveal].is-in{
+  opacity:1;transform:none;
+  transition:opacity 1s var(--ease),transform 1s var(--ease);
+  transition-delay:var(--d,0ms);
+}
+.no-motion [data-reveal]{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  [data-reveal]{opacity:1!important;transform:none!important}
+  .hero-grid-tex,.dot--live::after{animation:none}
+  *{scroll-behavior:auto!important}
+}
+html{scroll-behavior:smooth}
+
+/* ============================================================
+   BREAKPOINTS
+   ============================================================ */
+@media (min-width:700px){
+  .hero-meta{gap:10px 40px}
+  .cases{grid-template-columns:repeat(3,1fr);gap:clamp(24px,2.6vw,40px)}
+  .custs{grid-template-columns:repeat(3,1fr)}
+  .integ-item{grid-template-columns:auto 1fr;gap:clamp(24px,3vw,40px)}
+  .logo-grid{grid-template-columns:repeat(4,1fr)}
+  .logo-cell:nth-child(2n){border-right:1px solid var(--hair)}
+  .logo-cell:nth-child(4n){border-right:0}
+  .logo-cell:nth-last-child(-n+2){border-bottom:1px solid var(--hair)}
+  .logo-cell:nth-last-child(-n+4){border-bottom:0}
+  /* 4 columns: restore the cells the 2-column rules removed, then drop
+     the right-hand column and the last row for this layout instead. */
+  .logo-cell:nth-child(2n)::after{content:'+'}
+  .logo-cell:nth-child(4n)::after{content:none}
+  .logo-cell:nth-last-child(-n+4)::after{content:none}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .stat:nth-child(2n){border-right:1px solid var(--hair)}
+  .stat:nth-child(4n){border-right:0}
+  .stat{border-bottom:0}
+  .stat:nth-child(2n+1),.stat:nth-child(2n){padding-left:clamp(18px,2vw,30px);padding-right:clamp(18px,2vw,30px)}
+  .stat:first-child{padding-left:0}
+  .stat:last-child{padding-right:0}
+  .paths{grid-template-columns:1fr 1fr;column-gap:clamp(40px,5vw,80px)}
+  .path{border-bottom:0}
+  .path--b{border-left:1px solid var(--hair);padding-left:clamp(40px,5vw,80px)}
+  .foot-cols{grid-template-columns:repeat(4,1fr)}
+  .skills-list p{font-size:16px}
+}
+@media (min-width:900px){
+  .prod{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);column-gap:clamp(40px,5vw,88px)}
+  /* push the index + mark to the right margin so the gap between the
+     product name and the mark reads as composition, not leftover space */
+  .prod-side{align-items:flex-end;text-align:right}
+  .prod-mark{width:96px;height:96px}
+  .skills{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center}
+  .foot-top{grid-template-columns:minmax(0,.85fr) minmax(0,2fr)}
+}
+@media (min-width:1080px){
+  .hero-inner{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+}
+@media (max-width:1180px){
+  .navshell,.head-right .lang,.head-right .head-login,.head-right .btn{display:none}
+  .head-right{margin-left:auto}
+  .burger{display:inline-flex}
+  .head-inner{justify-content:space-between}
+}
+@media (max-width:699px){
+  .status-card{position:static;margin-top:24px;max-width:none}
+  .prod-side{flex-direction:row;align-items:flex-start;gap:20px}
+  .btn{height:48px}
+}
+</style>
+</head>
+<body id="top">
+
+<!--
+  The real FCG wordmark, inlined verbatim from brandkit/designlang/fcg-logo.svg
+  (88x24, fill="currentColor"). Held once as a <symbol> and referenced by the
+  header and footer lockups via <use>, so the path data is never redrawn.
+-->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg"><symbol id="fcg-mark" viewBox="0 0 88 24" fill="none"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-head" id="siteHead">
+  <div class="head-inner">
+    <a class="lockup" href="#top" aria-label="FCG Developer Platform — home">
+      <svg class="mark" viewBox="0 0 88 24" role="img" aria-label="FCG"><use href="#fcg-mark"></use></svg>
+      <span class="divider" aria-hidden="true"></span>
+      <span class="sub">Developer Platform</span>
+    </a>
+
+    <nav class="navshell" aria-label="Primary">
+      <a href="#top" class="is-current">Home</a>
+      <a href="#products">App Management</a>
+      <a href="#integration-api">API Docs</a>
+      <a href="#integration-sdk">SDK</a>
+      <a href="#skills">Skills</a>
+      <a href="#integration-mcp">AI Assistant</a>
+    </nav>
+
+    <div class="head-right">
+      <div class="lang" id="lang">
+        <button class="lang-btn" id="langBtn" type="button" aria-expanded="false" aria-haspopup="true">
+          <iconify-icon icon="solar:global-linear" aria-hidden="true"></iconify-icon>
+          <span id="langLabel">EN</span>
+          <iconify-icon class="caret" icon="solar:alt-arrow-down-linear" aria-hidden="true"></iconify-icon>
+        </button>
+        <div class="lang-menu" role="menu" aria-labelledby="langBtn">
+          <button type="button" role="menuitemradio" aria-checked="true" data-lang="EN">English <iconify-icon icon="solar:check-read-linear" aria-hidden="true"></iconify-icon></button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="中文">中文 <iconify-icon icon="solar:check-read-linear" aria-hidden="true"></iconify-icon></button>
+        </div>
+      </div>
+      <a class="head-login" href="#start">Login</a>
+      <a class="btn btn--primary btn--sm" href="#start">Register <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#top">Home <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></a>
+    <a href="#products">App Management <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></a>
+    <a href="#integration-api">API Docs <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></a>
+    <a href="#integration-sdk">SDK <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></a>
+    <a href="#skills">Skills <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></a>
+    <a href="#integration-mcp">AI Assistant <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></a>
+    <a href="#partners">English · 中文 <iconify-icon icon="solar:global-linear" aria-hidden="true"></iconify-icon></a>
+    <div class="m-actions">
+      <a class="btn btn--ghost" href="#start">Login</a>
+      <a class="btn btn--primary" href="#start">Register <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-grid-tex" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="pill micro" data-reveal>
+        <iconify-icon icon="solar:global-linear" style="font-size:15px;color:var(--muted)" aria-hidden="true"></iconify-icon>
+        Supports both SDK and API integration
+      </span>
+      <h1 class="h1" id="hero-title" data-reveal style="--d:60ms;margin-top:clamp(24px,2.6vw,34px)">FCG Developer Platform.</h1>
+      <p class="lede" data-reveal style="--d:120ms">A travel-focused open platform for distributors such as OTAs and travel management companies. Standardised APIs and flexible SDKs aggregate and distribute hotel, flight and other core travel resources, with TMC API capabilities so partners can launch branded travel platforms faster.</p>
+      <div class="hero-cta" data-reveal style="--d:180ms">
+        <a class="btn btn--primary" href="#start">Start Integration <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <a class="btn btn--ghost" href="#start">Book a Demo <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      </div>
+      <div class="hero-meta micro" data-reveal style="--d:240ms">
+        <span class="item"><span class="dot dot--live" aria-hidden="true"></span> Sandbox available</span>
+        <span class="item">Hotel · Flight · TMC</span>
+        <span class="item">Go · Java · Python</span>
+      </div>
+    </div>
+
+    <div class="hero-art" data-reveal style="--d:300ms">
+      <!-- Flat vector: solid black organic shape, thin orange great-circle arcs,
+           dark rounded route chips at the arc endpoints. -->
+      <svg viewBox="-8 -10 616 590" role="img" aria-label="Illustration: a solid black organic globe crossed by thin orange route arcs, with route labels pinned at the arc endpoints.">
+        <defs>
+          <clipPath id="blobClip">
+            <path d="M296 22C404 18 490 76 526 172C562 262 546 372 480 444C414 516 306 546 216 518C118 488 40 404 26 300C12 194 70 92 166 48C208 29 252 24 296 22Z"/>
+          </clipPath>
+          <!-- one set of great circles, reused twice: faint where they run off
+               the silhouette onto white, bright where they cross the black. -->
+          <g id="arcs">
+            <path d="M8 214C150 122 356 128 566 262"/>
+            <path d="M2 316C158 246 372 260 560 392"/>
+            <path d="M74 456C214 366 396 356 566 448"/>
+            <path d="M188 6C120 148 118 356 214 556"/>
+            <path d="M352 0C316 152 322 372 404 562"/>
+          </g>
+        </defs>
+
+        <!-- organic globe -->
+        <path d="M296 22C404 18 490 76 526 172C562 262 546 372 480 444C414 516 306 546 216 518C118 488 40 404 26 300C12 194 70 92 166 48C208 29 252 24 296 22Z" fill="#0F1114"/>
+
+        <!-- the arcs continuing beyond the silhouette (marketing-site signature) -->
+        <use href="#arcs" fill="none" stroke="#F97316" stroke-width="1.3" stroke-linecap="round" opacity=".38"></use>
+        <!-- the same arcs at full strength where they cross the black -->
+        <use href="#arcs" clip-path="url(#blobClip)" fill="none" stroke="#F97316" stroke-width="1.6" stroke-linecap="round" opacity=".95"></use>
+
+        <!-- route chips -->
+        <g font-family="Inter, sans-serif" font-size="10" font-weight="500" letter-spacing="1.1">
+          <g>
+            <rect x="330" y="88" width="104" height="24" rx="7" fill="#1F2226"/>
+            <text x="344" y="104" fill="#E5E7EB">HKG → CDG</text>
+          </g>
+          <g>
+            <rect x="196" y="152" width="102" height="24" rx="7" fill="#1F2226"/>
+            <text x="210" y="168" fill="#E5E7EB">BKK → LHR</text>
+          </g>
+          <g>
+            <rect x="252" y="300" width="100" height="24" rx="7" fill="#1F2226"/>
+            <text x="266" y="316" fill="#E5E7EB">SIN → DXB</text>
+          </g>
+          <g>
+            <rect x="386" y="384" width="96" height="24" rx="7" fill="#F3F4F6"/>
+            <text x="400" y="400" fill="#0F1114">SINGAPORE</text>
+          </g>
+          <g>
+            <rect x="440" y="222" width="78" height="24" rx="7" fill="#F3F4F6"/>
+            <text x="454" y="238" fill="#0F1114">TOKYO</text>
+          </g>
+          <g>
+            <rect x="58" y="252" width="70" height="24" rx="7" fill="#1F2226"/>
+            <text x="72" y="268" fill="#E5E7EB">DUBAI</text>
+          </g>
+        </g>
+      </svg>
+
+      <div class="status-card">
+        <div class="top">
+          <span class="dot dot--live" aria-hidden="true"></span>
+          <span class="micro">Platform status</span>
+        </div>
+        <dl>
+          <div class="row"><dt>Daily requests</dt><dd style="margin:0"><b class="num">10M+</b></dd></div>
+          <div class="row"><dt>Service uptime</dt><dd style="margin:0"><b class="num">99.9%</b></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CORE PRODUCTS ============================== -->
+<section class="band" id="products" aria-labelledby="products-title">
+  <div class="wrap">
+    <div class="sechead" data-reveal>
+      <span class="eyebrow micro"><i aria-hidden="true"></i><span>Core products</span></span>
+      <h2 class="h2" id="products-title">Three core products. One integration.</h2>
+      <p class="lede">The platform is built around three core products covering the key travel workflows end to end.</p>
+    </div>
+
+    <div style="margin-top:clamp(48px,5.4vw,80px)">
+
+      <!-- 01 -->
+      <article class="prod" data-reveal>
+        <div>
+          <div class="prod-name">
+            <h3 class="h3">G-Link Hotel API</h3>
+          </div>
+          <p class="body prod-body">Major global hotel inventory with the full workflow from real-time search and test booking through to reservation and cancellation, on industry-grade data accuracy.</p>
+          <ul class="prod-chips">
+            <li class="chip">Search APIs</li>
+            <li class="chip">Booking management</li>
+            <li class="chip">Rate calendar</li>
+            <li class="chip">Room details</li>
+          </ul>
+        </div>
+        <div class="prod-side">
+          <div class="prod-index">
+            <span class="n num">01</span>
+            <span class="micro">Hotel</span>
+          </div>
+          <div class="prod-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M32 4C46 3 58 13 60 27C62 41 52 56 37 60C22 63 7 54 4 40C1 25 12 7 32 4Z" fill="#0F1114"/>
+              <g fill="none" stroke="#F97316" stroke-width="1.4" stroke-linecap="round">
+                <path d="M2 24C18 14 44 14 62 30"/>
+                <path d="M6 44C22 36 46 36 60 46" opacity=".7"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="prod" data-reveal>
+        <div>
+          <div class="prod-name">
+            <h3 class="h3">F-Link Flight API</h3>
+          </div>
+          <p class="body prod-body">Direct airline seat inventory across domestic and international carriers with BSP support, covering search, pricing, ticketing, refunds and changes.</p>
+          <ul class="prod-chips">
+            <li class="chip">Flight search</li>
+            <li class="chip">Live fares</li>
+            <li class="chip">Order management</li>
+            <li class="chip">Refund rules</li>
+          </ul>
+        </div>
+        <div class="prod-side">
+          <div class="prod-index">
+            <span class="n num">02</span>
+            <span class="micro">Flight</span>
+          </div>
+          <div class="prod-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M20 6C38 2 56 12 59 26C62 42 48 58 30 60C14 62 4 50 4 34C4 20 8 9 20 6Z" fill="#0F1114"/>
+              <g fill="none" stroke="#F97316" stroke-width="1.4" stroke-linecap="round">
+                <path d="M4 52C20 30 40 14 62 8"/>
+                <path d="M14 60C26 44 40 32 58 26" opacity=".65"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="prod" data-reveal>
+        <div>
+          <div class="prod-name">
+            <h3 class="h3">TMC API</h3>
+          </div>
+          <p class="body prod-body">Mature API-based travel management. Launch a branded enterprise travel service quickly, with deep customisation and no need to build from scratch.</p>
+          <ul class="prod-chips">
+            <li class="chip">Enterprise control</li>
+            <li class="chip">Expense rules</li>
+            <li class="chip">Billing reports</li>
+            <li class="chip">Approval flow</li>
+          </ul>
+        </div>
+        <div class="prod-side">
+          <div class="prod-index">
+            <span class="n num">03</span>
+            <span class="micro">Travel management</span>
+          </div>
+          <div class="prod-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <path d="M14 8C30 4 50 6 57 18C64 31 58 50 44 57C29 64 11 59 6 46C1 32 3 13 14 8Z" fill="#0F1114"/>
+              <g fill="none" stroke="#F97316" stroke-width="1.4" stroke-linecap="round">
+                <path d="M32 2C14 12 12 48 32 62"/>
+                <path d="M2 32C16 22 48 22 62 34" opacity=".65"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SKILLS PACKAGES ============================== -->
+<section class="band band--tight" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <div class="skills">
+      <div>
+        <div class="sechead" data-reveal>
+          <span class="eyebrow micro"><i aria-hidden="true"></i><span>Skills packages</span></span>
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:clamp(18px,2vw,26px)">
+            <span class="pill micro"><span class="dot" aria-hidden="true"></span> New</span>
+          </div>
+          <h2 class="h2" id="skills-title">Integration skills for AI coding assistants.</h2>
+          <p class="lede">Import the packages into Claude, ChatGPT or Copilot for more accurate authentication code, API debugging and issue diagnosis.</p>
+        </div>
+        <ul class="skills-list" data-reveal style="--d:80ms;margin-top:clamp(32px,3.4vw,44px)">
+          <li><iconify-icon icon="solar:layers-minimalistic-linear" aria-hidden="true"></iconify-icon><p>Full G-Link and F-Link coverage</p></li>
+          <li><iconify-icon icon="solar:shield-keyhole-linear" aria-hidden="true"></iconify-icon><p>Authentication, query, booking and payment</p></li>
+          <li><iconify-icon icon="solar:document-text-linear" aria-hidden="true"></iconify-icon><p>Prompt templates included</p></li>
+          <li><iconify-icon icon="solar:refresh-linear" aria-hidden="true"></iconify-icon><p>Continuously updated</p></li>
+        </ul>
+        <div data-reveal style="--d:140ms;margin-top:clamp(30px,3.2vw,40px)">
+          <a class="btn btn--primary" href="#skills">Browse Skills <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </div>
+
+      <div class="skills-art" data-reveal style="--d:200ms">
+        <div class="head">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="micro">Skill package</span>
+        </div>
+<pre aria-label="Example skill package manifest"><span class="c"># fcg-glink-hotel / skill.yaml</span>
+name: fcg-glink-hotel
+scope:
+  - auth
+  - query
+  - booking
+  - payment
+prompts: included
+updates: continuous
+
+<span class="c"># fcg-flink-flight / skill.yaml</span>
+name: fcg-flink-flight
+scope:
+  - auth
+  - query
+  - booking
+  - payment
+prompts: included
+updates: continuous</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== USE CASES ============================== -->
+<section class="band" id="use-cases" aria-labelledby="cases-title">
+  <div class="wrap">
+    <div class="sechead sechead--mid" data-reveal>
+      <span class="eyebrow micro"><i aria-hidden="true"></i><span>Product use cases</span></span>
+      <h2 class="h2" id="cases-title">Where the products go to work.</h2>
+      <p class="lede">Each product family maps to a distinct set of distribution and travel management workflows.</p>
+    </div>
+
+    <div class="cases" style="margin-top:clamp(48px,5.4vw,80px)">
+      <div class="case-col" data-reveal>
+        <div class="kicker micro"><span class="dot" aria-hidden="true"></span><span>G-Link</span></div>
+        <h3 class="h4">Hotel API Distribution</h3>
+        <ul>
+          <li>OTA aggregation <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+          <li>Enterprise travel procurement <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+          <li>Destination management <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+        </ul>
+      </div>
+      <div class="case-col" data-reveal style="--d:80ms">
+        <div class="kicker micro"><span class="dot" aria-hidden="true"></span><span>F-Link</span></div>
+        <h3 class="h4">Flight API Distribution</h3>
+        <ul>
+          <li>Agency distribution <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+          <li>Travel policy control <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+          <li>Fare aggregation and comparison <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+        </ul>
+      </div>
+      <div class="case-col" data-reveal style="--d:160ms">
+        <div class="kicker micro"><span class="dot" aria-hidden="true"></span><span>TMC API</span></div>
+        <h3 class="h4">Travel Management API</h3>
+        <ul>
+          <li>Branded deployment <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+          <li>Enterprise policy controls <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+          <li>Unified billing and reporting <iconify-icon icon="solar:arrow-right-up-linear" aria-hidden="true"></iconify-icon></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== INTEGRATION OPTIONS ============================== -->
+<section class="band band--tight" id="integration" aria-labelledby="integ-title">
+  <div class="wrap">
+    <div class="sechead" data-reveal>
+      <span class="eyebrow micro"><i aria-hidden="true"></i><span>Flexible integration</span></span>
+      <h2 class="h2" id="integ-title">Three ways in.</h2>
+      <p class="lede">Choose the integration surface that matches the stack. The same inventory sits underneath all three.</p>
+    </div>
+
+    <div class="integ" style="margin-top:clamp(48px,5.4vw,72px)">
+      <article class="integ-item" id="integration-mcp" data-reveal>
+        <div class="integ-icon" aria-hidden="true"><iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon></div>
+        <div>
+          <h3 class="h4">MCP Smart Integration</h3>
+          <p class="body">Model Context Protocol support, so AI models can call travel capabilities directly. Built for LLM applications and assistants.</p>
+          <ul class="integ-tags">
+            <li class="chip">Model Context Protocol</li>
+            <li class="chip">LLM applications</li>
+            <li class="chip">Assistants</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="integ-item" id="integration-sdk" data-reveal style="--d:80ms">
+        <div class="integ-icon" aria-hidden="true"><iconify-icon icon="solar:code-square-linear"></iconify-icon></div>
+        <div>
+          <h3 class="h4">Fast SDK Integration</h3>
+          <p class="body">Go, Java and Python are available today, with Node.js in progress. Authentication, retry and serialisation are built in.</p>
+          <ul class="integ-tags">
+            <li class="chip">Go</li>
+            <li class="chip">Java</li>
+            <li class="chip">Python</li>
+            <li class="chip"><span class="dot" style="margin-right:8px" aria-hidden="true"></span>Node.js in progress</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="integ-item" id="integration-api" data-reveal style="--d:160ms">
+        <div class="integ-icon" aria-hidden="true"><iconify-icon icon="solar:cloud-linear"></iconify-icon></div>
+        <div>
+          <h3 class="h4">API</h3>
+          <p class="body">Standard APIs, callable from any language or framework.</p>
+          <ul class="integ-tags">
+            <li class="chip">Any language</li>
+            <li class="chip">Any framework</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CUSTOMER TYPES ============================== -->
+<section class="band" id="customers" aria-labelledby="cust-title">
+  <div class="wrap">
+    <div class="sechead" data-reveal>
+      <span class="eyebrow micro"><i aria-hidden="true"></i><span>Customer types</span></span>
+      <h2 class="h2" id="cust-title">Built for three kinds of partner.</h2>
+    </div>
+
+    <div class="custs" style="margin-top:clamp(44px,5vw,72px)">
+      <article class="cust" data-reveal>
+        <div class="top"><span class="micro" style="color:var(--muted)">01</span></div>
+        <h3>Distributors and OTAs</h3>
+        <div class="rec">
+          <span class="micro">Recommended</span>
+          <p class="body">API / SDK</p>
+        </div>
+      </article>
+      <article class="cust" data-reveal style="--d:80ms">
+        <div class="top">
+          <span class="micro" style="color:var(--muted)">02</span>
+          <span class="badge-dark">Most popular</span>
+        </div>
+        <h3>Travel Management Companies</h3>
+        <div class="rec">
+          <span class="micro">Recommended</span>
+          <p class="body">Full product suite with API integration</p>
+        </div>
+      </article>
+      <article class="cust" data-reveal style="--d:160ms">
+        <div class="top"><span class="micro" style="color:var(--muted)">03</span></div>
+        <h3>Large Enterprises</h3>
+        <div class="rec">
+          <span class="micro">Recommended</span>
+          <p class="body">Fast TMC API deployment</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STATISTICS ============================== -->
+<section class="band band--tight" id="stats" aria-labelledby="stats-title">
+  <div class="wrap">
+    <h2 class="micro" id="stats-title" data-reveal style="color:var(--muted);margin-bottom:clamp(28px,3vw,40px)">The platform in numbers</h2>
+    <div class="stats">
+      <div class="stat" data-reveal>
+        <div class="figure num">50<em>+</em></div>
+        <span class="cap micro">Enterprise clients</span>
+      </div>
+      <div class="stat" data-reveal style="--d:80ms">
+        <div class="figure num">10<em>M+</em></div>
+        <span class="cap micro">Daily requests</span>
+      </div>
+      <div class="stat" data-reveal style="--d:160ms">
+        <div class="figure num">99.9<em>%</em></div>
+        <span class="cap micro">Service uptime</span>
+      </div>
+      <div class="stat" data-reveal style="--d:240ms">
+        <div class="figure num">7×24</div>
+        <span class="cap micro">Technical support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PARTNERS ============================== -->
+<section class="band" id="partners" aria-labelledby="partners-title">
+  <div class="wrap">
+    <div class="sechead sechead--mid" data-reveal>
+      <span class="eyebrow micro"><i aria-hidden="true"></i><span>Partner network</span></span>
+      <h2 class="h2" id="partners-title">The supply and partner network behind FCG.</h2>
+      <p class="lede">Trusted by 50+ enterprise clients, central state-owned enterprises and Fortune Global 500 companies, including State Grid, China Mobile and Ping An.</p>
+    </div>
+
+    <div class="logo-grid" data-reveal>
+      <div class="logo-cell c-a"><span>PST</span></div>
+      <div class="logo-cell c-b"><span>Connexus Travel</span></div>
+      <div class="logo-cell c-a"><span>Sabre</span></div>
+      <div class="logo-cell c-b"><span>Hilton</span></div>
+      <div class="logo-cell c-b"><span>Amadeus</span></div>
+      <div class="logo-cell c-a"><span>华住</span></div>
+      <div class="logo-cell c-b"><span>IHG</span></div>
+      <div class="logo-cell c-a"><span>Marriott</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CLOSING PATHS ============================== -->
+<section class="band" id="start" aria-labelledby="start-title">
+  <div class="wrap">
+    <div class="sechead" data-reveal>
+      <span class="eyebrow micro"><i aria-hidden="true"></i><span>Get started</span></span>
+      <h2 class="h2" id="start-title">Two ways to begin.</h2>
+    </div>
+
+    <div class="paths" style="margin-top:clamp(44px,5vw,72px)">
+      <article class="path path--a" data-reveal>
+        <div>
+          <span class="micro" style="color:var(--muted)">Free access</span>
+          <h3 class="h3" style="margin-top:16px">Register for a sandbox.</h3>
+        </div>
+        <p class="body" style="max-width:46ch">Test the full API set at no upfront cost. Production usage is billed by volume.</p>
+        <ul>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon> Full sandbox experience</li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon> Complete API docs and SDKs</li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon> Community support and docs centre</li>
+          <li><iconify-icon icon="solar:check-circle-linear" aria-hidden="true"></iconify-icon> Usage-based billing, no minimum spend</li>
+        </ul>
+        <div class="cta">
+          <a class="btn btn--primary" href="#start">Register for free <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </article>
+
+      <article class="path path--b" data-reveal style="--d:100ms">
+        <div>
+          <span class="micro" style="color:var(--muted)">Business consultation</span>
+          <h3 class="h3" style="margin-top:16px">Talk to the business team.</h3>
+        </div>
+        <p class="body" style="max-width:46ch">Custom solutions, dedicated pricing and TMC API deployment.</p>
+        <ul>
+          <li><iconify-icon icon="solar:user-check-rounded-linear" aria-hidden="true"></iconify-icon> Dedicated business manager</li>
+          <li><iconify-icon icon="solar:settings-linear" aria-hidden="true"></iconify-icon> Custom integration plan</li>
+          <li><iconify-icon icon="solar:presentation-graph-linear" aria-hidden="true"></iconify-icon> TMC API deployment demo</li>
+          <li><iconify-icon icon="solar:shield-check-linear" aria-hidden="true"></iconify-icon> Dedicated SLA coverage</li>
+        </ul>
+        <div class="cta">
+          <a class="btn btn--ghost" href="#start">Book a 30-minute demo <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="lockup" href="#top" aria-label="FCG Developer Platform — home">
+          <svg class="mark" viewBox="0 0 88 24" role="img" aria-label="FCG"><use href="#fcg-mark"></use></svg>
+          <span class="divider" aria-hidden="true"></span>
+          <span class="sub">Developer Platform</span>
+        </a>
+        <p>A travel-focused open platform for distributors, travel management companies and large enterprises.</p>
+      </div>
+
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">G-Link Hotel API</a></li>
+            <li><a href="#products">F-Link Flight API</a></li>
+            <li><a href="#products">TMC API</a></li>
+            <li><a href="#use-cases">Use cases</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Developers</h4>
+          <ul>
+            <li><a href="#integration-api">API docs</a></li>
+            <li><a href="#integration-sdk">SDK</a></li>
+            <li><a href="#integration-mcp">MCP integration</a></li>
+            <li><a href="#skills">Skills packages</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#products">App management</a></li>
+            <li><a href="#stats">Service status</a></li>
+            <li><a href="#partners">Partner network</a></li>
+            <li><a href="#customers">Customer types</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Get started</h4>
+          <ul>
+            <li><a href="#start">Register for free</a></li>
+            <li><a href="#start">Book a demo</a></li>
+            <li><a href="#start">Login</a></li>
+            <li><a href="#start">Business consultation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <p>© 2026 Fusion Connect Group. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <a href="#start">Privacy</a>
+        <a href="#start">Terms</a>
+        <a href="#partners">Partners</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---- sticky header hairline ---- */
+  var head = document.getElementById('siteHead');
+  function onScroll(){
+    if(window.scrollY > 8){ head.classList.add('is-stuck'); }
+    else { head.classList.remove('is-stuck'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---- scroll reveal: opacity 0->1 + translateY(30px)->0, 1s ----
+     IntersectionObserver drives the staggered entrance. A rAF-throttled
+     sweep runs alongside it as a safety net: fast or programmatic scrolling
+     can batch past an IO threshold, and an element left at opacity 0 would
+     be content the reader can never see. The sweep guarantees that cannot
+     happen, and both paths add the same class, so the motion is identical. */
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  function show(el){ el.classList.add('is-in'); }
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0});
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    document.documentElement.classList.add('no-motion');
+  }
+
+  var sweeping = false;
+  function sweep(){
+    sweeping = false;
+    var limit = window.innerHeight * 0.94, remaining = false;
+    items.forEach(function(el){
+      if(el.classList.contains('is-in')) return;
+      if(el.getBoundingClientRect().top < limit){ show(el); } else { remaining = true; }
+    });
+    if(!remaining){
+      window.removeEventListener('scroll', queueSweep);
+      window.removeEventListener('resize', queueSweep);
+    }
+  }
+  function queueSweep(){
+    if(sweeping) return;
+    sweeping = true;
+    window.requestAnimationFrame(sweep);
+  }
+  window.addEventListener('scroll', queueSweep, {passive:true});
+  window.addEventListener('resize', queueSweep);
+  queueSweep();
+
+  /* ---- mobile nav ---- */
+  var burger = document.getElementById('burger');
+  var mnav = document.getElementById('mobileNav');
+  burger.addEventListener('click', function(){
+    var open = mnav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  mnav.addEventListener('click', function(e){
+    if(e.target.closest('a')){
+      mnav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---- language switcher ---- */
+  var lang = document.getElementById('lang');
+  var langBtn = document.getElementById('langBtn');
+  var langLabel = document.getElementById('langLabel');
+  langBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = lang.classList.toggle('is-open');
+    langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  lang.querySelectorAll('[data-lang]').forEach(function(b){
+    b.addEventListener('click', function(){
+      lang.querySelectorAll('[data-lang]').forEach(function(x){ x.setAttribute('aria-checked','false'); });
+      b.setAttribute('aria-checked','true');
+      langLabel.textContent = b.getAttribute('data-lang');
+      lang.classList.remove('is-open');
+      langBtn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click', function(){
+    lang.classList.remove('is-open');
+    langBtn.setAttribute('aria-expanded','false');
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      lang.classList.remove('is-open');
+      langBtn.setAttribute('aria-expanded','false');
+      mnav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---- current nav pill follows the section in view ----
+     'Home' points at #top, which is <body>; body always intersects, so it
+     would let a later section win at scroll-top. Track the hero instead. */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.navshell a'));
+  var targets = navLinks.map(function(a){
+    var href = a.getAttribute('href');
+    return href === '#top' ? document.querySelector('.hero') : document.querySelector(href);
+  });
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var i = targets.indexOf(en.target);
+          if(i > -1){
+            navLinks.forEach(function(a){ a.classList.remove('is-current'); });
+            navLinks[i].classList.add('is-current');
+          }
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    targets.forEach(function(t){ if(t){ io2.observe(t); } });
+  }
+})();
+</script>
+</body>
+</html>

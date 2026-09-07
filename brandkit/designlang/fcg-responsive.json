@@ -1,0 +1,50 @@
+{
+  "count": 5,
+  "shots": [
+    {
+      "breakpoint": "mobile",
+      "scheme": "light",
+      "width": 375,
+      "path": "screenshots/responsive/mobile-light.png"
+    },
+    {
+      "breakpoint": "mobile",
+      "scheme": "dark",
+      "width": 375,
+      "path": "screenshots/responsive/mobile-dark.png"
+    },
+    {
+      "breakpoint": "tablet",
+      "scheme": "light",
+      "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n"
+    },
+    {
+      "breakpoint": "tablet",
+      "scheme": "dark",
+      "width": 768,
+      "path": "screenshots/responsive/tablet-dark.png"
+    },
+    {
+      "breakpoint": "desktop",
+      "scheme": "light",
+      "width": 1280,
+      "path": "screenshots/responsive/desktop-light.png"
+    },
+    {
+      "breakpoint": "desktop",
+      "scheme": "dark",
+      "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n"
+    },
+    {
+      "breakpoint": "wide",
+      "scheme": "light",
+      "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n"
+    },
+    {
+      "breakpoint": "wide",
+      "scheme": "dark",
+      "width": 1920,
+      "path": "screenshots/responsive/wide-dark.png"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+Create a premium brand-kit overview image for "FCG" (Fusion Connect Group).
+
+Brand strategy:
+- category: travel supply infrastructure — hotel and flight content APIs for builders, TMCs and corporate travel teams
+- audience: platform engineers, TMC operators, enterprise travel programme managers
+- personality: precise, institutional, quietly confident, technical, unflashy
+- core metaphor: THE ROUTING ARC — a single thin arc connecting two points on a sphere; one connection standing in for thousands
+- logo idea: the FCG wordmark in a tight, high-contrast geometric sans, paired with a reduced symbol built from one orange arc springing between two small nodes, sometimes enclosed in a circular black aperture
+
+Layout:
+3x3 grid on a warm off-white presentation canvas with strong even gutters, crisp alignment, generous negative space, thin hairline rules, and small page-number details in the corners.
+
+Panels:
+1. Logo cover — large black "FCG" wordmark, geometric grotesque, very tight letter-spacing, vast white space, one tiny orange dot
+2. Logo construction — the arc-and-node symbol broken down over a circle-and-grid construction diagram in thin black linework with orange highlights
+3. Digital application — a minimal browser chrome fragment on white, showing a search field and one small orange live-status pill labelled LIVE.NETWORK
+4. Brand essence — the single line "One connection." in very large black type on white, nothing else
+5. Colour system — four flat swatch blocks: warm near-black, pure white, orange, cool light grey, labelled with small uppercase codes
+6. Typography — a large black type specimen showing the letters "FCG" and a short alphabet row in a geometric sans, with a second line in a neutral UI sans
+7. Physical application — a matte black business card and a folded white document edge, embossed FCG mark, shot flat from above on a stone surface
+8. Image direction — a large solid black organic sphere on white, crossed by three thin orange great-circle arcs, tiny dark uppercase city chips floating at the arc endpoints
+9. System detail — a row of small dark rounded chips with uppercase micro-labels and a single black pill button with a right arrow
+
+Visual mode:
+Light editorial infrastructure — white canvas, near-black ink, one orange accent, technical uppercase micro-typography, flat black geometric shapes, no gradients, no glow.
+
+Palette:
+warm near-black #080805, ink #0F1114, pure white #FFFFFF, cool light grey #F3F4F6, hairline grey #D1D5DB, single accent orange #F97316. Orange appears only as small dots, thin arcs, and one pill per panel.
+
+Style:
+premium, sparse, cinematic, intentional, polished brand-guidelines deck. Flat and print-like. Subtle paper grain only. No clutter, no stock photography, no 3D clay icons, no purple or blue, no neon, no generic startup gradient, no copied real-world logos, no travel clichés such as planes, palm trees or suitcases.
+
+Typography:
+readable, minimal, high hierarchy, large and sparse. No tiny fake body copy, no lorem ipsum.
+
+Logo:
+professional, symbolic, simple, ownable — the FCG wordmark plus the arc-and-node mark, repeated consistently and identically across every panel.

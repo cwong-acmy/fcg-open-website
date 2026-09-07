@@ -1,0 +1,200 @@
+{
+  "$schema": "https://designlang.app/schemas/gradients.json",
+  "source": "https://open.fusionconnectgroup.com/home",
+  "generated": "2026-09-07T09:40:20.006Z",
+  "count": 11,
+  "gradients": [
+    {
+      "raw": "linear-gradient(135deg, rgb(38, 53, 72) 0%, rgb(24, 34, 49) 42%, rgb(16, 23, 34) 100%)",
+      "type": "linear",
+      "direction": "135deg",
+      "stops": [
+        {
+          "color": "rgb(38, 53, 72)",
+          "position": "0%"
+        },
+        {
+          "color": "rgb(24, 34, 49)",
+          "position": "42%"
+        },
+        {
+          "color": "rgb(16, 23, 34)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(to right, rgba(15, 17, 20, 0.043) 1px, rgba(0, 0, 0, 0) 1px)",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgba(15, 17, 20, 0.043)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "1px"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(rgba(15, 17, 20, 0.043) 1px, rgba(0, 0, 0, 0) 1px)",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgba(15, 17, 20, 0.043)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "1px"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(rgb(248, 250, 252), rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(248, 250, 252)",
+          "position": null
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px)",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgba(255, 255, 255, 0.08)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "1px"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px)",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgba(255, 255, 255, 0.08)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "1px"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "radial-gradient(circle at 50% 57%, rgba(221, 228, 234, 0.32) 0px, rgba(238, 242, 245, 0.16) 30%, rgba(255, 255, 255, 0) 62%)",
+      "type": "radial",
+      "direction": "circle at 50% 57%",
+      "stops": [
+        {
+          "color": "rgba(221, 228, 234, 0.32)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(238, 242, 245, 0.16)",
+          "position": "30%"
+        },
+        {
+          "color": "rgba(255, 255, 255, 0)",
+          "position": "62%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(to right, rgba(15, 17, 20, 0.027) 1px, rgba(0, 0, 0, 0) 1px)",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgba(15, 17, 20, 0.027)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "1px"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(rgba(15, 17, 20, 0.027) 1px, rgba(0, 0, 0, 0) 1px)",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgba(15, 17, 20, 0.027)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "1px"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "radial-gradient(circle, rgb(255, 255, 255) 0px, rgb(255, 255, 255) 32%, rgb(247, 248, 249) 60%, rgb(233, 236, 239) 100%)",
+      "type": "radial",
+      "direction": "circle",
+      "stops": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "position": "0px"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "position": "32%"
+        },
+        {
+          "color": "rgb(247, 248, 249)",
+          "position": "60%"
+        },
+        {
+          "color": "rgb(233, 236, 239)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(247, 249, 251, 0.48))",
+      "type": "linear",
+      "direction": "135deg",
+      "stops": [
+        {
+          "color": "rgba(255, 255, 255, 0.78)",
+          "position": null
+        },
+        {
+          "color": "rgba(247, 249, 251, 0.48)",
+          "position": null
+        }
+      ],
+      "classification": "brand"
+    }
+  ]
+}

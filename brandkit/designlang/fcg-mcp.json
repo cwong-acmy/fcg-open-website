@@ -1,0 +1,701 @@
+{
+  "colors": {
+    "all": [
+      {
+        "hex": "#e5e7eb",
+        "rgb": {
+          "r": 229,
+          "g": 231,
+          "b": 235,
+          "a": 1
+        },
+        "hsl": {
+          "h": 220,
+          "s": 13,
+          "l": 91
+        },
+        "count": 759,
+        "contexts": [
+          "border",
+          "background",
+          "text"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#0f1114",
+        "rgb": {
+          "r": 15,
+          "g": 17,
+          "b": 20,
+          "a": 1
+        },
+        "hsl": {
+          "h": 216,
+          "s": 14,
+          "l": 7
+        },
+        "count": 753,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#6b7280",
+        "rgb": {
+          "r": 107,
+          "g": 114,
+          "b": 128,
+          "a": 1
+        },
+        "hsl": {
+          "h": 220,
+          "s": 9,
+          "l": 46
+        },
+        "count": 257,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#4b5563",
+        "rgb": {
+          "r": 75,
+          "g": 85,
+          "b": 99,
+          "a": 1
+        },
+        "hsl": {
+          "h": 215,
+          "s": 14,
+          "l": 34
+        },
+        "count": 210,
+        "contexts": [
+          "text",
+          "border"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#111827",
+        "rgb": {
+          "r": 17,
+          "g": 24,
+          "b": 39,
+          "a": 1
+        },
+        "hsl": {
+          "h": 221,
+          "s": 39,
+          "l": 11
+        },
+        "count": 188,
+        "contexts": [
+          "text",
+          "background",
+          "border"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#000000",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 0
+        },
+        "count": 128,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#d1d5db",
+        "rgb": {
+          "r": 209,
+          "g": 213,
+          "b": 219,
+          "a": 1
+        },
+        "hsl": {
+          "h": 216,
+          "s": 12,
+          "l": 84
+        },
+        "count": 121,
+        "contexts": [
+          "border",
+          "background",
+          "text"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#ffffff",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 100
+        },
+        "count": 83,
+        "contexts": [
+          "background",
+          "text",
+          "border"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#f97316",
+        "rgb": {
+          "r": 249,
+          "g": 115,
+          "b": 22,
+          "a": 1
+        },
+        "hsl": {
+          "h": 25,
+          "s": 95,
+          "l": 53
+        },
+        "count": 49,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#f3f4f6",
+        "rgb": {
+          "r": 243,
+          "g": 244,
+          "b": 246,
+          "a": 0.9
+        },
+        "hsl": {
+          "h": 220,
+          "s": 14,
+          "l": 96
+        },
+        "count": 26,
+        "contexts": [
+          "background"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#9ca3af",
+        "rgb": {
+          "r": 156,
+          "g": 163,
+          "b": 175,
+          "a": 1
+        },
+        "hsl": {
+          "h": 218,
+          "s": 11,
+          "l": 65
+        },
+        "count": 14,
+        "contexts": [
+          "background",
+          "text"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#374151",
+        "rgb": {
+          "r": 55,
+          "g": 65,
+          "b": 81,
+          "a": 1
+        },
+        "hsl": {
+          "h": 217,
+          "s": 19,
+          "l": 27
+        },
+        "count": 1,
+        "contexts": [
+          "text"
+        ],
+        "clusterSize": 1
+      },
+      {
+        "hex": "#27272a",
+        "rgb": {
+          "r": 39,
+          "g": 39,
+          "b": 42,
+          "a": 1
+        },
+        "hsl": {
+          "h": 240,
+          "s": 4,
+          "l": 16
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ],
+        "clusterSize": 1
+      }
+    ]
+  },
+  "regions": [
+    {
+      "role": "hero",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -8828,
+        "w": 1280,
+        "h": 810
+      },
+      "heading": "Connect to the supply infrastructure behind travel.",
+      "buttonCount": 1,
+      "cardCount": 6,
+      "className": "relative z-10 min-h-[100svh] pt-24 pb-12 px-6 md:px-12 flex flex-col justify-center w-full"
+    },
+    {
+      "role": "features",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -8018,
+        "w": 1280,
+        "h": 434
+      },
+      "heading": "The supply and partner network behind FCG.",
+      "buttonCount": 0,
+      "cardCount": 8,
+      "className": "partner-grid-section relative z-10 pt-10 pb-10 md:pt-12 md:pb-16"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -7584,
+        "w": 1280,
+        "h": 637.25
+      },
+      "heading": "The supply advantage behind every connection.",
+      "buttonCount": 0,
+      "cardCount": 8,
+      "className": "py-24 md:py-32 px-6 md:px-12 max-w-[1440px] mx-auto"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -6946.75,
+        "w": 1280,
+        "h": 888
+      },
+      "heading": "One inventory underneath. Three product families.",
+      "buttonCount": 0,
+      "cardCount": 56,
+      "className": "py-24 overflow-hidden"
+    },
+    {
+      "role": "pricing",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -6058.75,
+        "w": 1280,
+        "h": 825
+      },
+      "heading": "The supply advantage behind every connection.",
+      "buttonCount": 0,
+      "cardCount": 8,
+      "className": "py-24 px-6 md:px-12 max-w-[1440px] mx-auto relative"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 65
+      },
+      "heading": null,
+      "buttonCount": 2,
+      "cardCount": 26,
+      "className": "marine-header-section fcg-dropdown-nav fixed top-0 z-50 w-full border-b"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -5185.75,
+        "w": 1280,
+        "h": 999.5
+      },
+      "heading": "THE CORE",
+      "buttonCount": 0,
+      "cardCount": 14,
+      "className": "bg-[#000] z-10 pt-32 pr-6 pb-32 pl-6 relative overflow-visible"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -4186.25,
+        "w": 1280,
+        "h": 1394
+      },
+      "heading": "The Connection at a Glance",
+      "buttonCount": 0,
+      "cardCount": 12,
+      "className": "z-10 py-32 relative bg-[#000]"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -2792.25,
+        "w": 1280,
+        "h": 1159.25
+      },
+      "heading": "Open connections vs. closed platforms.",
+      "buttonCount": 0,
+      "cardCount": 7,
+      "className": "overflow-hidden flex flex-col min-h-screen select-none text-white bg-[#000] border-white/10 border-t pt-32 pb-32 relative items-center justify-center"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": -1633,
+        "w": 1280,
+        "h": 2027.1875
+      },
+      "heading": "The inventory that everything connects to.",
+      "buttonCount": 0,
+      "cardCount": 15,
+      "className": "antialiased selection:bg-neutral-800 selection:text-white flex flex-col min-h-screen w-full items-center"
+    },
+    {
+      "role": "content",
+      "tag": "main",
+      "bounds": {
+        "x": 64,
+        "y": -1633,
+        "w": 1152,
+        "h": 2027.1875
+      },
+      "heading": "The inventory that everything connects to.",
+      "buttonCount": 0,
+      "cardCount": 15,
+      "className": "w-full max-w-6xl mx-auto border-x border-neutral-900 relative min-h-screen flex flex-col"
+    },
+    {
+      "role": "nav",
+      "tag": "header",
+      "bounds": {
+        "x": 65,
+        "y": -1633,
+        "w": 1150,
+        "h": 569.1875
+      },
+      "heading": "The inventory that everything connects to.",
+      "buttonCount": 0,
+      "cardCount": 1,
+      "className": "pt-40 pb-24 px-6 md:px-12 relative z-10 flex flex-col items-center text-center w-full overflow-visible"
+    },
+    {
+      "role": "footer",
+      "tag": "footer",
+      "bounds": {
+        "x": 0,
+        "y": 394.1875,
+        "w": 1280,
+        "h": 406.265625
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 3,
+      "className": "site-footer w-full border-t py-[6rem] relative z-10 font-mono text-[clamp(0.65rem,0.8vw,0.75rem)] uppercase tracking-tech"
+    }
+  ],
+  "componentClusters": [
+    {
+      "kind": "button",
+      "structuralHash": "button>iconify-icon",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(255, 255, 255)",
+            "padding": "16px 32px 16px 32px",
+            "borderRadius": "9999px",
+            "border": "0px solid rgb(229, 231, 235)",
+            "fontSize": "14px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "card",
+      "structuralHash": "div>img>span",
+      "instanceCount": 2,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(243, 244, 246)",
+            "color": "rgb(15, 17, 20)",
+            "padding": "32px 32px 32px 32px",
+            "borderRadius": "0px",
+            "border": "0px 1px 1px 0px solid rgb(209, 213, 219)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 2
+        }
+      ]
+    },
+    {
+      "kind": "card",
+      "structuralHash": "div>img",
+      "instanceCount": 5,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(15, 17, 20)",
+            "padding": "32px 32px 32px 32px",
+            "borderRadius": "0px",
+            "border": "0px 1px 1px 0px solid rgb(209, 213, 219)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 4
+        },
+        {
+          "css": {
+            "background": "rgb(243, 244, 246)",
+            "color": "rgb(15, 17, 20)",
+            "padding": "32px 32px 32px 32px",
+            "borderRadius": "0px",
+            "border": "0px 1px 0px 0px solid rgb(209, 213, 219)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "card",
+      "structuralHash": "div>img>span>span",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(243, 244, 246)",
+            "color": "rgb(15, 17, 20)",
+            "padding": "32px 32px 32px 32px",
+            "borderRadius": "0px",
+            "border": "0px 1px 1px 0px solid rgb(209, 213, 219)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "card",
+      "structuralHash": "div>div>div",
+      "instanceCount": 6,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0.05)",
+            "color": "rgb(15, 17, 20)",
+            "padding": "16px 16px 16px 16px",
+            "borderRadius": "16px",
+            "border": "1px solid rgba(0, 0, 0, 0.12)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 6
+        }
+      ]
+    },
+    {
+      "kind": "card",
+      "structuralHash": "div>div>h3>p",
+      "instanceCount": 3,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(243, 244, 246)",
+            "color": "rgb(15, 17, 20)",
+            "padding": "40px 40px 40px 40px",
+            "borderRadius": "32px",
+            "border": "1px solid rgb(209, 213, 219)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 3
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>span>iconify-icon",
+      "instanceCount": 2,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(107, 114, 128)",
+            "padding": "8px 16px 8px 16px",
+            "borderRadius": "999px",
+            "border": "0px solid rgb(229, 231, 235)",
+            "fontSize": "14px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 2
+        }
+      ]
+    }
+  ],
+  "accessibility": {
+    "remediation": [
+      {
+        "fg": "#6b7280",
+        "bg": "#f3f4f6",
+        "ratio": 4.39,
+        "rule": "AA-normal",
+        "suggestion": {
+          "replace": "fg",
+          "color": "#000000",
+          "newRatio": 19.08
+        }
+      }
+    ]
+  },
+  "cssHealth": {
+    "sheets": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
+        "totalBytes": 10028,
+        "usedBytes": 0,
+        "unusedBytes": 10028,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap",
+        "totalBytes": 3316,
+        "usedBytes": 0,
+        "unusedBytes": 3316,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://fusionconnectgroup.com/",
+        "totalBytes": 30667,
+        "usedBytes": 17950,
+        "unusedBytes": 12717,
+        "unusedPercent": 41
+      },
+      {
+        "url": "https://fusionconnectgroup.com/assets/css/fcg-brand-theme.css",
+        "totalBytes": 164622,
+        "usedBytes": 0,
+        "unusedBytes": 164622,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://fusionconnectgroup.com/",
+        "totalBytes": 958,
+        "usedBytes": 291,
+        "unusedBytes": 667,
+        "unusedPercent": 70
+      },
+      {
+        "url": "https://fusionconnectgroup.com/",
+        "totalBytes": 3994,
+        "usedBytes": 3503,
+        "unusedBytes": 491,
+        "unusedPercent": 12
+      },
+      {
+        "url": "https://fusionconnectgroup.com/",
+        "totalBytes": 1743,
+        "usedBytes": 0,
+        "unusedBytes": 1743,
+        "unusedPercent": 100
+      }
+    ],
+    "totalBytes": 215328,
+    "usedBytes": 21744,
+    "unusedBytes": 193584,
+    "unusedPercent": 90,
+    "importantCount": 216,
+    "duplicates": 487,
+    "vendorPrefixes": {
+      "webkit": 38,
+      "moz": 0,
+      "ms": 2,
+      "o": 0
+    },
+    "keyframes": [],
+    "specificity": {
+      "max": [
+        8,
+        248,
+        386
+      ],
+      "average": [
+        0.04,
+        1.95,
+        4.53
+      ],
+      "count": 1175
+    },
+    "issues": [
+      "216 !important rules",
+      "487 duplicate declarations",
+      "90% unused CSS"
+    ]
+  }
+}

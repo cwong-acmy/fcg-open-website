@@ -1,0 +1,50 @@
+{
+  "tone": "neutral",
+  "pronoun": "third-person",
+  "headingStyle": "Title Case",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [
+    {
+      "value": "get",
+      "count": 1
+    },
+    {
+      "value": "products",
+      "count": 1
+    },
+    {
+      "value": "network",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "get connected",
+      "count": 1
+    },
+    {
+      "value": "products",
+      "count": 1
+    },
+    {
+      "value": "network",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "Connect to the supply infrastructure behind travel.",
+    "The supply and partner network behind FCG.",
+    "The supply advantage behind every connection.",
+    "One inventory underneath. Three product families.",
+    "G-Link",
+    "F-Link",
+    "AgreeEase",
+    "Atlas",
+    "The supply advantage behind every connection.",
+    "Deep, not just wide."
+  ],
+  "stats": {
+    "buttons": 3,
+    "headings": 33
+  }
+}

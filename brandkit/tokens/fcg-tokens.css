@@ -1,0 +1,51 @@
+/* FCG design tokens — verified against the live https://fusionconnectgroup.com/ source, 7 Sep 2026.
+   Source of truth: the inline <style> block of the live index.html, not designlang heuristics. */
+
+:root {
+  /* Dark theme is the CSS default; the live site ships data-theme="light" on <html>. */
+  --color-bg:     #080805;   /* warm near-black */
+  --color-fg:     #ffffff;
+  --color-accent: #F97316;   /* the only accent in the system */
+  --color-card:   #121212;
+  --color-border: #2A2A2A;
+  --color-muted:  #888888;
+}
+
+html[data-theme="light"] {
+  --color-bg:     #FFFFFF;
+  --color-fg:     #0F1114;   /* ink, not pure black */
+  --color-accent: #F97316;
+  --color-card:   #F3F4F6;
+  --color-border: #D1D5DB;
+  --color-muted:  #6B7280;
+}
+
+/* Secondary ink used for dark chips and pill CTAs on light: #111827
+   Footer ground: #f7f8fa with rgba(15,17,20,.1) hairline. */
+
+/* Type — Inter carries everything, including the display headlines.
+   Sora is loaded on the live site but not applied; do not introduce it. */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap'); */
+
+/* Heading scale as measured on the live homepage at 1280px */
+/* h1  96px / 96px  / 500   tracking approx -0.03em
+   h2  76px / 76px  / 500
+   h3  48px / 48px  / 500
+   h4  30px / 36px  / 500
+   body 16px / 24px / 400   muted grey for lede copy
+   micro-label 11-12px / uppercase / letter-spacing 0.18em */
+
+/* Radii — the system is pill-first */
+/* xs 2px · md 6px · lg 15px · xl 24px · pill 999px */
+
+/* Shapes and surfaces */
+/* Nav shell:  background rgba(15,17,20,.04); border 1px rgba(15,17,20,.08); radius 999px; padding 3px
+   Glass card: rgba(255,255,255,.05); backdrop-filter blur(12px); border 1px rgba(255,255,255,.1)
+   Dot grid:   radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px) / 12px 12px
+   Line grid:  40px 40px, 1px lines at 5% opacity, masked to transparent at 100% height */
+
+/* Motion */
+/* reveal: opacity 0 -> 1, translateY(30px) -> 0, 1s cubic-bezier(0.16, 1, 0.3, 1)
+   marquee: 20s linear infinite
+   grid drift: 20s linear infinite
+   hover: 240ms ease on colour and background-color */

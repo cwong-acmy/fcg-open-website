@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-Hans" id="top">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G-Link 对接流程 — FCG 开放平台</title>
+<meta name="description" content="G-Link 酒店接口推荐的八步对接流程，从查询到取消订单。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* ============================================================
+   FCG Developer Platform — brand tokens
+   Ground white, one ink, one accent. Accent is never a fill.
+   ============================================================ */
+:root{
+  --ink:#0F1114;
+  --ink-2:#111827;
+  --muted:#6B7280;
+  --muted-card:#5A6069;      /* muted on #F3F4F6 — keeps AA */
+  --card:#F3F4F6;
+  --line:#D1D5DB;
+  --hair:rgba(15,17,20,.08);
+  --hair-soft:rgba(15,17,20,.06);
+  --shell:rgba(15,17,20,.04);
+  --accent:#F97316;
+  /* Small orange text. #F97316 on white is 2.80:1 and fails AA below 18px;
+     the marketing site does this and Crystal asked to match it. Switch this
+     one value to #C2410C (4.6:1) to make every small orange label pass. */
+  --accent-ink:#F97316;
+  --footer:#f7f8fa;
+  --dark:#0F1114;
+  --dark-line:#26282C;
+  --dark-fg:#E7E8EA;
+  --dark-muted:#9198A1;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono","Liberation Mono",Menlo,Consolas,monospace;
+  --wrap:1200px;
+  --sec:128px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-out:cubic-bezier(.23,1,.32,1);      /* entering / exiting */
+  --ease-in-out:cubic-bezier(.77,0,.175,1);  /* moving on screen */
+  --press:160ms;                             /* button press feedback */
+  --hover:160ms;                             /* hover is seen dozens of times a day */
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:#FFF;color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:24px;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;font-weight:500;color:var(--ink)}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+::selection{background:var(--accent);color:var(--ink)}
+
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.sec{padding:var(--sec) 0;position:relative}
+.sec--tight{padding:96px 0}
+
+/* ---------- micro type ---------- */
+.micro{font-size:11px;line-height:1;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.mono{font-family:var(--mono);font-size:12.5px;line-height:1.6;letter-spacing:-.01em}
+
+/* eyebrow: orange dash + orange label, as on the marketing site.
+   Colour comes from --accent-ink so the AA swap is one token. */
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent-ink)}
+.eyebrow::before{content:"";width:12px;height:1.5px;background:var(--accent);flex:none;border-radius:2px}
+.eyebrow--c{justify-content:center}
+
+.h2{font-size:clamp(32px,5.1vw,72px);line-height:1.02;letter-spacing:-.03em}
+.h3{font-size:clamp(24px,2.3vw,30px);line-height:1.15;letter-spacing:-.02em}
+.lede{color:var(--muted);font-size:16px;line-height:26px;max-width:62ch}
+/* <em> = the orange second clause of a headline; <b> = the orange lead-in
+   phrase of a lede. Both are the marketing site's own pattern. */
+/* the orange clause always starts its own line, so the comma never leaves
+   an orphan word at the end of the ink line */
+h1 em,h2 em,.h2 em,.h3 em{display:block;font-style:normal;color:var(--accent)}
+.lede b{font-weight:400;color:var(--accent-ink)}
+.sec-head{display:flex;flex-direction:column;gap:22px;margin-bottom:64px}
+.sec-head--c{align-items:center;text-align:center}
+.sec-head--c .lede{max-width:58ch}
+.sec-head .h2{max-width:20ch}
+.sec-head--c .h2{max-width:24ch}
+
+/* ---------- rules ---------- */
+.rule{height:1px;background:var(--hair);border:0;margin:0}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  height:52px;padding:0 12px 0 26px;border-radius:999px;
+  background:var(--ink);color:#fff;border:1px solid var(--ink);
+  font-size:15px;font-weight:500;letter-spacing:-.01em;cursor:pointer;
+  transition:background var(--hover) ease,color var(--hover) ease,
+             border-color var(--hover) ease,transform var(--press) var(--ease-out);
+}
+.btn iconify-icon{
+  width:30px;height:30px;border-radius:999px;background:rgba(255,255,255,.12);
+  padding:7px;font-size:16px;flex:none;transition:transform var(--hover) var(--ease-out);
+}
+/* the press is the one animation that must never be missed — it is how the
+   interface says it heard you */
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:#000}
+  .btn:hover iconify-icon{transform:translateX(3px)}
+}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line);padding-right:26px}
+.btn--ghost iconify-icon{background:var(--card);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){
+  .btn--ghost:hover{background:var(--card);border-color:var(--ink)}
+}
+.btn--sm{height:40px;padding:0 8px 0 18px;font-size:13.5px}
+.btn--sm iconify-icon{width:24px;height:24px;padding:5px;font-size:14px}
+.tlink{
+  display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;
+  color:var(--ink);transition:color var(--hover) ease;
+}
+/* the arrow slides on transform rather than the row animating `gap` — gap is a
+   layout property and cannot run on the compositor */
+.tlink iconify-icon{font-size:15px;transition:transform var(--hover) var(--ease-out)}
+.tlink:active iconify-icon{transform:translateX(1px)}
+@media (hover:hover) and (pointer:fine){
+  .tlink:hover iconify-icon{transform:translateX(4px)}
+}
+/* the marketing site's one orange affordance: a small filled circle on a
+   tertiary link. Never on a primary CTA — that stays the black pill. */
+.tlink--o{gap:12px;font-size:14.5px}
+.tlink--o iconify-icon{width:28px;height:28px;padding:7px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;flex:none;transition:transform var(--hover) var(--ease-out)}
+.tlink--o:active iconify-icon{transform:scale(.94)}
+@media (hover:hover) and (pointer:fine){
+  .tlink--o:hover iconify-icon{transform:translateX(3px)}
+}
+
+/* ---------- chips / badges ---------- */
+.chip{
+  display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;
+  background:var(--card);border:1px solid var(--hair);
+  font-size:12px;font-weight:500;color:var(--ink-2);white-space:nowrap;
+}
+.chip--plain{background:#fff;border-color:var(--line)}
+.chip--live{background:rgba(249,115,22,.07);border-color:rgba(249,115,22,.28);color:var(--accent-ink);gap:7px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.badge{
+  display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;
+  background:var(--ink-2);color:#fff;font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+}
+.dot{width:6px;height:6px;border-radius:999px;background:var(--accent);flex:none;box-shadow:0 0 8px rgba(249,115,22,.4)}
+.method{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:46px;height:19px;padding:0 6px;border-radius:4px;
+  background:var(--ink-2);color:#fff;
+  font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.08em;flex:none;
+}
+.method--get{background:#fff;color:var(--ink);border:1px solid var(--line)}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.skip{
+  position:absolute;left:16px;top:14px;z-index:100;
+  background:var(--ink);color:#fff;padding:11px 18px;border-radius:999px;font-size:13px;
+  /* transform, not top: only transform and opacity skip layout and paint */
+  transform:translateY(-84px);
+  transition:transform 200ms var(--ease-out);
+}
+.skip:focus{transform:none}
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color 240ms ease}
+.hdr.stuck{border-bottom-color:var(--hair)}
+.hdr-in{display:flex;align-items:center;gap:22px;height:76px}
+.brand{display:flex;align-items:center;gap:13px;flex:none}
+.brand svg{height:26px;width:auto;color:var(--ink)}
+.brand-div{width:1px;height:20px;background:var(--line);flex:none}
+.brand-sub{font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+
+.shell{
+  display:flex;align-items:center;gap:2px;padding:3px;
+  background:var(--shell);border:1px solid var(--hair);border-radius:999px;
+}
+.shell a{
+  display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 15px;border-radius:999px;
+  font-size:13.5px;font-weight:400;color:var(--ink);white-space:nowrap;
+  transition:background 240ms ease,color 240ms ease;
+}
+.shell a{transition:background var(--hover) ease,color var(--hover) ease,transform var(--press) var(--ease-out)}
+.shell a:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){ .shell a:hover{background:#fff} }
+.shell a.on{background:#fff;font-weight:500}
+.nav-right{display:flex;align-items:center;gap:14px;margin-left:auto;flex:none}
+.lang{display:flex;align-items:center;padding:3px;background:var(--shell);border:1px solid var(--hair);border-radius:999px}
+/* the control is <a> links across locales; <button> is kept so the same rules
+   apply if a locale ever needs an in-page toggle again */
+.lang button,.lang a{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:28px;padding:0 9px;border:0;background:transparent;border-radius:999px;cursor:pointer;
+  font-size:11.5px;font-weight:500;letter-spacing:.06em;color:var(--muted);text-decoration:none;
+  transition:background var(--hover) ease,color var(--hover) ease,transform var(--press) var(--ease-out);
+}
+.lang button:active,.lang a:active{transform:scale(.94)}
+.lang button[aria-pressed="true"],.lang a[aria-current="page"]{background:#fff;color:var(--ink)}
+@media (hover:hover) and (pointer:fine){
+  .lang a:not([aria-current="page"]):hover{color:var(--ink)}
+}
+.login{font-size:13.5px;font-weight:400;color:var(--ink);transition:color 240ms ease}
+@media (hover:hover) and (pointer:fine){ .login:hover{color:var(--muted)} }
+.burger{
+  display:none;width:42px;height:42px;align-items:center;justify-content:center;
+  background:var(--shell);border:1px solid var(--hair);border-radius:999px;cursor:pointer;font-size:19px;
+  transition:background var(--hover) ease,transform var(--press) var(--ease-out);
+}
+.burger:active{transform:scale(.94)}
+.mnav{
+  display:none;border-top:1px solid var(--hair);background:#fff;padding:14px 0 26px;
+  opacity:0;transform:translateY(-6px);
+  transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out),
+             display 200ms allow-discrete;
+}
+.mnav.open{display:block;opacity:1;transform:none}
+@starting-style{ .mnav.open{opacity:0;transform:translateY(-6px)} }
+.mnav ul{display:flex;flex-direction:column}
+/* scoped to the list: an unscoped .mnav a also hit the drawer's CTA pills and
+   flattened them with display:block + vertical padding */
+.mnav ul a{display:block;padding:13px 0;font-size:16px;border-bottom:1px solid var(--hair-soft)}
+.mnav .m-cta{display:grid;grid-template-columns:1fr;gap:10px;margin-top:22px}
+.mnav .m-cta .btn{width:100%;height:48px;justify-content:space-between;padding:0 10px 0 18px;font-size:14.5px}
+.mnav .m-cta .lang{display:grid;grid-template-columns:repeat(3,1fr);width:100%;margin-top:2px}
+.mnav .m-cta .lang button{height:36px;padding:0;font-size:12.5px}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding:78px 0 0;overflow:hidden}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(to right,rgba(15,17,20,.05) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(15,17,20,.05) 1px,transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 88%);
+  mask-image:linear-gradient(to bottom,#000 0%,transparent 88%);
+}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:64px;align-items:center}
+.hero h1{font-size:clamp(42px,6.4vw,92px);line-height:1;letter-spacing:-.035em;margin:26px 0 0}
+.hero .lede{margin-top:26px;max-width:52ch;font-size:16.5px;line-height:27px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:0 34px;margin-top:52px;padding-top:22px;border-top:1px solid var(--hair)}
+.hero-facts div{display:flex;align-items:center;gap:9px;padding:8px 0;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:0}
+.hero-facts b{color:var(--ink);font-weight:500}
+
+/* --- the one dark surface --- */
+.term{
+  background:var(--dark);border-radius:18px;border:1px solid var(--dark);overflow:hidden;
+  font-family:var(--mono);
+}
+.term-bar{
+  display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;
+  border-bottom:1px solid var(--dark-line);
+}
+.term-bar .t-label{color:var(--dark-muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.term-bar .t-right{margin-left:auto;color:var(--dark-muted);font-size:11px;letter-spacing:.1em}
+.term-body{padding:20px 18px 22px;overflow-x:auto}
+.term-body pre{margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.85;color:var(--dark-fg);white-space:pre;letter-spacing:-.01em}
+.term-body pre + pre{margin-top:2px}
+.t-dim{color:var(--dark-muted)}
+.t-key{color:#fff}
+.t-cmd{color:#fff;font-weight:500}
+.term-split{display:flex;align-items:center;gap:12px;padding:0 18px;height:38px;border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line);background:rgba(255,255,255,.02)}
+.term-split span{color:var(--dark-muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.cursor{display:inline-block;width:7px;height:14px;background:var(--accent);vertical-align:-2px;margin-left:3px;animation:blink 1.15s steps(1,end) infinite}
+@keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
+.term-note{margin-top:14px;color:var(--muted);font-size:11.5px;line-height:18px;font-family:var(--sans)}
+
+/* ============================================================
+   PRODUCT MATRIX
+   ============================================================ */
+.pmatrix{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;
+}
+.pcol{display:flex;flex-direction:column;min-width:0}
+@supports (grid-template-rows:subgrid){
+  .pmatrix{grid-template-rows:repeat(7,auto)}
+  .pcol{display:grid;grid-row:span 7;grid-template-rows:subgrid}
+}
+.pcol + .pcol{border-left:1px solid var(--line)}
+.pcell{padding:20px 24px;min-width:0}
+.pcell + .pcell{border-top:1px solid var(--hair-soft)}
+.pcell--head{padding:26px 24px 22px}
+.pcell--head .code{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pcell--head h3{margin-top:14px}
+.pcell--what{color:var(--ink);font-size:15px;line-height:24px;padding-bottom:22px}
+.pcell--foot{margin-top:auto;padding:20px 24px 24px;background:var(--card)}
+.rlabel{display:block;font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.pcell p.rtext{color:var(--muted);font-size:13.5px;line-height:22px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.flow i{color:var(--muted);font-style:normal}
+.eplist{display:flex;flex-direction:column;gap:8px}
+.eplist li{display:flex;align-items:center;gap:9px;min-width:0}
+.eplist code{font-family:var(--mono);font-size:11.5px;color:var(--ink);letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.disclaim{margin-top:12px;font-size:10.5px;line-height:16px;color:var(--muted)}
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+.skills{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:72px;align-items:center}
+.tick{display:flex;flex-direction:column;gap:0;margin-top:34px}
+.tick li{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-top:1px solid var(--hair-soft);font-size:14.5px;line-height:22px}
+.tick li:last-child{border-bottom:1px solid var(--hair-soft)}
+.tick iconify-icon{font-size:18px;color:var(--ink);flex:none;margin-top:2px}
+.tree{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 26px 28px}
+.tree-h{display:flex;align-items:center;gap:9px;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.tree-h span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-card)}
+.tree pre{margin:0;font-family:var(--mono);font-size:12.5px;line-height:2;color:var(--ink);white-space:pre;overflow-x:auto}
+.tree .d{color:var(--muted-card)}
+
+/* ============================================================
+   USE CASES
+   ============================================================ */
+.ucases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.ugroup{padding:32px 30px 34px;border-bottom:1px solid var(--line)}
+.ugroup + .ugroup{border-left:1px solid var(--line)}
+.ugroup h3{font-size:18px;letter-spacing:-.01em;margin-top:12px}
+.ugroup .ucode{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ulist{margin-top:22px}
+.ulist li{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--hair-soft);font-size:14.5px;line-height:22px}
+.ulist li em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--muted);padding-top:4px;flex:none}
+
+/* ============================================================
+   INTEGRATION OPTIONS
+   ============================================================ */
+.iopts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.icard{border:1px solid var(--line);border-radius:20px;padding:28px 26px 26px;background:#fff;display:flex;flex-direction:column}
+.icard-ic{width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--ink)}
+.icard h3{font-size:19px;letter-spacing:-.01em;margin-top:22px}
+.icard .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin-top:8px;display:block}
+.icard p{color:var(--muted);font-size:14px;line-height:23px;margin-top:14px}
+.icard-foot{margin-top:auto;padding-top:22px}
+.langs{display:flex;flex-wrap:wrap;gap:6px}
+.langs .chip{height:26px;font-family:var(--mono);font-size:11px}
+.langs .chip.soon{color:var(--muted);background:#fff;border-style:dashed}
+
+/* ============================================================
+   CUSTOMER TYPES — decision table
+   ============================================================ */
+.dtable{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+.dhead,.drow{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1.15fr) minmax(0,.9fr) 150px;gap:24px;align-items:center;padding:22px 28px}
+.dhead{padding:14px 28px;background:var(--card);border-bottom:1px solid var(--line)}
+.dhead span{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card)}
+.drow + .drow{border-top:1px solid var(--hair)}
+.drow.hl{background:var(--card)}
+.drow.hl .dwhy{color:var(--muted-card)}
+.dwho{display:flex;flex-direction:column;gap:9px}
+.dwho strong{font-size:17px;font-weight:500;letter-spacing:-.01em}
+.dwhy{color:var(--muted);font-size:13.5px;line-height:21px}
+.dpath{display:flex;flex-wrap:wrap;gap:6px}
+.dpath .chip{font-family:var(--mono);font-size:11px;background:#fff;border-color:var(--line)}
+.drow.hl .dpath .chip{background:#fff}
+.dact{justify-self:end}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.stat{padding:46px 28px 44px}
+.stat + .stat{border-left:1px solid var(--hair)}
+.stat .n{font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.03em;font-weight:500;color:var(--ink)}
+.stat .n u{text-decoration:none;color:var(--accent)}
+.stat .c{margin-top:16px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+
+/* ============================================================
+   PARTNERS — checkerboard
+   ============================================================ */
+.board{position:relative;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.board-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cell{
+  display:flex;align-items:center;justify-content:center;min-height:130px;padding:20px 14px;
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  color:var(--muted);font-size:14px;font-weight:500;letter-spacing:.08em;text-align:center;
+  filter:grayscale(1);transition:color 240ms ease,background 240ms ease;
+}
+.cell:nth-child(4n){border-right:0}
+.board-g > .cell:nth-last-child(-n+4){border-bottom:0}
+.cell.alt{background:var(--card)}
+@media (hover:hover) and (pointer:fine){ .cell:hover{color:var(--ink)} }
+/* + crosshairs sit exactly on the cell hairlines, so they must be darker
+   and longer than the hairline to register as marks at all. */
+.xh{position:absolute;width:15px;height:15px;pointer-events:none;transform:translate(-50%,-50%);z-index:2}
+.xh::before,.xh::after{content:"";position:absolute;background:rgba(15,17,20,.42)}
+.xh::before{left:0;top:7px;width:15px;height:1px}
+.xh::after{top:0;left:7px;height:15px;width:1px}
+
+/* ============================================================
+   CLOSING
+   ============================================================ */
+.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.path{border:1px solid var(--line);border-radius:24px;padding:40px 38px 38px;display:flex;flex-direction:column}
+.path--fill{background:var(--card)}
+.path h3{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.02em;margin-top:18px}
+.path p{color:var(--muted);font-size:15px;line-height:25px;margin-top:16px;max-width:44ch}
+.path--fill p{color:var(--muted-card)}
+.path ul{margin-top:30px}
+.path li{display:flex;align-items:flex-start;gap:11px;padding:12px 0;border-top:1px solid var(--hair);font-size:14px;line-height:22px}
+.path li:last-child{border-bottom:1px solid var(--hair)}
+.path li iconify-icon{font-size:16px;color:var(--ink);flex:none;margin-top:3px}
+.path-foot{margin-top:auto;padding-top:34px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.ftr{background:var(--footer);border-top:1px solid rgba(15,17,20,.1);padding:80px 0 34px;margin-top:0}
+.ftr-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:48px}
+.ftr-brand svg{height:26px;width:auto;color:var(--ink)}
+.ftr-brand p{margin-top:20px;color:var(--muted);font-size:14px;line-height:23px;max-width:34ch}
+.ftr-col .ftr-h{margin:0;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.ftr-col ul{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.ftr-col a{color:var(--muted);font-size:14px;transition:color 240ms ease}
+@media (hover:hover) and (pointer:fine){ .ftr-col a:hover{color:var(--ink)} }
+.ftr-bot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-top:64px;padding-top:26px;border-top:1px solid rgba(15,17,20,.1);color:var(--muted);font-size:12.5px}
+.ftr-bot .mono{font-size:11.5px;letter-spacing:.06em}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+html.js .rv{opacity:0;transform:translateY(30px)}
+html.js .rv.in{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1s var(--ease)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  /* movement goes; opacity and colour stay, because they carry meaning */
+  html.js .rv{opacity:1!important;transform:none!important;transition:none}
+  .cursor{animation:none}
+  .mnav{transition:opacity 150ms ease,display 150ms allow-discrete;transform:none}
+  .mnav.open{transform:none}
+  .btn:active,.btn--ghost:active,.shell a:active,.lang button:active,.burger:active,
+  .oauth:active,.rail a:active,.asks button:active,.cmd button:active{transform:none}
+  .btn iconify-icon,.tlink iconify-icon,.tlink--o iconify-icon{transition:none;transform:none!important}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1180px){
+  :root{--sec:112px}
+  .shell a{padding:0 12px;font-size:13px}
+  .hero-in{gap:44px}
+  .skills{gap:48px}
+  .dhead,.drow{grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,1fr) 130px;gap:18px;padding:20px}
+  .dhead{padding:14px 20px}
+}
+@media (max-width:1000px){
+  .shell,.nav-right .login,.nav-right .lang{display:none}
+  .burger{display:flex}
+  .nav-right{gap:10px}
+  .hero-in{grid-template-columns:minmax(0,1fr);gap:56px}
+  .hero{padding-top:56px}
+  .pmatrix{grid-template-rows:none!important;grid-template-columns:minmax(0,1fr)}
+  .pcol{display:flex!important;grid-row:auto!important;grid-template-rows:none!important}
+  .pcol + .pcol{border-left:0;border-top:1px solid var(--line)}
+  .skills{grid-template-columns:minmax(0,1fr);gap:44px}
+  .ucases{grid-template-columns:minmax(0,1fr)}
+  .ugroup + .ugroup{border-left:0}
+  .iopts{grid-template-columns:minmax(0,1fr)}
+  .dhead{display:none}
+  .drow{grid-template-columns:minmax(0,1fr);gap:18px;padding:26px 22px}
+  .dact{justify-self:start}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid var(--hair)}
+  .stat:nth-child(3){border-left:0}
+  .paths{grid-template-columns:minmax(0,1fr)}
+  .ftr-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+}
+@media (max-width:880px){
+  .board-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cell:nth-child(4n){border-right:1px solid var(--line)}
+  .cell:nth-child(2n){border-right:0}
+  .board-g > .cell:nth-last-child(-n+4){border-bottom:1px solid var(--line)}
+  .board-g > .cell:nth-last-child(-n+2){border-bottom:0}
+  .xh{display:none}
+}
+@media (max-width:640px){
+  :root{--sec:80px}
+  .wrap{padding:0 20px}
+  .sec--tight{padding:64px 0}
+  .hdr-in{height:66px;gap:12px}
+  .brand-div,.brand-sub{display:none}
+  .hero h1{letter-spacing:-.025em}
+  .hero .lede{font-size:15.5px}
+  .hero-cta{gap:10px}
+  /* content-width pills with the label flush left — full-bleed buttons read as
+     banners on a phone and centre their label away from the text column */
+  .hero-cta .btn,.path-foot .btn{justify-content:flex-start}
+  .hero-cta .btn--ghost{padding:0 26px}
+  .hero-facts{gap:0;flex-direction:column;align-items:flex-start;margin-top:40px}
+  .sec-head{margin-bottom:44px;gap:18px}
+  .term-body{padding:16px 14px 18px}
+  .term-body pre{font-size:11.5px}
+  .pcell{padding:18px 20px}
+  .pcell--head,.pcell--foot{padding-left:20px;padding-right:20px}
+  .ugroup{padding:26px 20px 28px}
+  .icard{padding:24px 20px}
+  .stats{grid-template-columns:minmax(0,1fr)}
+  .stat{padding:32px 0 30px}
+  .stat + .stat{border-left:0;border-top:1px solid var(--hair)}
+  .stat:nth-child(3){border-left:0}
+  .cell{min-height:104px;font-size:13px}
+  .path{padding:30px 24px 28px;border-radius:20px}
+
+  .ftr{padding-top:60px}
+  .ftr-top{grid-template-columns:minmax(0,1fr);gap:36px}
+  .ftr-bot{margin-top:44px}
+}
+@media (max-width:380px){
+  .wrap{padding:0 16px}
+  .btn{font-size:14px;padding-left:20px}
+}
+</style>
+<style>
+/* ============================================================
+   SUB-PAGE SHELL — page band, docs layout, tables, auth, chat
+   Same tokens as index.html. Accent stays graphic only.
+   ============================================================ */
+.hdr--min .hdr-in{gap:16px}
+
+/* ---------- page band (replaces the hero on inner pages) ---------- */
+.band{position:relative;padding:74px 0 52px;border-bottom:1px solid var(--hair);overflow:hidden}
+.band-grid{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(to right,rgba(15,17,20,.05) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(15,17,20,.05) 1px,transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 92%);
+  mask-image:linear-gradient(to bottom,#000 0%,transparent 92%);
+}
+/* every child clamps to the wrap: a column flex item sizes to content and
+   min-width:auto stops it shrinking, which is how the tab rail ended up
+   587px wide inside a 335px column and silently clipped. */
+.band-in{position:relative;z-index:1;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.band-in > *{max-width:100%;min-width:0}
+/* eyebrow + status chip share one micro row, so the CTA row stays CTAs only */
+.band-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.band h1{font-size:clamp(34px,4.6vw,62px);line-height:1.02;letter-spacing:-.032em;max-width:22ch}
+.band h1 em{display:block;font-style:normal;color:var(--accent)}
+.band .lede{font-size:16.5px;line-height:27px;max-width:60ch}
+.band-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:8px;width:100%;min-width:0}
+.crumb{display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.crumb a{color:var(--muted);transition:color 240ms ease}
+@media (hover:hover) and (pointer:fine){ .crumb a:hover{color:var(--ink)} }
+.crumb i{font-style:normal;color:var(--line)}
+
+/* ---------- tab rail (reuses the nav shell grammar) ---------- */
+/* min-width:0 + align-self:stretch — without them this nowrap flex row keeps
+   its min-content width and gets clipped by body{overflow-x:hidden}. */
+.rail{display:flex;gap:2px;padding:3px;background:var(--shell);border:1px solid var(--hair);border-radius:999px;overflow-x:auto;max-width:100%;min-width:0;flex:0 1 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail a,.rail button{
+  display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 15px;border:0;border-radius:999px;
+  background:transparent;font-size:13.5px;font-weight:400;color:var(--ink);white-space:nowrap;cursor:pointer;
+  transition:background var(--hover) ease,transform var(--press) var(--ease-out);
+}
+.rail a:active,.rail button:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .rail a:hover,.rail button:hover{background:#fff}
+}
+.rail a.on,.rail button.on{background:#fff;font-weight:500}
+.rail::-webkit-scrollbar{height:0}
+.docs-side-in{min-width:0}
+
+/* ---------- generic content block ---------- */
+.blk{padding:80px 0}
+.blk--top{padding-top:64px}
+.blk h2.h3{max-width:26ch}
+.blk-head{display:flex;flex-direction:column;gap:18px;margin-bottom:38px}
+.blk-head .lede{font-size:15px;line-height:25px}
+.note{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:18px 22px;border:1px solid var(--line);border-radius:16px;background:var(--card);
+  font-size:14px;line-height:23px;color:var(--muted-card);
+}
+.note iconify-icon{font-size:18px;color:var(--ink);flex:none;margin-top:2px}
+.note strong{color:var(--ink);font-weight:500}
+
+/* ---------- data table ---------- */
+.tblwrap{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+.tblscroll{overflow-x:auto}
+table.tbl{width:100%;border-collapse:collapse;min-width:640px}
+table.tbl th{
+  text-align:left;padding:14px 20px;background:var(--card);border-bottom:1px solid var(--line);
+  font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card);white-space:nowrap;
+}
+table.tbl td{padding:16px 20px;border-top:1px solid var(--hair);font-size:14px;line-height:22px;vertical-align:top}
+table.tbl tbody tr:first-child td{border-top:0}
+/* t- prefix, deliberately: a bare .path here collided with the homepage's
+   unscoped .path closing card and rendered every cell as a rounded panel. */
+table.tbl td.t-num{font-family:var(--mono);font-size:11.5px;color:var(--muted);width:44px;white-space:nowrap}
+table.tbl td.t-path,table.tbl td.t-code{font-family:var(--mono);font-size:12px;letter-spacing:-.01em;color:var(--ink)}
+table.tbl td.t-mid{white-space:nowrap;width:1%}
+table.tbl td.t-dim{color:var(--muted)}
+table.tbl td{border-radius:0;background:none}
+@media (hover:hover) and (pointer:fine){
+  table.tbl tbody tr{transition:background var(--hover) ease}
+  table.tbl tbody tr:hover{background:rgba(15,17,20,.015)}
+}
+
+/* ---------- docs two-column ---------- */
+.docs{display:grid;grid-template-columns:252px minmax(0,1fr);gap:0;border-top:1px solid var(--hair)}
+.docs-side{border-right:1px solid var(--hair);padding:38px 28px 60px 0}
+.docs-side-in{position:sticky;top:100px;display:flex;flex-direction:column;gap:26px}
+.docs-grp .docs-h{margin:0;font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink)}
+.docs-grp ul{margin-top:12px;display:flex;flex-direction:column}
+.docs-grp a{
+  display:flex;align-items:center;gap:8px;padding:8px 12px;margin-left:-12px;border-radius:999px;
+  color:var(--muted);font-size:13.5px;
+  transition:background var(--hover) ease,color var(--hover) ease,transform var(--press) var(--ease-out);
+}
+.docs-grp a:active{transform:scale(.98)}
+@media (hover:hover) and (pointer:fine){
+  .docs-grp a:hover{color:var(--ink);background:var(--shell)}
+}
+.docs-grp a.on{color:var(--ink);font-weight:500;background:var(--card)}
+.docs-main{padding:38px 0 80px 40px;min-width:0}
+.docs-main > * + *{margin-top:22px}
+.docs-main > h2 + *,.docs-main > h3 + *{margin-top:16px}   /* tight under a heading */
+.docs-main > * + h3{margin-top:54px}                        /* open above one */
+.docs-main > * + h2{margin-top:64px}
+.docs-main > * + .tblwrap,.docs-main > * + .steps{margin-top:28px}
+.docs-main > * + .note{margin-top:34px}
+.docs-main > * + .ep{margin-top:28px}
+.docs-main > * + .band-foot{margin-top:40px}
+.docs-main h2{font-size:clamp(24px,2.4vw,32px);line-height:1.12;letter-spacing:-.02em}
+.docs-main h2 em{display:block;font-style:normal;color:var(--accent)}
+.docs-main h3{font-size:19px;letter-spacing:-.01em}
+.docs-main h4{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.docs-main p{color:var(--muted);font-size:15px;line-height:25px;max-width:66ch}
+.docs-main ol,.docs-main ul.bul{display:flex;flex-direction:column;gap:0;padding:0;list-style:none;counter-reset:s}
+.docs-main ol li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--hair-soft);font-size:14.5px;line-height:23px}
+.docs-main ol li:last-child{border-bottom:1px solid var(--hair-soft)}
+.docs-main ol li::before{
+  counter-increment:s;content:counter(s,decimal-leading-zero);
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:4px;flex:none;
+}
+.docs-main ul.bul li{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--hair-soft);font-size:14.5px;line-height:23px}
+.docs-main ul.bul li:last-child{border-bottom:1px solid var(--hair-soft)}
+.docs-main ul.bul li iconify-icon{font-size:16px;color:var(--ink);flex:none;margin-top:3px}
+code.inl{font-family:var(--mono);font-size:12.5px;background:var(--card);border:1px solid var(--hair);border-radius:5px;padding:1px 6px;color:var(--ink)}
+.msg--me code.inl{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.2);color:#fff}
+
+/* ---------- endpoint card ---------- */
+.ep{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+.ep-h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 22px;border-bottom:1px solid var(--hair);background:var(--card)}
+.ep-h code{font-family:var(--mono);font-size:12.5px;color:var(--ink);letter-spacing:-.01em;word-break:break-all}
+.ep-b{padding:22px}
+.ep-b + .ep-b{border-top:1px solid var(--hair)}
+.plist{display:flex;flex-direction:column}
+.plist li{display:grid;grid-template-columns:190px 90px 76px minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid var(--hair-soft);font-size:13.5px;line-height:21px;align-items:baseline}
+.plist li:first-child{border-top:0}
+.plist .pn{font-family:var(--mono);font-size:12px;color:var(--ink);word-break:break-all}
+.plist .pt{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.plist .pr{font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.plist .pr.req{color:var(--ink)}
+.plist .pd{color:var(--muted)}
+.plist li.sub .pn{padding-left:18px;position:relative}
+.plist li.sub .pn::before{content:"";position:absolute;left:4px;top:8px;width:8px;height:1px;background:var(--line)}
+
+/* ---------- flow steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+.step{padding:22px 22px 24px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.step:nth-child(4n){border-right:0}
+.step:nth-last-child(-n+4){border-bottom:0}
+.step .sn{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+.step h3{font-size:15px;font-weight:500;letter-spacing:-.01em;margin-top:14px;line-height:1.3}
+.step code{display:block;margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--muted);word-break:break-all}
+
+/* ---------- app / sdk / skill cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cards--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{border:1px solid var(--line);border-radius:20px;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.card-h{padding:24px 24px 20px}
+.card-k{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+.card-h h3{font-size:19px;letter-spacing:-.01em;margin-top:14px}
+.card-h p{color:var(--muted);font-size:14px;line-height:23px;margin-top:12px}
+/* ponytail: three lines reserved (3 x 23px) so meta rows start at the same y
+   across a row of cards. Ceiling — a description over three lines at 1280px
+   misaligns again; use grid subgrid if the copy ever needs to run longer. */
+.cards .card-h > p:not(.card-k){min-height:69px}
+.cards--tall .card-h > p:not(.card-k){min-height:92px}  /* 4 lines: narrow 3-up columns */
+.card-meta{display:flex;flex-direction:column;padding:0 24px}
+.card-meta div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--hair-soft);font-size:13px}
+.card-meta dt,.card-meta .k{color:var(--muted);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;flex:none}
+.card-meta .v{font-family:var(--mono);font-size:12px;color:var(--ink);text-align:right;word-break:break-all}
+.card-f{margin-top:auto;padding:20px 24px 22px;background:var(--card);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.card-f--plain{background:#fff;border-top:1px solid var(--hair)}
+
+/* ---------- copy row (install commands) ---------- */
+.cmd{display:flex;align-items:stretch;border:1px solid var(--dark);border-radius:12px;overflow:hidden;background:var(--dark)}
+.cmd code{flex:1;min-width:0;padding:13px 16px;font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--dark-fg);overflow-x:auto;white-space:nowrap}
+.cmd button{
+  flex:none;padding:0 16px;border:0;border-left:1px solid var(--dark-line);background:transparent;cursor:pointer;
+  color:var(--dark-muted);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  transition:color var(--hover) ease,background var(--hover) ease,transform var(--press) var(--ease-out);
+}
+.cmd button:active{transform:scale(.96)}
+.cmd button.done{color:#fff}
+@media (hover:hover) and (pointer:fine){
+  .cmd button:hover{color:#fff;background:rgba(255,255,255,.06)}
+}
+
+/* ---------- stat strip variant used on inner pages ---------- */
+.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.mini div{padding:30px 24px}
+.mini div + div{border-left:1px solid var(--hair)}
+.mini .n{font-size:clamp(28px,3vw,42px);line-height:1;letter-spacing:-.03em;font-weight:500}
+.mini .n u{text-decoration:none;color:var(--accent)}
+.mini .c{margin-top:12px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.mini--aside{border-bottom:0;background:transparent}
+.mini--aside div{padding:30px 22px}
+.mini--aside div:first-child{padding-left:0}
+
+/* ---------- auth ---------- */
+.auth{min-height:calc(100vh - 76px);display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)}
+/* top-aligned, not centred: the register form is far taller than this
+   column, and centring pushed the aside's list below the fold. Sticky so
+   it stays in view while the form scrolls. */
+.auth-aside{position:relative;padding:64px 0 72px;border-right:1px solid var(--hair);overflow:hidden;display:flex;align-items:flex-start}
+.auth-aside .wrap{position:sticky;top:0}
+.auth-aside .wrap{max-width:none;padding:0 64px 0 max(32px,calc((100vw - var(--wrap)) / 2 + 32px));width:100%}
+.auth-aside .ahead{font-size:clamp(30px,3.6vw,50px);line-height:1.04;letter-spacing:-.03em;max-width:18ch;margin-top:22px;color:var(--ink);font-weight:500}
+.auth-aside .ahead em{display:block;font-style:normal;color:var(--accent)}
+.auth-aside .lede{margin-top:22px;font-size:16px;line-height:26px;max-width:44ch}
+.auth-main{display:flex;align-items:center;justify-content:center;padding:64px 32px 72px;background:var(--footer)}
+.auth-card{width:100%;max-width:436px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px 38px 36px}
+.auth-card h1{font-size:clamp(26px,2.6vw,34px);line-height:1.1;letter-spacing:-.025em}
+.auth-card > p{color:var(--muted);font-size:14.5px;line-height:23px;margin-top:12px}
+.oauth{
+  display:flex;align-items:center;justify-content:center;gap:11px;width:100%;height:50px;margin-top:28px;
+  border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;
+  font-size:14.5px;font-weight:500;
+  transition:background var(--hover) ease,border-color var(--hover) ease,
+             transform var(--press) var(--ease-out);
+}
+.oauth:active{transform:scale(.98)}
+@media (hover:hover) and (pointer:fine){
+  .oauth:hover{background:var(--card);border-color:var(--ink)}
+}
+.oauth iconify-icon{font-size:19px}
+.orline{display:flex;align-items:center;gap:14px;margin:24px 0 22px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.orline::before,.orline::after{content:"";flex:1;height:1px;background:var(--hair)}
+.fields{display:flex;flex-direction:column;gap:16px}
+.fld{display:flex;flex-direction:column;gap:8px;min-width:0}
+.fld label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.fld label em{font-style:normal;color:var(--ink)}  /* 11px orange on white is 2.80:1 and fails AA. Kept ink until the
+     small-orange-text decision is made — see STATE-LOG. */
+.fld input,.fld select{
+  height:48px;padding:0 15px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);
+  font-family:var(--sans);font-size:14.5px;width:100%;transition:border-color var(--hover) var(--ease-out),background var(--hover) ease;
+}
+.fld select{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='1.6'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+@media (hover:hover) and (pointer:fine){
+  .fld input:hover,.fld select:hover{border-color:var(--muted)}
+}
+.fld input:focus,.fld select:focus{border-color:var(--ink);outline:none}
+.fld input:focus-visible,.fld select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fields--2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.fld-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:-4px}
+.fld-row a{font-size:13px;color:var(--muted);transition:color 240ms ease}
+@media (hover:hover) and (pointer:fine){ .fld-row a:hover{color:var(--ink)} }
+.auth-submit{width:100%;justify-content:space-between;margin-top:26px}
+.auth-alt{margin-top:22px;padding-top:20px;border-top:1px solid var(--hair);color:var(--muted);font-size:13.5px;text-align:center}
+.auth-alt a{color:var(--ink);font-weight:500}
+.auth-legal{margin-top:16px;color:var(--muted);font-size:11.5px;line-height:18px;text-align:center}
+
+/* ---------- chat ---------- */
+.chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
+.chatbox{border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+.chat-h{display:flex;align-items:center;gap:13px;padding:20px 24px;border-bottom:1px solid var(--hair)}
+.chat-h .av{width:40px;height:40px;border-radius:999px;background:var(--card);border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}
+.chat-h strong{display:block;font-size:15px;font-weight:500;letter-spacing:-.01em}
+.chat-h span{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+.chat-h .dot{margin-left:auto}
+.chat-b{padding:26px 24px;display:flex;flex-direction:column;gap:18px;background:var(--footer)}
+.msg{max-width:78%;padding:16px 19px;border-radius:18px;font-size:14.5px;line-height:24px}
+.msg--ai{background:#fff;border:1px solid var(--hair);color:var(--ink);border-bottom-left-radius:6px}
+.msg--me{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:6px}
+.msg p + p{margin-top:12px}
+.chat-in{display:flex;align-items:center;gap:12px;padding:16px 20px;border-top:1px solid var(--hair);background:#fff}
+.chat-in input{flex:1;min-width:0;height:46px;padding:0 16px;border:1px solid var(--line);border-radius:999px;font-family:var(--sans);font-size:14.5px;color:var(--ink)}
+.chat-in input:focus{border-color:var(--ink);outline:none}
+.chat-in input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chat-f{padding:14px 24px 18px;color:var(--muted);font-size:11.5px;line-height:18px;background:#fff;border-top:1px solid var(--hair-soft)}
+.chat-f a{color:var(--ink);font-weight:500}
+.asks{border:1px solid var(--line);border-radius:20px;background:#fff;overflow:hidden;position:sticky;top:100px}
+.asks .asks-h{margin:0;padding:16px 20px;border-bottom:1px solid var(--hair);background:var(--card);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-card)}
+.asks button{
+  display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;padding:15px 20px;border:0;
+  border-top:1px solid var(--hair-soft);background:#fff;cursor:pointer;font-size:13.5px;line-height:21px;
+  transition:background var(--hover) ease,transform var(--press) var(--ease-out);
+}
+.asks button:first-of-type{border-top:0}
+.asks button:active{transform:scale(.99)}
+@media (hover:hover) and (pointer:fine){
+  .asks button:hover{background:var(--shell)}
+}
+.asks button iconify-icon{font-size:15px;color:var(--muted);flex:none;margin-top:3px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .docs{grid-template-columns:220px minmax(0,1fr)}
+  .docs-main{padding-left:32px}
+  .plist li{grid-template-columns:160px 78px 68px minmax(0,1fr);gap:12px}
+  .auth-aside .wrap{padding:0 48px 0 max(32px,calc((100vw - var(--wrap)) / 2 + 32px))}
+}
+@media (max-width:1000px){
+  .cards{grid-template-columns:minmax(0,1fr)}
+  .cards--2{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .step:nth-child(2n){border-right:0}
+  .step:nth-child(4n){border-right:0}
+  .step:nth-last-child(-n+4){border-bottom:1px solid var(--hair)}
+  .step:nth-last-child(-n+2){border-bottom:0}
+  .docs{grid-template-columns:minmax(0,1fr)}
+  .docs-side{border-right:0;border-bottom:1px solid var(--hair);padding:26px 0 30px}
+  .docs-side-in{position:static;flex-direction:row;flex-wrap:wrap;gap:26px 44px}
+  .docs-main{padding:38px 0 72px}
+  .auth{grid-template-columns:minmax(0,1fr);min-height:0}
+  .auth-aside{border-right:0;border-bottom:1px solid var(--hair);padding:56px 0 52px}
+  .auth-aside .wrap{position:static}
+  .auth-aside .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+  .auth-main{padding:56px 32px 72px}
+  .chat{grid-template-columns:minmax(0,1fr)}
+  .asks{position:static}
+  .mini{grid-template-columns:minmax(0,1fr)}
+  .mini div + div{border-left:0;border-top:1px solid var(--hair)}
+  /* stacking starts here, so the flush rule has to start here too — putting it
+     in the 640px block left 641-1000px indented */
+  .mini--aside div{padding-left:0;padding-right:0}
+}
+@media (max-width:640px){
+  /* wrap the rail instead of scrolling it: a horizontal scroller on a phone
+     hides options behind an edge with no affordance */
+  .rail{flex-wrap:wrap;overflow:visible;border-radius:18px;gap:4px;padding:5px}
+  .rail a,.rail button{height:32px;padding:0 13px;font-size:13px}
+  .band{padding:52px 0 42px}
+  .blk{padding:60px 0}
+  .blk--top{padding-top:48px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .step{border-right:0!important;border-bottom:1px solid var(--hair)!important}
+  .step:last-child{border-bottom:0!important}
+  .plist li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .plist .pr{margin-top:2px}
+  .auth-card{padding:30px 22px 28px;border-radius:20px}
+  .auth-main{padding:40px 20px 56px}
+  .fields--2{grid-template-columns:minmax(0,1fr)}
+  .msg{max-width:92%}
+  .chat-b{padding:20px 16px}
+  .card-h,.card-f,.card-meta{padding-left:20px;padding-right:20px}
+  .band-foot .btn{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳转到正文</a>
+
+<!-- The real FCG wordmark, inlined verbatim once and referenced where needed. -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="fcg-logo" viewBox="0 0 88 24"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></symbol></svg>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="index.html" aria-label="FCG 开放平台 — 首页">
+      <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 28px; width: auto;"><use href="#fcg-logo"></use></svg>
+      <span class="brand-div" aria-hidden="true"></span>
+      <span class="brand-sub">开放平台</span>
+    </a>
+
+    <nav class="shell" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="app-management.html">应用管理</a>
+      <a class="on" href="api-docs-hotel.html">接口文档</a>
+      <a href="sdk.html">SDK</a>
+      <a href="skills.html">Skills 技能包</a>
+      <a href="ai-assistant.html">AI 助手</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="语言">
+        <a href="../api-docs-hotel-process.html">ENG</a>
+        <a href="api-docs-hotel-process.html" aria-current="page">简体</a>
+        <a href="../zh-TW/api-docs-hotel-process.html">繁體</a>
+      </div>
+      <a class="login" href="login.html">登录</a>
+      <a class="btn btn--sm" href="register.html">注册 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="打开菜单">
+        <iconify-icon icon="solar:hamburger-menu-linear" aria-hidden="true"></iconify-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="mnav" id="mnav">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="app-management.html">应用管理</a></li>
+        <li><a href="api-docs-hotel.html">接口文档</a></li>
+        <li><a href="sdk.html">SDK</a></li>
+        <li><a href="skills.html">Skills 技能包</a></li>
+        <li><a href="ai-assistant.html">AI 助手</a></li>
+      </ul>
+      <div class="m-cta">
+        <a class="btn btn--ghost" href="login.html">登录 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+        <div class="lang" role="group" aria-label="语言">
+        <a href="../api-docs-hotel-process.html">ENG</a>
+        <a href="api-docs-hotel-process.html" aria-current="page">简体</a>
+        <a href="../zh-TW/api-docs-hotel-process.html">繁體</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="band">
+  <div class="band-grid" aria-hidden="true"></div>
+  <div class="wrap band-in">
+      <p class="crumb"><a href="api-docs-hotel.html">文档中心</a> <i>/</i> <a href="api-docs-hotel.html">G-Link Hotel API</a> <i>/</i> <span>对接流程</span></p>
+      <div class="band-top">
+        <p class="eyebrow micro">推荐对接流程</p>
+        
+      </div>
+      <h1>G-Link 对接流程</h1>
+      <p class="lede"><b>G-Link 酒店接口的对接顺序。</b> 八个步骤，从查询到取消订单，每一步对应一个接口。</p>
+      <div class="band-foot"><nav class="rail" aria-label="章节"><a href="api-docs-hotel.html">G-Link Hotel</a><a href="api-docs-flink.html">F-Link Flight</a><a class="on" href="api-docs-hotel-process.html">对接流程</a><a href="api-docs-hotel-apis.html">接口参考</a><a href="api-docs-errors.html">错误码</a></nav></div>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="docs">
+  <aside class="docs-side">
+    <div class="docs-side-in">
+      <div class="docs-grp"><p class="docs-h" id="nav-product-docs">产品文档</p><nav aria-labelledby="nav-product-docs"><ul><li><a href="api-docs-hotel.html">G-Link Hotel API</a></li><li><a href="api-docs-flink.html">F-Link Flight API</a></li><li><a href="api-docs-errors.html">错误码说明</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-g-link-sections">G-Link 章节</p><nav aria-labelledby="nav-g-link-sections"><ul><li><a class="on" href="api-docs-hotel-process.html">对接流程</a></li><li><a href="api-docs-hotel-apis.html">接口参考</a></li></ul></nav></div>
+      <div class="docs-grp"><p class="docs-h" id="nav-developer-tools">开发者工具</p><nav aria-labelledby="nav-developer-tools"><ul><li><a href="sdk.html">SDK 下载</a></li><li><a href="skills.html">Skills 技能包</a></li><li><a href="ai-assistant.html">AI 助手</a></li></ul></nav></div>
+    </div>
+  </aside>
+  <div class="docs-main">
+    <h2>标准接口对接， <em>按序进行。</em></h2>
+    <p>请按顺序对接。第一、二步用于搭建本地基础数据，按计划任务执行；第三步起为实时调用，每笔预订触发一次。</p>
+
+    <div class="steps">
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 01</p>
+    <h3>查询全部可售酒店 ID</h3>
+    <code>/search/hotelIdList</code>
+  </div>
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 02</p>
+    <h3>按酒店 ID 查询静态信息</h3>
+    <code>/hotel/detail</code>
+  </div>
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 03</p>
+    <h3>实时查询在售信息与最低价</h3>
+    <code>/booking/productDetails</code>
+  </div>
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 04</p>
+    <h3>校验价格计划可订性并返回最新价格</h3>
+    <code>/booking/availabilityCheck</code>
+  </div>
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 05</p>
+    <h3>试单成功后创建订单</h3>
+    <code>/booking/createOrder</code>
+  </div>
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 06</p>
+    <h3>订单创建后完成支付</h3>
+    <code>/booking/payOrder</code>
+  </div>
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 07</p>
+    <h3>查询订单详情</h3>
+    <code>/order/orderDetail</code>
+  </div>
+  <div class="step rv">
+    <p class="sn"><span class="dot" aria-hidden="true"></span>步骤 08</p>
+    <h3>按需取消订单</h3>
+    <code>/order/cancelOrder</code>
+  </div>
+    </div>
+
+    <h3>哪些按计划执行，哪些实时调用</h3>
+    <ul class="bul">
+      <li><iconify-icon icon="solar:calendar-linear"></iconify-icon><span><strong>计划执行。</strong>
+        酒店 ID 列表、酒店与房型静态信息、国家与城市基础数据，以及
+        <code class="inl">/hotel/increment</code> 变更订阅。以上全部请在本地缓存。</span></li>
+      <li><iconify-icon icon="solar:bolt-linear"></iconify-icon><span><strong>实时调用。</strong>
+        产品详情、试单、创建订单、支付、取消与订单详情。这些接口随旅客操作触发，并计入限流额度。</span></li>
+      <li><iconify-icon icon="solar:shield-check-linear"></iconify-icon><span><strong>幂等处理。</strong>
+        订单状态推送 <code class="inl">notify/orderStatus</code>可能被投递多次。请做好去重，避免产生重复状态。</span></li>
+    </ul>
+
+    <div class="note">
+      <iconify-icon icon="solar:danger-triangle-linear"></iconify-icon>
+      <span><strong>试单执行两次。</strong> 请在调用 <code class="inl">booking/availabilityCheck</code> 之前，立即再执行一次 <code class="inl">booking/createOrder</code>。从客人决定下单到实际调用下单接口之间，库存与价格都可能变化。</span>
+    </div>
+
+    <div class="band-foot">
+      <a class="btn" href="api-docs-hotel-apis.html">打开接口参考 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+      <a class="tlink tlink--o" href="skills.html">安装 G-Link Skills 技能包 <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon></a>
+    </div>
+  </div>
+</div>
+</div>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <svg viewBox="0 0 88 24" role="img" aria-label="FCG" style="height: 26px; width: auto;"><use href="#fcg-logo"></use></svg>
+        <p>FCG 开放平台：面向酒店、机票与差旅管理资源的标准化接口与灵活 SDK。</p>
+      </div>
+      <div class="ftr-col">
+        <p class="ftr-h" id="ftr-products">产品</p>
+        <nav aria-labelledby="ftr-products">
+        <ul>
+          <li><a href="api-docs-hotel.html">G-Link Hotel API</a></li>
+          <li><a href="api-docs-flink.html">F-Link Flight API</a></li>
+          <li><a href="index.html#products">TMC API</a></li>
+          <li><a href="index.html#use-cases">产品应用场景</a></li>
+        </ul>
+        </nav>
+      </div>
+      <div class="ftr-col">
+        <p class="ftr-h" id="ftr-developers">开发者</p>
+        <nav aria-labelledby="ftr-developers">
+        <ul>
+          <li><a href="api-docs-hotel.html">接口文档</a></li>
+          <li><a href="sdk.html">SDK</a></li>
+          <li><a href="skills.html">Skills 技能包</a></li>
+          <li><a href="api-docs-errors.html">错误码说明</a></li>
+        </ul>
+        </nav>
+      </div>
+      <div class="ftr-col">
+        <p class="ftr-h" id="ftr-platform">平台</p>
+        <nav aria-labelledby="ftr-platform">
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="app-management.html">应用管理</a></li>
+          <li><a href="ai-assistant.html">AI 助手</a></li>
+          <li><a href="register.html">注册</a></li>
+        </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <span>© 2026 Fusion Connect Group Holdings Ltd (BVI)。保留所有权利。</span>
+      <span class="mono">ENG · 简体 · 繁體</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var hdr = document.getElementById('hdr');
+  if (hdr){
+    var onScroll = function(){
+      if (window.scrollY > 8) hdr.classList.add('stuck'); else hdr.classList.remove('stuck');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+  }
+
+  /* mobile menu — absent on the reduced auth header */
+  var burger = document.getElementById('burger');
+  var mnav = document.getElementById('mnav');
+  if (burger && mnav){
+  burger.addEventListener('click', function(){
+    var open = mnav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  mnav.addEventListener('click', function(e){
+    if (e.target.tagName === 'A'){
+      mnav.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+    }
+  });
+  }
+
+  /* language toggle (visual state only) */
+  Array.prototype.forEach.call(document.querySelectorAll('.lang'), function(group){
+    group.addEventListener('click', function(e){
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      Array.prototype.forEach.call(group.querySelectorAll('button'), function(b){
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+    });
+  });
+
+  /* scroll reveal */
+  var items = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window)){
+    Array.prototype.forEach.call(items, function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+  Array.prototype.forEach.call(items, function(el, i){
+    el.style.transitionDelay = (Math.min(i, 3) * 60) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

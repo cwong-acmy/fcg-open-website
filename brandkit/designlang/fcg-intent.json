@@ -1,0 +1,377 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.29,
+    "path": "/",
+    "title": "FCG Group - Travel Infrastructure",
+    "description": "",
+    "signals": [
+      {
+        "kind": "dom",
+        "type": "blog-post",
+        "weight": 0.35,
+        "detail": "byline|min-read"
+      },
+      {
+        "kind": "dom",
+        "type": "legal",
+        "weight": 0.4
+      },
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      }
+    ],
+    "alternates": [
+      {
+        "type": "legal",
+        "score": 0.4
+      },
+      {
+        "type": "blog-post",
+        "score": 0.35
+      }
+    ],
+    "needsSmart": true
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "section",
+        "role": "hero",
+        "subrole": null,
+        "confidence": 0.85,
+        "heading": "Connect to the supply infrastructure behind travel.",
+        "bounds": {
+          "x": 0,
+          "y": -8828,
+          "w": 1280,
+          "h": 810
+        },
+        "buttonCount": 1,
+        "cardCount": 6,
+        "slots": {
+          "heading": "Connect to the supply infrastructure behind travel.",
+          "ctaCount": 1,
+          "lede": "FCG GROUP\nConnect to the supply infrastructure behind travel."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 1,
+        "tag": "section",
+        "role": "logo-wall",
+        "subrole": null,
+        "confidence": 0.85,
+        "heading": "The supply and partner network behind FCG.",
+        "bounds": {
+          "x": 0,
+          "y": -8018,
+          "w": 1280,
+          "h": 434
+        },
+        "buttonCount": 0,
+        "cardCount": 8,
+        "slots": {
+          "heading": "The supply and partner network behind FCG."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "The supply advantage behind every connection.",
+        "bounds": {
+          "x": 0,
+          "y": -7584,
+          "w": 1280,
+          "h": 637.25
+        },
+        "buttonCount": 0,
+        "cardCount": 8,
+        "slots": {
+          "heading": "The supply advantage behind every connection.",
+          "lede": "BY THE NUMBERS\nThe supply advantage behind every connection."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 3,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "One inventory underneath. Three product families.",
+        "bounds": {
+          "x": 0,
+          "y": -6946.75,
+          "w": 1280,
+          "h": 888
+        },
+        "buttonCount": 0,
+        "cardCount": 56,
+        "slots": {
+          "heading": "One inventory underneath. Three product families.",
+          "subheadings": [
+            "G-Link",
+            "F-Link",
+            "AgreeEase",
+            "Atlas"
+          ]
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 4,
+        "tag": "section",
+        "role": "feature-grid",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "The supply advantage behind every connection.",
+        "bounds": {
+          "x": 0,
+          "y": -6058.75,
+          "w": 1280,
+          "h": 825
+        },
+        "buttonCount": 0,
+        "cardCount": 8,
+        "slots": {
+          "heading": "The supply advantage behind every connection.",
+          "subheadings": [
+            "Deep, not just wide.",
+            "Asia-native. Globally connected.",
+            "Open connections, not locked platforms."
+          ],
+          "lede": "WHY THIS CONNECTION MATTERS\nThe supply advantage behind every connection."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 5,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 65
+        },
+        "buttonCount": 2,
+        "cardCount": 26,
+        "slots": {
+          "heading": "",
+          "subheadings": [
+            "",
+            ""
+          ],
+          "ctaCount": 2,
+          "lede": "Products\nNetwork\nDeveloper\nAbout\nLIVE.NETWORK\nMODE"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 6,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "THE CORE",
+        "bounds": {
+          "x": 0,
+          "y": -5185.75,
+          "w": 1280,
+          "h": 999.5
+        },
+        "buttonCount": 0,
+        "cardCount": 14,
+        "slots": {
+          "heading": "THE CORE",
+          "subheadings": [
+            "G-Link: Hotel Supply",
+            "F-Link: Flight Supply",
+            "Connect · Operate · Experience"
+          ],
+          "lede": "THE CORE\nG-LINK_F-LINK\nMULTI-SOURCE AGGREGATION\nPROPERTIES\n4.35M+ HOTELS\nSV_01\nG-Link: Hotel Supply"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 7,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "The Connection at a Glance",
+        "bounds": {
+          "x": 0,
+          "y": -4186.25,
+          "w": 1280,
+          "h": 1394
+        },
+        "buttonCount": 0,
+        "cardCount": 12,
+        "slots": {
+          "heading": "The Connection at a Glance",
+          "subheadings": [
+            "Connected Volume",
+            "Supply Layer",
+            "NETWORK UPTIME",
+            "LIVE RATES"
+          ]
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 8,
+        "tag": "section",
+        "role": "comparison",
+        "subrole": null,
+        "confidence": 0.7,
+        "heading": "Open connections vs. closed platforms.",
+        "bounds": {
+          "x": 0,
+          "y": -2792.25,
+          "w": 1280,
+          "h": 1159.25
+        },
+        "buttonCount": 0,
+        "cardCount": 7,
+        "slots": {
+          "heading": "Open connections vs. closed platforms.",
+          "lede": "Connected Network\nOpen connections vs. closed platforms."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 9,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "The inventory that everything connects to.",
+        "bounds": {
+          "x": 0,
+          "y": -1633,
+          "w": 1280,
+          "h": 2027.1875
+        },
+        "buttonCount": 0,
+        "cardCount": 15,
+        "slots": {
+          "heading": "The inventory that everything connects to.",
+          "subheadings": [
+            "G-Link & F-Link",
+            "Deduplicated Content",
+            "Commercially Connected",
+            "Connect"
+          ],
+          "lede": "50+ Enterprise Clients\nThe inventory that everything connects to."
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 10,
+        "tag": "main",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "The inventory that everything connects to.",
+        "bounds": {
+          "x": 64,
+          "y": -1633,
+          "w": 1152,
+          "h": 2027.1875
+        },
+        "buttonCount": 0,
+        "cardCount": 15,
+        "slots": {
+          "heading": "The inventory that everything connects to.",
+          "subheadings": [
+            "G-Link & F-Link",
+            "Deduplicated Content",
+            "Commercially Connected",
+            "Connect"
+          ],
+          "lede": "50+ Enterprise Clients\nThe inventory that everything connects to."
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 11,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "The inventory that everything connects to.",
+        "bounds": {
+          "x": 65,
+          "y": -1633,
+          "w": 1150,
+          "h": 569.1875
+        },
+        "buttonCount": 0,
+        "cardCount": 1,
+        "slots": {
+          "heading": "The inventory that everything connects to.",
+          "lede": "50+ Enterprise Clients\nThe inventory that everything connects to."
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 12,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 394.1875,
+          "w": 1280,
+          "h": 406.265625
+        },
+        "buttonCount": 0,
+        "cardCount": 3,
+        "slots": {
+          "lede": "TRAVEL_INFRASTRUCTURE"
+        },
+        "needsSmart": false
+      }
+    ],
+    "counts": {
+      "hero": 1,
+      "logo-wall": 1,
+      "pricing-table": 2,
+      "content": 4,
+      "feature-grid": 1,
+      "nav": 2,
+      "comparison": 1,
+      "footer": 1
+    },
+    "readingOrder": [
+      "hero",
+      "logo-wall",
+      "pricing-table",
+      "content",
+      "feature-grid",
+      "content",
+      "pricing-table",
+      "comparison",
+      "content",
+      "content",
+      "nav",
+      "nav",
+      "footer"
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FCG Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --ink:#0F1114; --near:#080805; --accent:#F97316;
+    --card:#F3F4F6; --line:#D1D5DB; --muted:#6B7280; --ink2:#111827;
+    --canvas:#EDEDE9; --hair:rgba(15,17,20,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased}
+  body{
+    background:var(--canvas); color:var(--ink);
+    font:400 16px/1.5 Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+    padding:clamp(16px,3vw,44px);
+  }
+  .doc{max-width:1440px;margin:0 auto}
+
+  /* ---- board header ---- */
+  .masthead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(16px,2vw,28px)}
+  .masthead h1{font-size:clamp(20px,2.2vw,30px);font-weight:500;letter-spacing:-.02em;line-height:1}
+  .lbl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+  .lbl .dash{display:inline-block;width:12px;height:2px;background:var(--accent);vertical-align:middle;margin-right:10px}
+
+  /* ---- 3x3 grid ---- */
+  .board{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,20px)}
+  @media(max-width:960px){.board{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.board{grid-template-columns:1fr}}
+
+  .panel{
+    background:var(--bg);border:1px solid var(--hair);border-radius:15px;
+    padding:clamp(20px,2vw,32px);min-height:290px;
+    display:flex;flex-direction:column;position:relative;overflow:hidden;
+  }
+  .panel .no{position:absolute;bottom:14px;right:18px;font-size:10px;letter-spacing:.18em;color:var(--line);font-variant-numeric:tabular-nums}
+  .panel .cap{margin-top:auto;padding-top:20px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+  .panel.tall{min-height:330px}
+
+  /* 1 cover */
+  .cover{align-items:flex-start;justify-content:center}
+  .mark{height:52px;width:auto;color:var(--ink);display:block}
+  .cover .dot{width:6px;height:6px;border-radius:999px;background:var(--accent);margin-top:22px}
+
+  /* 2 construction */
+  .constr{display:flex;align-items:center;justify-content:center;flex:1}
+
+  /* 3 digital application */
+  .chrome{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .chrome .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--card)}
+  .chrome .bar i{width:8px;height:8px;border-radius:999px;background:var(--line);display:block}
+  .chrome .url{margin-left:8px;flex:1;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:11px;color:var(--muted)}
+  .chrome .body{padding:14px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+  .pill-live{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(249,115,22,.3);border-radius:999px;padding:5px 11px;font-size:10px;font-weight:500;letter-spacing:.14em;color:var(--accent)}
+  .pill-live .d{width:6px;height:6px;border-radius:999px;background:var(--accent);box-shadow:0 0 8px rgba(249,115,22,.5)}
+  .navshell{display:inline-flex;flex-wrap:wrap;gap:2px;max-width:100%;background:rgba(15,17,20,.04);border:1px solid rgba(15,17,20,.08);border-radius:999px;padding:3px}
+  .navshell span{font-size:10.5px;color:var(--muted);padding:5px 11px;border-radius:999px}
+  .navshell span.on{background:#fff;color:var(--ink)}
+
+  /* 4 essence */
+  .essence{justify-content:center}
+  .essence p{font-size:clamp(34px,4.4vw,58px);font-weight:500;letter-spacing:-.035em;line-height:1}
+
+  /* 5 colour */
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .sw{border-radius:10px;border:1px solid var(--hair);overflow:hidden}
+  .sw .chip{height:74px;display:block}
+  .sw .meta{padding:8px 8px 9px;font-size:9px;letter-spacing:.08em;color:var(--muted);line-height:1.45}
+  .sw .meta b{display:block;color:var(--ink);font-weight:500;font-size:9.5px;letter-spacing:.1em}
+  .ratio{margin-top:14px;display:flex;height:8px;border-radius:999px;overflow:hidden;border:1px solid var(--hair)}
+  .ratio i{display:block}
+  .ratio-note{margin-top:8px;font-size:11px;color:var(--muted);line-height:1.5}
+
+  /* 6 typography */
+  .spec{font-size:clamp(56px,7vw,92px);font-weight:500;letter-spacing:-.04em;line-height:.9}
+  .alpha{margin-top:14px;font-size:13px;letter-spacing:.02em;color:var(--muted);word-spacing:2px}
+  .scale{margin-top:16px;display:grid;gap:5px;font-size:11px;color:var(--muted)}
+  .scale div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--hair);padding-bottom:4px}
+  .scale b{color:var(--ink);font-weight:500}
+
+  /* 7 physical */
+  .cards{position:relative;flex:1;display:flex;align-items:center;justify-content:center}
+  .bcard{width:196px;height:118px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .bcard.dark{background:var(--near);color:#fff;transform:rotate(-6deg) translateX(-16px)}
+  .bcard.lite{background:#fff;border:1px solid var(--line);color:var(--ink);transform:rotate(4deg) translateX(16px);position:absolute}
+  .bcard svg{height:26px;width:auto}
+
+  /* 8 image direction */
+  .globe{flex:1;display:flex;align-items:center;justify-content:center}
+
+  /* 9 system detail */
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip-d{background:var(--ink2);color:#fff;border-radius:999px;padding:5px 11px;font-size:9.5px;font-weight:500;letter-spacing:.14em}
+  .cta{margin-top:16px;display:inline-flex;align-items:center;gap:10px;background:var(--ink2);color:#fff;border-radius:999px;padding:12px 22px;font-size:14px;font-weight:500;text-decoration:none;width:max-content}
+  .stat{margin-top:20px;font-size:40px;font-weight:500;letter-spacing:-.03em;line-height:1}
+  .stat i{color:var(--accent);font-style:normal}
+  .stat + small{display:block;margin-top:4px;font-size:12px;color:var(--muted)}
+
+  footer{margin-top:clamp(16px,2vw,26px);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="masthead">
+    <div>
+      <div class="lbl" style="margin-bottom:10px"><span class="dash"></span>Brand kit &middot; identity system</div>
+      <h1>FCG &mdash; Fusion Connect Group</h1>
+    </div>
+    <div class="lbl">Built from the live source &middot; 07 Sep 2026</div>
+  </div>
+
+  <div class="board">
+
+    <!-- 1 -->
+    <section class="panel cover tall">
+      <svg class="mark" width="88" height="24" viewBox="0 0 88 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FCG"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></svg>
+      <div class="dot"></div>
+      <div class="cap">Primary wordmark</div>
+      <div class="no">01</div>
+    </section>
+
+    <!-- 2 -->
+    <section class="panel tall">
+      <div class="constr">
+        <svg viewBox="0 0 260 200" width="100%" height="auto" style="max-height:190px" aria-label="Mark construction">
+          <g stroke="#D1D5DB" stroke-width="1" fill="none">
+            <circle cx="130" cy="100" r="76"/><circle cx="130" cy="100" r="52"/>
+            <line x1="14" y1="100" x2="246" y2="100"/><line x1="130" y1="18" x2="130" y2="182"/>
+          </g>
+          <path d="M54 128 Q130 22 206 128" stroke="#F97316" stroke-width="1.75" fill="none"/>
+          <circle cx="54" cy="128" r="5" fill="#0F1114"/>
+          <circle cx="206" cy="128" r="5" fill="#0F1114"/>
+          <circle cx="130" cy="72" r="3" fill="#F97316"/>
+          <g stroke="#0F1114" stroke-width="1">
+            <line x1="46" y1="140" x2="62" y2="140"/><line x1="198" y1="140" x2="214" y2="140"/>
+            <line x1="54" y1="136" x2="54" y2="144"/><line x1="206" y1="136" x2="206" y2="144"/>
+          </g>
+          <text x="122" y="160" font-family="Inter" font-size="9" letter-spacing="1.6" fill="#6B7280">r = 76</text>
+        </svg>
+      </div>
+      <div class="cap">The routing arc &middot; two nodes, one connection</div>
+      <div class="no">02</div>
+    </section>
+
+    <!-- 3 -->
+    <section class="panel tall">
+      <div class="chrome">
+        <div class="bar"><i></i><i></i><i></i><span class="url">fusionconnectgroup.com</span></div>
+        <div class="body">
+          <span class="navshell"><span class="on">Products</span><span>Network</span><span>Developer</span></span>
+          <span class="pill-live"><span class="d"></span>LIVE.NETWORK</span>
+        </div>
+      </div>
+      <div class="cap">Digital application &middot; pill nav + live pill</div>
+      <div class="no">03</div>
+    </section>
+
+    <!-- 4 -->
+    <section class="panel essence">
+      <p>One<br>connection.</p>
+      <div class="cap">Brand essence</div>
+      <div class="no">04</div>
+    </section>
+
+    <!-- 5 -->
+    <section class="panel">
+      <div class="swatches">
+        <div class="sw"><span class="chip" style="background:#FFFFFF;border-bottom:1px solid #D1D5DB"></span><span class="meta"><b>#FFFFFF</b>Ground</span></div>
+        <div class="sw"><span class="chip" style="background:#0F1114"></span><span class="meta"><b>#0F1114</b>Ink</span></div>
+        <div class="sw"><span class="chip" style="background:#F97316"></span><span class="meta"><b>#F97316</b>Accent</span></div>
+        <div class="sw"><span class="chip" style="background:#F3F4F6"></span><span class="meta"><b>#F3F4F6</b>Card</span></div>
+      </div>
+      <div class="ratio" aria-hidden="true">
+        <i style="background:#0F1114;width:79%"></i><i style="background:#F97316;width:21%"></i>
+      </div>
+      <div class="ratio-note">Ink 188 uses to accent 49. Orange is a signal, never a surface.</div>
+      <div class="cap">Colour system</div>
+      <div class="no">05</div>
+    </section>
+
+    <!-- 6 -->
+    <section class="panel">
+      <div class="spec">FCG</div>
+      <div class="alpha">ABCDEFGHIJKLM &middot; 0123456789</div>
+      <div class="scale">
+        <div><span>Display h1</span><b>96 / 96 / 500</b></div>
+        <div><span>Section h2</span><b>76 / 76 / 500</b></div>
+        <div><span>Body</span><b>16 / 24 / 400</b></div>
+        <div><span>Micro-label</span><b>11 &middot; 0.18em caps</b></div>
+      </div>
+      <div class="cap">Inter &middot; 300 400 500 600</div>
+      <div class="no">06</div>
+    </section>
+
+    <!-- 7 -->
+    <section class="panel tall">
+      <div class="cards">
+        <div class="bcard dark">
+          <svg width="88" height="24" viewBox="0 0 88 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></svg>
+        </div>
+        <div class="bcard lite">
+          <svg width="88" height="24" viewBox="0 0 88 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M68.1808 23.9997C67.3293 23.7027 66.4778 23.4056 65.6066 23.1284C58.3986 20.8512 54.7155 13.4452 57.7452 7.069C59.8046 2.75217 63.5868 0.514545 68.161 0.25712C74.3987 -0.099316 80.6759 0.17791 87.0125 0.17791C85.9828 1.50464 84.8937 2.96999 83.7254 4.37593C83.5274 4.61355 82.9729 4.63335 82.5769 4.63335C78.6165 4.63335 74.6561 4.63335 70.6957 4.63335C68.3987 4.63335 66.3194 5.26702 64.6165 6.81157C62.5967 8.65316 61.8046 10.9502 62.4977 13.6433C63.2303 16.4551 65.2105 17.9997 67.864 18.871C68.359 19.0294 68.8739 19.1878 69.3689 19.1878C73.1709 19.2076 76.9729 19.1878 80.8343 19.1878V14.1977H67.8244C69.2303 12.5739 70.4383 11.1284 71.6858 9.72246C71.864 9.52444 72.26 9.42543 72.5571 9.42543C77.1313 9.42543 81.7056 9.42543 86.5571 9.42543V23.9799H68.161L68.1808 23.9997Z" fill="currentColor"></path><path d="M0 24V0H25.9208C24.6931 1.56436 23.5643 3.06931 22.3564 4.47525C22.1584 4.71287 21.5643 4.63366 21.1683 4.63366C16.0396 4.63366 10.9109 4.63366 5.72277 4.63366V9.92079H24.6732C23.3267 11.5842 22.1782 13.0693 20.9505 14.4752C20.7524 14.7129 20.1782 14.6931 19.7822 14.6931C15.1287 14.6931 10.4554 14.6931 5.68316 14.6931V23.9604H0.0197911L0 24Z" fill="currentColor"></path><path d="M37.6204 23.9997C36.7689 23.7027 35.9174 23.4056 35.0461 23.1284C27.8976 20.8908 24.2145 13.5838 27.1253 7.20761C29.1451 2.79177 32.9669 0.534347 37.5808 0.25712C43.7194 -0.099316 49.9174 0.17791 56.1352 0.17791C55.1253 1.50464 54.0362 2.98979 52.8679 4.39573C52.6699 4.63336 52.0956 4.63335 51.6996 4.63335C47.9372 4.63335 44.155 4.61355 40.3927 4.65316C39.1847 4.65316 37.9372 4.77197 36.7689 5.0888C33.3828 6.0195 31.5808 8.55415 31.6798 12.0393C31.7788 15.4056 34.0362 18.1581 37.4224 18.9106C38.4125 19.1284 39.462 19.2274 40.4917 19.2274C45.6798 19.267 50.8679 19.2274 56.254 19.2274C55.0857 20.871 53.9768 22.4155 52.8877 23.9799H37.6006L37.6204 23.9997Z" fill="currentColor"></path></svg>
+        </div>
+      </div>
+      <div class="cap">Physical &middot; mark inherits currentColor</div>
+      <div class="no">07</div>
+    </section>
+
+    <!-- 8 -->
+    <section class="panel tall">
+      <div class="globe">
+        <svg viewBox="0 0 300 210" width="100%" height="auto" style="max-height:200px" aria-label="Image direction">
+          <path d="M150 14 C214 14 262 56 262 106 C262 158 212 196 150 196 C88 196 40 156 40 104 C40 54 88 14 150 14 Z" fill="#080805"/>
+          <g fill="none" stroke="#F97316" stroke-width="1.5" opacity=".95">
+            <path d="M62 132 Q150 44 240 122"/>
+            <path d="M74 158 Q158 88 246 92"/>
+            <path d="M56 96 Q142 132 236 62"/>
+          </g>
+          <g font-family="Inter" font-size="7.5" letter-spacing="1.2" fill="#ffffff">
+            <rect x="34" y="122" width="52" height="15" rx="7.5" fill="#2A2A2A"/><text x="42" y="132.5">LONDON</text>
+            <rect x="222" y="112" width="60" height="15" rx="7.5" fill="#2A2A2A"/><text x="230" y="122.5">SINGAPORE</text>
+            <rect x="128" y="34" width="66" height="15" rx="7.5" fill="#2A2A2A"/><text x="136" y="44.5">HKG &#8594; CDG</text>
+          </g>
+          <circle cx="62" cy="132" r="2.5" fill="#F97316"/><circle cx="240" cy="122" r="2.5" fill="#F97316"/>
+        </svg>
+      </div>
+      <div class="cap">Image direction &middot; flat black mass, thin arcs</div>
+      <div class="no">08</div>
+    </section>
+
+    <!-- 9 -->
+    <section class="panel">
+      <div class="chips">
+        <span class="chip-d">HOTELS: 4.35M+</span><span class="chip-d">GDS &middot; NDC &middot; LCC</span><span class="chip-d">ENTERPRISE: 50+</span>
+      </div>
+      <a class="cta" href="#01">Get connected <span aria-hidden="true">&#8594;</span></a>
+      <div class="stat">4.35<i>M+</i></div><small>hotels</small>
+      <div class="cap">System detail &middot; chips, pill CTA, statistic</div>
+      <div class="no">09</div>
+    </section>
+
+  </div>
+
+  <footer>
+    <span>FCG brand kit &middot; extracted from the live source</span>
+    <span>Inter &middot; #0F1114 &middot; #F97316 &middot; pill 999px &middot; flat</span>
+  </footer>
+
+</div>
+</body>
+</html>

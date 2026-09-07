@@ -1,0 +1,22 @@
+/* shadcn/ui Theme — extracted from https://fusionconnectgroup.com/ */
+/* Paste into your globals.css */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 221 39% 11%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 220 13% 91%;
+    --border: 0 0% 0%;
+    --radius: 6px;
+  }
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --primary: 25 95% 53%;
+  }
+}

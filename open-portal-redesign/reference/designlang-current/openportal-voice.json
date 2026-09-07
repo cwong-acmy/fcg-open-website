@@ -1,0 +1,58 @@
+{
+  "tone": "neutral",
+  "pronoun": "you-only",
+  "headingStyle": "Title Case",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [
+    {
+      "value": "english",
+      "count": 1
+    },
+    {
+      "value": "browse",
+      "count": 1
+    },
+    {
+      "value": "book",
+      "count": 1
+    },
+    {
+      "value": "ai",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "english",
+      "count": 1
+    },
+    {
+      "value": "browse skills",
+      "count": 1
+    },
+    {
+      "value": "book a 30-minute demo",
+      "count": 1
+    },
+    {
+      "value": "ai",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "FCG Developer Platform",
+    "Core Products",
+    "G-Link Hotel API",
+    "F-Link Flight API",
+    "TMC API",
+    "FCG Developer Platform",
+    "Skills Packages",
+    "The supply and partner network behind FCG.",
+    "Ready to get started?",
+    "Free Access"
+  ],
+  "stats": {
+    "buttons": 4,
+    "headings": 15
+  }
+}

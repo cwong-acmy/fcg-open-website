@@ -1,0 +1,160 @@
+:root {
+  /* Colors — Primary */
+  --color-primary: #f97316;
+  --color-secondary: #111827;
+
+  /* Colors — Neutrals */
+  --color-neutral-50: #e5e7eb;
+  --color-neutral-100: #0f1114;
+  --color-neutral-200: #6b7280;
+  --color-neutral-300: #4b5563;
+  --color-neutral-400: #000000;
+  --color-neutral-500: #d1d5db;
+  --color-neutral-600: #ffffff;
+  --color-neutral-700: #f3f4f6;
+  --color-neutral-800: #9ca3af;
+  --color-neutral-900: #374151;
+
+  /* Colors — Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-1: #f3f4f6;
+  --color-bg-2: #000000;
+  --color-bg-3: #f7f8fa;
+
+  /* Colors — Text */
+  --color-text: #000000;
+  --color-text-1: #0f1114;
+  --color-text-2: #111827;
+  --color-text-3: #f97316;
+  --color-text-4: #6b7280;
+
+  /* Typography — Families */
+  --font-sans: 'Inter', sans-serif;
+
+  /* Typography — Scale */
+  --font-size-96: 96px;
+  --font-size-76: 76px;
+  --font-size-60: 60px;
+  --font-size-48: 48px;
+  --font-size-30: 30px;
+  --font-size-24: 24px;
+  --font-size-20: 20px;
+  --font-size-18: 18px;
+  --font-size-16: 16px;
+  --font-size-14: 14px;
+  --font-size-12: 12px;
+  --font-size-10.4: 10.4px;
+
+  /* Spacing */
+  --spacing-1: 1px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-141: 141px;
+  --spacing-160: 160px;
+  --spacing-170: 170px;
+  --spacing-213: 213px;
+
+  /* Border Radius */
+  --radius-xs: 2px;
+  --radius-md: 6px;
+  --radius-lg: 11px;
+  --radius-lg: 15px;
+  --radius-xl: 24px;
+  --radius-full: 32px;
+  --radius-full: 50px;
+  --radius-full: 999px;
+  --radius-full: 9999px;
+
+  /* Box Shadows */
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(249, 115, 22, 0.4) 0px 0px 8px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(249, 115, 22, 0.5) 0px 0px 8px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(255, 255, 255, 0.9) 0px 0px 60px 0px, rgba(0, 0, 0, 0.2) 0px 0px 20px 0px inset;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(255, 255, 255, 0.8) 0px 0px 10px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(249, 115, 22, 0.5) 0px 0px 10px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(255, 255, 255, 0.4) 0px 0px 8px 0px;
+  --shadow-sm: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(255, 255, 255, 0.6) 0px 0px 8px 0px;
+  --shadow-xs: rgba(255, 255, 255, 0.8) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.12) 0px 20px 40px -15px;
+  --shadow-sm: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  --shadow-md: rgba(0, 0, 0, 0.15) 0px 0px 10px 0px;
+  --shadow-lg: rgba(0, 0, 0, 0.15) 0px 0px 20px 0px;
+  --shadow-lg: rgba(0, 0, 0, 0.12) 0px 0px 32px 0px;
+  --shadow-xl: rgba(0, 0, 0, 0.1) 0px 10px 30px 0px;
+  --shadow-xl: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.08) 0px 8px 10px -6px;
+  --shadow-xl: rgba(255, 255, 255, 0.25) 0px 0px 47.5009px 0px, rgba(255, 255, 255, 0.14) 0px 0px 23.7505px 0px inset;
+  --shadow-xl: rgba(15, 17, 20, 0.08) 0px 18px 45px 0px;
+  --shadow-xl: rgba(0, 0, 0, 0.15) 0px 25px 50px -12px;
+  --shadow-xl: rgba(15, 17, 20, 0.18) 0px 28px 70px 0px;
+
+  /* Original Site Variables */
+  /* — colors — */
+  --color-bg: #080805;
+  --color-fg: #ffffff;
+  --color-accent: #F97316;
+  --color-card: #121212;
+  --color-border: #2A2A2A;
+  --color-muted: #888888;
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-border-spacing-x: 0;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-border-spacing-y: 0;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-color: #fff;
+  /* — spacing — */
+  --tw-contain-size: ;
+  --tw-numeric-spacing: ;
+  /* — shadows — */
+  --tw-shadow: 0 0 #0000;
+  --tw-drop-shadow: ;
+  /* — other — */
+  --tw-contrast: ;
+  --tw-backdrop-sepia: ;
+  --tw-sepia: ;
+  --tw-skew-x: 0;
+  --tw-ordinal: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-blur: ;
+  --tw-contain-style: ;
+  --tw-translate-x: 0;
+  --tw-gradient-via-position: ;
+  --tw-backdrop-invert: ;
+  --tw-saturate: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-grayscale: ;
+  --tw-scale-x: 1;
+  --tw-backdrop-hue-rotate: ;
+  --tw-gradient-to-position: ;
+  --tw-brightness: ;
+  --tw-numeric-fraction: ;
+  --tw-backdrop-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-scale-y: 1;
+  --tw-pan-y: ;
+  --tw-backdrop-contrast: ;
+  --tw-skew-y: 0;
+  --tw-backdrop-brightness: ;
+  --tw-slashed-zero: ;
+  --tw-blur: ;
+  --tw-invert: ;
+  --tw-pan-x: ;
+  --tw-translate-y: 0;
+  --tw-backdrop-opacity: ;
+  --tw-gradient-from-position: ;
+  --tw-numeric-figure: ;
+  --tw-rotate: 0;
+  --tw-pinch-zoom: ;
+  --tw-contain-paint: ;
+  --tw-contain-layout: ;
+  /* — semantic — */
+  success: [object Object];
+  warning: [object Object];
+  error: [object Object];
+  info: [object Object];
+
+}

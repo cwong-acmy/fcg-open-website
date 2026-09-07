@@ -1,0 +1,11 @@
+{
+  "cms": [
+    "framer"
+  ],
+  "analytics": [],
+  "experimentation": [],
+  "signals": {
+    "scriptCount": 8,
+    "metaCount": 1
+  }
+}

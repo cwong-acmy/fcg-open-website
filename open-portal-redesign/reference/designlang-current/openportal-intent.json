@@ -1,0 +1,239 @@
+{
+  "pageIntent": {
+    "type": "unknown",
+    "confidence": 0,
+    "path": "/home",
+    "title": "Open Platform",
+    "description": "",
+    "signals": [],
+    "alternates": [],
+    "needsSmart": true
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 65
+        },
+        "buttonCount": 2,
+        "cardCount": 16,
+        "slots": {
+          "ctaCount": 2,
+          "lede": "FCG Developer Platform\nHome\nApp Management\nAPI Docs\nSDK\nSkills\nAI Assistant\nEnglish\nLogin\nRegister"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 1,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 307.703125,
+          "y": 15,
+          "w": 582.609375,
+          "h": 34
+        },
+        "buttonCount": 0,
+        "cardCount": 6,
+        "slots": {
+          "lede": "Home\nApp Management\nAPI Docs\nSDK\nSkills\nAI Assistant"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "main",
+        "role": "pricing",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "FCG Developer Platform",
+        "bounds": {
+          "x": 0,
+          "y": 65,
+          "w": 1280,
+          "h": 6101.453125
+        },
+        "buttonCount": 2,
+        "cardCount": 26,
+        "slots": {
+          "heading": "FCG Developer Platform",
+          "subheadings": [
+            "Core Products",
+            "G-Link Hotel API",
+            "F-Link Flight API",
+            "TMC API"
+          ],
+          "ctaCount": 2,
+          "lede": "Supports both SDK and API integration\nFCG Developer Platform"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 3,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "FCG Developer Platform",
+        "bounds": {
+          "x": 0,
+          "y": 65,
+          "w": 1280,
+          "h": 824
+        },
+        "buttonCount": 0,
+        "cardCount": 6,
+        "slots": {
+          "heading": "FCG Developer Platform",
+          "lede": "Supports both SDK and API integration\nFCG Developer Platform"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 4,
+        "tag": "section",
+        "role": "hero",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Skills Packages",
+        "bounds": {
+          "x": 0,
+          "y": 1665.390625,
+          "w": 1280,
+          "h": 338.25
+        },
+        "buttonCount": 1,
+        "cardCount": 8,
+        "slots": {
+          "heading": "Skills Packages",
+          "ctaCount": 1,
+          "lede": "Skills Packages\nNEW"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 5,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": null,
+        "bounds": {
+          "x": 9.5999755859375,
+          "y": 4276.2158203125,
+          "w": 1260.800048828125,
+          "h": 245.83447265625
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "lede": "50+\nEnterprise clients\n10M+\nDaily requests\n99.9%\nService uptime\n7x24\nTechnical support"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 6,
+        "tag": "section",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "The supply and partner network behind FCG.",
+        "bounds": {
+          "x": 0,
+          "y": 4465.921875,
+          "w": 1280,
+          "h": 871.515625
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "The supply and partner network behind FCG."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 7,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Ready to get started?",
+        "bounds": {
+          "x": 0,
+          "y": 5337.4375,
+          "w": 1280,
+          "h": 781.015625
+        },
+        "buttonCount": 1,
+        "cardCount": 12,
+        "slots": {
+          "heading": "Ready to get started?",
+          "subheadings": [
+            "Free Access",
+            "Business Consultation / Demo"
+          ],
+          "ctaCount": 1
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 8,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": "Product Docs",
+        "bounds": {
+          "x": 0,
+          "y": 6166.453125,
+          "w": 1280,
+          "h": 274
+        },
+        "buttonCount": 0,
+        "cardCount": 10,
+        "slots": {
+          "heading": "Product Docs",
+          "subheadings": [
+            "Developer Tools",
+            "Integration Methods",
+            "Support"
+          ],
+          "lede": "Product Docs\nG-Link Hotel API\nF-Link Flight API\nError Code Reference\nDeveloper Tools\nSDK Download\nSandbox Environment\nIntegration Methods\nSDK Quick Integration\nREST API\nSupport\nSubmit a Ticket\nBusiness Cooperation\nContact Us\nCopyright Fusion Connect Group Holdings Ltd (BVI)"
+        },
+        "needsSmart": false
+      }
+    ],
+    "counts": {
+      "nav": 2,
+      "pricing": 1,
+      "content": 2,
+      "hero": 1,
+      "testimonial": 1,
+      "pricing-table": 1,
+      "footer": 1
+    },
+    "readingOrder": [
+      "nav",
+      "nav",
+      "pricing",
+      "content",
+      "hero",
+      "content",
+      "testimonial",
+      "pricing-table",
+      "footer"
+    ]
+  }
+}
